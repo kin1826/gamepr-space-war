@@ -6,7 +6,7 @@ public class DoorController : MonoBehaviour
     public Transform doorLeft;
     public Transform doorRight;
 
-    public float openDistance = 2f;
+    public float openDistance = 20f;
     public float speed = 3f;
 
     private Vector3 leftClosedPos;
@@ -26,8 +26,8 @@ public class DoorController : MonoBehaviour
         rightClosedPos = doorRight.localPosition;
 
         // 📌 tính vị trí mở
-        leftOpenPos = leftClosedPos + Vector3.left * openDistance;
-        rightOpenPos = rightClosedPos + Vector3.right * openDistance;
+        leftOpenPos = leftClosedPos + Vector3.back * openDistance;
+        rightOpenPos = rightClosedPos + Vector3.forward * openDistance;
     }
 
     public void OpenDoor()
