@@ -72,8 +72,6 @@ public class FigureController : MonoBehaviour
         // =========================
         yVelocity += gravity * Time.deltaTime;
         controller.Move(Vector3.up * yVelocity * Time.deltaTime);
-
-        Debug.Log(lookInput);
     }
 
     // 🎮 INPUT
