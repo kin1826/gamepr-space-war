@@ -4,48 +4,49 @@ using Unity.Cinemachine;
 
 public class CameraSwitch : MonoBehaviour
 {
-    public CinemachineCamera camOutside;
-    public CinemachineCamera camInside;
+    public CinemachineCamera camFP;
+    public CinemachineCamera camTP;
 
-    private InputSystem_Actions inputActions;
-    private bool isOutside = true;
+    public bool isShipCamera; // 🔥 thêm cái này
+
+
+    private PlayerInput input;
+    private bool isFP = true;
 
     void Awake()
     {
-        inputActions = new InputSystem_Actions();
+        input = GetComponent<PlayerInput>();
     }
 
     void OnEnable()
     {
-        inputActions.Enable();
-        inputActions.Player.SwitchCamera.performed += OnSwitch;
+        input.actions["SwitchCamera"].performed += Switch;
     }
 
     void OnDisable()
     {
-        inputActions.Player.SwitchCamera.performed -= OnSwitch;
-        inputActions.Disable();
+        input.actions["SwitchCamera"].performed -= Switch;
     }
 
     void Start()
     {
-        camOutside.Priority = 10;
-        camInside.Priority = 0;
+        camFP.Priority = 20;
+        camTP.Priority = 10;
     }
 
-    void OnSwitch(InputAction.CallbackContext ctx)
+    void Switch(InputAction.CallbackContext ctx)
     {
-        if (isOutside)
-        {
-            camOutside.Priority = 0;
-            camInside.Priority = 10;
-        }
-        else
-        {
-            camOutside.Priority = 10;
-            camInside.Priority = 0;
-        }
 
-        isOutside = !isOutside;
+        // 🔥 CHẶN theo state
+        if (isShipCamera && GameManager.Instance.currentState != GameManager.GameState.Ship)
+            return;
+
+        if (!isShipCamera && GameManager.Instance.currentState != GameManager.GameState.Player)
+            return;
+            
+        isFP = !isFP;
+
+        camFP.Priority = isFP ? 20 : 10;
+        camTP.Priority = isFP ? 10 : 20;
     }
 }
