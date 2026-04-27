@@ -3294,7 +3294,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -488, y: 17.16, z: 7.1000004}
+  m_LocalPosition: {x: -488, y: 18.66, z: 9.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7943,7 +7943,7 @@ MonoBehaviour:
   m_StreamingVersion: 20241001
   m_LegacyPriority: 0
   Target:
-    TrackingTarget: {fileID: 1370910943}
+    TrackingTarget: {fileID: 1618383974}
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
@@ -7975,7 +7975,7 @@ Transform:
   m_GameObject: {fileID: 810822132}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -488, y: 17.16, z: 7.1000004}
+  m_LocalPosition: {x: -488, y: 18.66, z: 9.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9081,7 +9081,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 67e7fa36a4fffda4b9003fd76d0fbd80, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.0000035762787
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 67e7fa36a4fffda4b9003fd76d0fbd80, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9089,7 +9089,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 67e7fa36a4fffda4b9003fd76d0fbd80, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.13700509
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 67e7fa36a4fffda4b9003fd76d0fbd80, type: 3}
       propertyPath: m_LocalRotation.w
@@ -11286,7 +11286,7 @@ Transform:
   m_GameObject: {fileID: 1122998586}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 268.685, y: 32.0915, z: 0.0000037431716}
+  m_LocalPosition: {x: -106.81501, y: 32.0915, z: 0.0000037431716}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11699,7 +11699,7 @@ Transform:
   m_GameObject: {fileID: 1161514720}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 235.605, y: 25.071499, z: -0.00000020027161}
+  m_LocalPosition: {x: -139.895, y: 25.071499, z: -0.00000020027161}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13455,8 +13455,8 @@ MonoBehaviour:
   runSpeed: 10
   gravity: -9.8
   jumpForce: 6
-  mouseSensitivity: 2
-  cameraTransform: {fileID: 810822135}
+  mouseSensitivity: 0.1
+  cameraTransform: {fileID: 1618383974}
 --- !u!114 &1370910945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13514,7 +13514,19 @@ MonoBehaviour:
     m_ActionId: 351f2ccd-1f9f-44bf-9bec-d62ac5c5f408
     m_ActionName: 'Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1370910944}
+        m_TargetAssemblyTypeName: FigureController, Assembly-CSharp
+        m_MethodName: OnLook
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 6b444451-8a00-4d00-a97e-f47457f736a8
     m_ActionName: 'Player/Look[/Mouse/delta,/Pen/delta]'
   - m_PersistentCalls:
@@ -24618,7 +24630,7 @@ Transform:
   m_GameObject: {fileID: 2143243745}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 237.28499, y: 22.9515, z: 0}
+  m_LocalPosition: {x: -138.21501, y: 22.9515, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
