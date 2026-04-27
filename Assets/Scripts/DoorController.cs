@@ -26,8 +26,8 @@ public class DoorController : MonoBehaviour
         rightClosedPos = doorRight.localPosition;
 
         // 📌 tính vị trí mở
-        leftOpenPos = leftClosedPos + Vector3.back * openDistance;
-        rightOpenPos = rightClosedPos + Vector3.forward * openDistance;
+        leftOpenPos = leftClosedPos - doorLeft.transform.forward * openDistance;
+        rightOpenPos = rightClosedPos + doorRight.transform.forward * openDistance;
     }
 
     public void OpenDoor()
