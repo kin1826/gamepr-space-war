@@ -31,47 +31,76 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        // ✅ Singleton chuẩn
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     void Start()
     {
-        EnterShip();
+        InitSceneReferences();
+
+        // 👉 chỉ enter ship nếu có ship
+        if (ship != null)
+            EnterShip();
+        else
+            EnterPlayer();
+    }
+
+    void InitSceneReferences()
+    {
+        ship = GameObject.FindWithTag("Ship");
+        player = GameObject.FindWithTag("Player");
+
+        if (ship != null && shipController == null)
+            shipController = ship.GetComponent<MonoBehaviour>();
+
+        if (player != null && playerController == null)
+            playerController = player.GetComponent<MonoBehaviour>();
     }
 
     public void EnterShip()
     {
         currentState = GameState.Ship;
 
-        shipController.enabled = true;
-        playerController.enabled = false;
+        if (shipController != null) shipController.enabled = true;
+        if (playerController != null) playerController.enabled = false;
 
-        shipFP.Priority = 20;
-        shipTP.Priority = 10;
+        if (shipFP != null) shipFP.Priority = 20;
+        if (shipTP != null) shipTP.Priority = 10;
 
-        playerFP.Priority = 0;
-        playerTP.Priority = 0;
+        if (playerFP != null) playerFP.Priority = 0;
+        if (playerTP != null) playerTP.Priority = 0;
     }
 
     public void EnterPlayer(Transform spawnPoint = null)
     {
         currentState = GameState.Player;
 
-        player.SetActive(true);
-
-        if (spawnPoint != null)
+        if (player != null)
         {
-            player.transform.position = spawnPoint.position;
-            player.transform.rotation = spawnPoint.rotation;
+            player.SetActive(true);
+
+            if (spawnPoint != null)
+            {
+                player.transform.position = spawnPoint.position;
+                player.transform.rotation = spawnPoint.rotation;
+            }
         }
 
-        shipController.enabled = false;
-        playerController.enabled = true;
+        if (shipController != null) shipController.enabled = false;
+        if (playerController != null) playerController.enabled = true;
 
-        shipFP.Priority = 0;
-        shipTP.Priority = 0;
+        if (shipFP != null) shipFP.Priority = 0;
+        if (shipTP != null) shipTP.Priority = 0;
 
-        playerFP.Priority = 20;
-        playerTP.Priority = 10;
+        if (playerFP != null) playerFP.Priority = 20;
+        if (playerTP != null) playerTP.Priority = 10;
     }
 }

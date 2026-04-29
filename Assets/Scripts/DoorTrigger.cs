@@ -6,7 +6,7 @@ public class DoorTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") || other.CompareTag("Ship"))
         {
             door.ToggleDoor();
         }
