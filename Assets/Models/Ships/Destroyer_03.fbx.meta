@@ -1,9 +1,14 @@
 fileFormatVersion: 2
 guid: 9f3a6743a0bd1cd458b2336a192b8080
 ModelImporter:
-  serializedVersion: 22200
+  serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Spaceship_mat
+    second: {fileID: 2100000, guid: 73fa6b9048a08514aa73689f1e6ea58d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -56,6 +61,9 @@ ModelImporter:
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
     optimizeBones: 1
+    generateMeshLods: 0
+    meshLodGenerationFlags: 0
+    maximumMeshLod: -1
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
