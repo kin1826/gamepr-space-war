@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 3387396637040102766}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
   player: {fileID: 0}
-  speed: 10
+  speed: 20
   rotateSpeed: 3
   moveDirection: 0
   customDirection: {x: 0, y: 0, z: 1}
