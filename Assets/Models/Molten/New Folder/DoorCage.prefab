@@ -142,8 +142,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorLeft: {fileID: 5521713411082012095}
   doorRight: {fileID: 6229726476367900268}
-  openDistance: 20
-  speed: 3
+  openDistance: 4
+  speed: 4
 --- !u!1 &2059625490667129216
 GameObject:
   m_ObjectHideFlags: 0
