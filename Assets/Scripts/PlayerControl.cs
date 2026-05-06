@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.InputSystem; // Bắt buộc có dòng này để fix lỗi Input
+using UnityEngine.InputSystem;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -7,81 +7,219 @@ public class PlayerControl : MonoBehaviour
     public CharacterController controller;
     public Animator anim;
 
-    [Header("Movement Settings")]
+    [Header("Camera")]
+    public Transform cameraPivot;
+
+    [Header("Movement")]
     public float walkSpeed = 2.5f;
-    public float runSpeed = 6.0f;
-    public float gravity = -19.62f; // Tăng trọng lực để nhân vật bớt lơ lửng
+    public float runSpeed = 6f;
+    public float gravity = -19.62f;
     public float jumpHeight = 1.5f;
+
+    [Header("Mouse Look")]
+    public float mouseSensitivity = 0.05f;
+    public float rotationSmooth = 8f;
+    public float maxLookAngle = 70f;
+
+    private InputSystem_Actions input;
+
+    private Vector2 moveInput;
+    private Vector2 lookInput;
 
     private Vector3 velocity;
     private bool isGrounded;
 
+    private bool jumpPressed;
+    private bool isRunning;
+    private bool isAiming;
+    private bool reloadPressed;
+
+    // rotation
+    private float yaw;
+    private float pitch;
+
+    private float currentYaw;
+    private float currentPitch;
+
     void Awake()
     {
-        // Tự động tìm thành phần nếu bạn lỡ quên chưa kéo thả
-        if (controller == null) controller = GetComponent<CharacterController>();
-        if (anim == null) anim = GetComponent<Animator>();
+        if (controller == null)
+            controller = GetComponent<CharacterController>();
+
+        if (anim == null)
+            anim = GetComponent<Animator>();
+
+        input = new InputSystem_Actions();
+    }
+
+    void OnEnable()
+    {
+        input.Enable();
+
+        // 🎮 MOVE
+        input.Player.Move.performed += ctx =>
+        {
+            moveInput = ctx.ReadValue<Vector2>();
+        };
+
+        input.Player.Move.canceled += ctx =>
+        {
+            moveInput = Vector2.zero;
+        };
+
+        // 🎮 LOOK
+        input.Player.Look.performed += ctx =>
+        {
+            lookInput = ctx.ReadValue<Vector2>();
+        };
+
+        input.Player.Look.canceled += ctx =>
+        {
+            lookInput = Vector2.zero;
+        };
+
+        // 🎮 JUMP
+        input.Player.Jump.performed += ctx =>
+        {
+            jumpPressed = true;
+        };
+
+        // 🎮 AIM
+        input.Player.Aim.performed += ctx =>
+        {
+            isAiming = true;
+        };
+
+        input.Player.Aim.canceled += ctx =>
+        {
+            isAiming = false;
+        };
+
+        // 🎮 RELOAD
+        input.Player.Reload.performed += ctx =>
+        {
+            reloadPressed = true;
+        };
+
+        // 🎮 RUN
+        input.Player.Run.performed += ctx =>
+        {
+            isRunning = true;
+        };
+
+        input.Player.Run.canceled += ctx =>
+        {
+            isRunning = false;
+        };
+    }
+
+    void OnDisable()
+    {
+        input.Disable();
+    }
+
+    void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+
+        yaw = transform.eulerAngles.y;
+        currentYaw = yaw;
+
+        pitch = 0;
+        currentPitch = 0;
     }
 
     void Update()
     {
-        // 1. Kiểm tra chạm đất
+        HandleMouseLook();
+        HandleMovement();
+        HandleGravity();
+        HandleJump();
+        HandleAnimator();
+        HandleReload();
+    }
+
+    void HandleMouseLook()
+    {
+        // 🎯 target rotation
+        yaw += lookInput.x * mouseSensitivity;
+        pitch -= lookInput.y * mouseSensitivity;
+
+        pitch = Mathf.Clamp(pitch, -maxLookAngle, maxLookAngle);
+
+        // 🎯 smooth
+        currentYaw = Mathf.Lerp(currentYaw, yaw, Time.deltaTime * rotationSmooth);
+        currentPitch = Mathf.Lerp(currentPitch, pitch, Time.deltaTime * rotationSmooth);
+
+        // 🎯 player xoay ngang
+        transform.rotation = Quaternion.Euler(0f, currentYaw, 0f);
+
+        // 🎯 camera xoay dọc
+        cameraPivot.localRotation = Quaternion.Euler(currentPitch, 0f, 0f);
+    }
+
+    void HandleMovement()
+    {
+        float currentSpeed = isRunning ? runSpeed : walkSpeed;
+
+        Vector3 move =
+            transform.right * moveInput.x +
+            transform.forward * moveInput.y;
+
+        controller.Move(move * currentSpeed * Time.deltaTime);
+    }
+
+    void HandleGravity()
+    {
         isGrounded = controller.isGrounded;
+
         if (isGrounded && velocity.y < 0)
         {
-            velocity.y = -2f; // Ghì nhân vật xuống sàn để tránh lơ lửng
+            velocity.y = -2f;
         }
 
-        // 2. Lấy đầu vào di chuyển (Input System New)
-        float horizontal = 0;
-        float vertical = 0;
+        velocity.y += gravity * Time.deltaTime;
 
-        if (Keyboard.current != null)
+        controller.Move(velocity * Time.deltaTime);
+    }
+
+    void HandleJump()
+    {
+        if (!jumpPressed) return;
+
+        if (isGrounded)
         {
-            if (Keyboard.current.wKey.isPressed) vertical = 1;
-            if (Keyboard.current.sKey.isPressed) vertical = -1;
-            if (Keyboard.current.aKey.isPressed) horizontal = -1;
-            if (Keyboard.current.dKey.isPressed) horizontal = 1;
-        }
-
-        bool isRunning = Keyboard.current.leftShiftKey.isPressed;
-        bool isAiming = Mouse.current.rightButton.isPressed;
-
-        // 3. Tính toán tốc độ
-        float currentSpeed = isRunning ? runSpeed : walkSpeed;
-        Vector3 move = transform.right * horizontal + transform.forward * vertical;
-        controller.Move(move * currentSpeed * Time.deltaTime);
-
-        // 4. Xử lý Nhảy
-        if (Keyboard.current.spaceKey.wasPressedThisFrame && isGrounded)
-        {
-            // Kích hoạt Trigger trong Animator (Phải khớp tên JumpTrigger)
             anim.SetTrigger("JumpTrigger");
+
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 
-        // 5. Áp dụng Trọng lực
-        velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
+        jumpPressed = false;
+    }
 
-        // 6. Cập nhật Animator
-        // Dùng Float để điều khiển Blend Tree Locomotion
-        anim.SetFloat("Horizontal", horizontal, 0.1f, Time.deltaTime);
-        
-        // Tính toán Speed cho Animator (0: Idle, 1: Walk, 2: Run)
-        float animSpeed = vertical;
-        if (isRunning && vertical > 0) animSpeed *= 2f; 
+    void HandleAnimator()
+    {
+        anim.SetFloat("Horizontal", moveInput.x, 0.1f, Time.deltaTime);
+
+        float animSpeed = moveInput.y;
+
+        if (isRunning && moveInput.y > 0)
+        {
+            animSpeed *= 2f;
+        }
+
         anim.SetFloat("Speed", animSpeed, 0.1f, Time.deltaTime);
 
-        // Cập nhật trạng thái Ngắm bắn
         anim.SetBool("IsAiming", isAiming);
+    }
 
-        // Thêm vào trong hàm Update()
-       if (Keyboard.current.rKey.wasPressedThisFrame)
-        {  
-    // Kích hoạt Trigger có tên là Reload trong Animator
-          anim.ResetTrigger("ReloadTrigger");
-          anim.SetTrigger("ReloadTrigger"); 
-        }
+    void HandleReload()
+    {
+        if (!reloadPressed) return;
+
+        anim.ResetTrigger("ReloadTrigger");
+        anim.SetTrigger("ReloadTrigger");
+
+        reloadPressed = false;
     }
 }
