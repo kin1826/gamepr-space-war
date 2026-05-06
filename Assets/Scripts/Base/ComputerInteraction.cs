@@ -7,6 +7,27 @@ public class ComputerInteraction : MonoBehaviour
 
     private bool playerInRange = false;
 
+    private InputSystem_Actions input;
+
+    void Awake()
+    {
+        input = new InputSystem_Actions();
+    }
+
+    void OnEnable()
+    {
+        input.Enable();
+
+        input.Player.Interact.performed += Interact;
+    }
+
+    void OnDisable()
+    {
+        input.Player.Interact.performed -= Interact;
+
+        input.Disable();
+    }
+
     void Update()
     {
         if (!playerInRange) return;
@@ -17,12 +38,11 @@ public class ComputerInteraction : MonoBehaviour
             Debug.Log("Press F to OPEN door");
     }
 
-    public void OnInteract(InputAction.CallbackContext ctx)
+    void Interact(InputAction.CallbackContext ctx)
     {
-        if (!ctx.performed) return;
         if (!playerInRange) return;
 
-        Debug.Log("Click Interact button");
+        Debug.Log("Interact");
 
         door.ToggleDoor();
     }
