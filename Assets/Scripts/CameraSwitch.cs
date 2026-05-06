@@ -11,7 +11,7 @@ public class CameraSwitch : MonoBehaviour
 
 
     private PlayerInput input;
-    private bool isFP = true;
+    private bool isFP = false;
 
     void Awake()
     {
@@ -30,8 +30,8 @@ public class CameraSwitch : MonoBehaviour
 
     void Start()
     {
-        camFP.Priority = 20;
-        camTP.Priority = 10;
+        camFP.Priority = 10;
+        camTP.Priority = 20;
     }
 
     void Switch(InputAction.CallbackContext ctx)
@@ -46,7 +46,7 @@ public class CameraSwitch : MonoBehaviour
             
         isFP = !isFP;
 
-        camFP.Priority = isFP ? 20 : 10;
-        camTP.Priority = isFP ? 10 : 20;
+        camFP.Priority = isFP ? 10 : 20;
+        camTP.Priority = isFP ? 20 : 10;
     }
 }

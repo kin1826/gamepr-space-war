@@ -171,8 +171,6 @@ public class PlayerControl : MonoBehaviour
 
     void HandleGravity()
     {
-        isGrounded = controller.isGrounded;
-
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
@@ -187,14 +185,13 @@ public class PlayerControl : MonoBehaviour
     {
         if (!jumpPressed) return;
 
-        if (isGrounded)
-        {
-            anim.SetTrigger("JumpTrigger");
-
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-        }
-
         jumpPressed = false;
+
+        if (!isGrounded) return;
+
+        anim.SetTrigger("JumpTrigger");
+
+        velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
     }
 
     void HandleAnimator()
@@ -221,5 +218,10 @@ public class PlayerControl : MonoBehaviour
         anim.SetTrigger("ReloadTrigger");
 
         reloadPressed = false;
+    }
+
+    public void SetGrounded(bool grounded)
+    {
+        isGrounded = grounded;
     }
 }
