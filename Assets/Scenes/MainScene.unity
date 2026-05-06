@@ -188,6 +188,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
     - target: {fileID: 919132149155446097, guid: eec6cd852d2184d43993a3314534c507, type: 3}
       propertyPath: m_Name
       value: Prop_Vent_Big (48)
@@ -502,6 +510,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
     - target: {fileID: 919132149155446097, guid: eec6cd852d2184d43993a3314534c507, type: 3}
       propertyPath: m_Name
       value: Prop_Vent_Big (28)
@@ -992,6 +1008,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 4542cc14fe1cf874585009be57c67129, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -7994644453449871478, guid: 970dbcc5783c3d9469d19468f13aa280, type: 3}
     - target: {fileID: 919132149155446097, guid: 4542cc14fe1cf874585009be57c67129, type: 3}
       propertyPath: m_Name
       value: Prop_Rail_2 (10)
@@ -1138,6 +1158,30 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[4]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 73c127ee9963dba4196bbb66dab1153b, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[5]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 37c8af9e31d01004398a3d3f3c7b2e4e, type: 2}
     - target: {fileID: 919132149155446097, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
       propertyPath: m_Name
       value: WallAstra_Straight_Broken (6)
@@ -1491,7 +1535,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e84322709687f494ebc830e07b34b1a1, type: 2}
+  - {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1753,6 +1797,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
     - target: {fileID: 919132149155446097, guid: eec6cd852d2184d43993a3314534c507, type: 3}
       propertyPath: m_Name
       value: Prop_Vent_Big (23)
@@ -1890,6 +1942,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 4542cc14fe1cf874585009be57c67129, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -7994644453449871478, guid: 970dbcc5783c3d9469d19468f13aa280, type: 3}
     - target: {fileID: 919132149155446097, guid: 4542cc14fe1cf874585009be57c67129, type: 3}
       propertyPath: m_Name
       value: Prop_Rail_2 (11)
@@ -2172,7 +2228,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e84322709687f494ebc830e07b34b1a1, type: 2}
+  - {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2268,6 +2324,30 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[4]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 73c127ee9963dba4196bbb66dab1153b, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[5]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 37c8af9e31d01004398a3d3f3c7b2e4e, type: 2}
     - target: {fileID: 919132149155446097, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
       propertyPath: m_Name
       value: WallAstra_Straight_Broken (11)
@@ -2629,6 +2709,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
     - target: {fileID: 919132149155446097, guid: eec6cd852d2184d43993a3314534c507, type: 3}
       propertyPath: m_Name
       value: Prop_Vent_Big (44)
@@ -2865,6 +2953,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
     - target: {fileID: 919132149155446097, guid: eec6cd852d2184d43993a3314534c507, type: 3}
       propertyPath: m_Name
       value: Prop_Vent_Big (35)
@@ -3186,6 +3282,30 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[4]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 73c127ee9963dba4196bbb66dab1153b, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[5]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 37c8af9e31d01004398a3d3f3c7b2e4e, type: 2}
     - target: {fileID: 919132149155446097, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
       propertyPath: m_Name
       value: WallAstra_Straight_Broken (8)
@@ -3297,6 +3417,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2270678787340467071, guid: f5b4701d87d35f6409f063cac05d2506, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
     - target: {fileID: 919132149155446097, guid: f5b4701d87d35f6409f063cac05d2506, type: 3}
       propertyPath: m_Name
       value: SM_Door_Right
@@ -3493,6 +3617,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
     - target: {fileID: 919132149155446097, guid: eec6cd852d2184d43993a3314534c507, type: 3}
       propertyPath: m_Name
       value: Prop_Vent_Big (41)
@@ -4600,6 +4732,30 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[4]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 73c127ee9963dba4196bbb66dab1153b, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[5]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 37c8af9e31d01004398a3d3f3c7b2e4e, type: 2}
     - target: {fileID: 919132149155446097, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
       propertyPath: m_Name
       value: WallAstra_Straight_Broken (2)
@@ -4949,6 +5105,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 7b3e00b8cddfd1448b019b05837c13cf, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
     - target: {fileID: 919132149155446097, guid: 7b3e00b8cddfd1448b019b05837c13cf, type: 3}
       propertyPath: m_Name
       value: Door_Frame_SquareTall
@@ -5022,6 +5182,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 4542cc14fe1cf874585009be57c67129, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -7994644453449871478, guid: 970dbcc5783c3d9469d19468f13aa280, type: 3}
     - target: {fileID: 919132149155446097, guid: 4542cc14fe1cf874585009be57c67129, type: 3}
       propertyPath: m_Name
       value: Prop_Rail_2 (3)
@@ -5571,6 +5735,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: a5c30fe741094914280bf09bcd475311, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
     - target: {fileID: 919132149155446097, guid: a5c30fe741094914280bf09bcd475311, type: 3}
       propertyPath: m_Name
       value: Platform_Stairs_4WideTall
@@ -6242,6 +6410,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 4542cc14fe1cf874585009be57c67129, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -7994644453449871478, guid: 970dbcc5783c3d9469d19468f13aa280, type: 3}
     - target: {fileID: 919132149155446097, guid: 4542cc14fe1cf874585009be57c67129, type: 3}
       propertyPath: m_Name
       value: Prop_Rail_2 (4)
@@ -6672,6 +6844,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 4542cc14fe1cf874585009be57c67129, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -7994644453449871478, guid: 970dbcc5783c3d9469d19468f13aa280, type: 3}
     - target: {fileID: 919132149155446097, guid: 4542cc14fe1cf874585009be57c67129, type: 3}
       propertyPath: m_Name
       value: Prop_Rail_2 (8)
@@ -7253,6 +7429,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 4542cc14fe1cf874585009be57c67129, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -7994644453449871478, guid: 970dbcc5783c3d9469d19468f13aa280, type: 3}
     - target: {fileID: 919132149155446097, guid: 4542cc14fe1cf874585009be57c67129, type: 3}
       propertyPath: m_Name
       value: Prop_Rail_2
@@ -7476,6 +7656,30 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[4]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 73c127ee9963dba4196bbb66dab1153b, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[5]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 37c8af9e31d01004398a3d3f3c7b2e4e, type: 2}
     - target: {fileID: 919132149155446097, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
       propertyPath: m_Name
       value: WallAstra_Straight_Broken (13)
@@ -7736,6 +7940,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
     - target: {fileID: 919132149155446097, guid: eec6cd852d2184d43993a3314534c507, type: 3}
       propertyPath: m_Name
       value: Prop_Vent_Big (43)
@@ -8142,6 +8354,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
     - target: {fileID: 919132149155446097, guid: eec6cd852d2184d43993a3314534c507, type: 3}
       propertyPath: m_Name
       value: Prop_Vent_Big (50)
@@ -8644,6 +8864,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
     - target: {fileID: 919132149155446097, guid: eec6cd852d2184d43993a3314534c507, type: 3}
       propertyPath: m_Name
       value: Prop_Vent_Big (16)
@@ -9033,6 +9261,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
     - target: {fileID: 919132149155446097, guid: eec6cd852d2184d43993a3314534c507, type: 3}
       propertyPath: m_Name
       value: Prop_Vent_Big (31)
@@ -9274,6 +9510,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
     - target: {fileID: 919132149155446097, guid: eec6cd852d2184d43993a3314534c507, type: 3}
       propertyPath: m_Name
       value: Prop_Vent_Big (26)
@@ -9495,6 +9739,30 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[4]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 73c127ee9963dba4196bbb66dab1153b, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[5]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 37c8af9e31d01004398a3d3f3c7b2e4e, type: 2}
     - target: {fileID: 919132149155446097, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
       propertyPath: m_Name
       value: WallAstra_Straight_Broken (9)
@@ -9803,6 +10071,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
     - target: {fileID: 919132149155446097, guid: eec6cd852d2184d43993a3314534c507, type: 3}
       propertyPath: m_Name
       value: Prop_Vent_Big (33)
@@ -10430,6 +10706,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
     - target: {fileID: 919132149155446097, guid: eec6cd852d2184d43993a3314534c507, type: 3}
       propertyPath: m_Name
       value: Prop_Vent_Big (51)
@@ -10615,6 +10899,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
     - target: {fileID: 919132149155446097, guid: eec6cd852d2184d43993a3314534c507, type: 3}
       propertyPath: m_Name
       value: Prop_Vent_Big (42)
@@ -10788,6 +11080,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
     - target: {fileID: 919132149155446097, guid: eec6cd852d2184d43993a3314534c507, type: 3}
       propertyPath: m_Name
       value: Prop_Vent_Big (45)
@@ -11004,6 +11304,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 4542cc14fe1cf874585009be57c67129, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -7994644453449871478, guid: 970dbcc5783c3d9469d19468f13aa280, type: 3}
     - target: {fileID: 919132149155446097, guid: 4542cc14fe1cf874585009be57c67129, type: 3}
       propertyPath: m_Name
       value: Prop_Rail_2 (6)
@@ -11104,6 +11408,10 @@ PrefabInstance:
       propertyPath: m_StaticShadowCaster
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7567011942005314597, guid: bafa517097e5a8a458cc885ee7d42300, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
     - target: {fileID: -5208168869408721032, guid: bafa517097e5a8a458cc885ee7d42300, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -11116,6 +11424,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3326411501355489296, guid: bafa517097e5a8a458cc885ee7d42300, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
     - target: {fileID: 919132149155446097, guid: bafa517097e5a8a458cc885ee7d42300, type: 3}
       propertyPath: m_Name
       value: SM_Wall_Doorway
@@ -11531,6 +11843,30 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[4]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 73c127ee9963dba4196bbb66dab1153b, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[5]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 37c8af9e31d01004398a3d3f3c7b2e4e, type: 2}
     - target: {fileID: 919132149155446097, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
       propertyPath: m_Name
       value: WallAstra_Straight_Broken (4)
@@ -11790,6 +12126,30 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[4]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 73c127ee9963dba4196bbb66dab1153b, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[5]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 37c8af9e31d01004398a3d3f3c7b2e4e, type: 2}
     - target: {fileID: 919132149155446097, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
       propertyPath: m_Name
       value: WallAstra_Straight_Broken (14)
@@ -12472,6 +12832,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: f969318eb096fd04bb990f630253a954, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
     - target: {fileID: 919132149155446097, guid: f969318eb096fd04bb990f630253a954, type: 3}
       propertyPath: m_Name
       value: Prop_Crate3
@@ -12915,7 +13279,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e84322709687f494ebc830e07b34b1a1, type: 2}
+  - {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -13173,7 +13537,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e84322709687f494ebc830e07b34b1a1, type: 2}
+  - {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -13510,6 +13874,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 4542cc14fe1cf874585009be57c67129, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -7994644453449871478, guid: 970dbcc5783c3d9469d19468f13aa280, type: 3}
     - target: {fileID: 919132149155446097, guid: 4542cc14fe1cf874585009be57c67129, type: 3}
       propertyPath: m_Name
       value: Prop_Rail_2 (14)
@@ -13871,6 +14239,30 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[4]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 73c127ee9963dba4196bbb66dab1153b, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[5]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 37c8af9e31d01004398a3d3f3c7b2e4e, type: 2}
     - target: {fileID: 919132149155446097, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
       propertyPath: m_Name
       value: WallAstra_Straight_Broken (10)
@@ -13982,6 +14374,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1715850564657429307, guid: 09911ca797c822c4292027ec155d795d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
     - target: {fileID: 919132149155446097, guid: 09911ca797c822c4292027ec155d795d, type: 3}
       propertyPath: m_Name
       value: SM_Door_Left
@@ -14136,6 +14532,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
     - target: {fileID: 919132149155446097, guid: eec6cd852d2184d43993a3314534c507, type: 3}
       propertyPath: m_Name
       value: Prop_Vent_Big (32)
@@ -14381,6 +14785,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
     - target: {fileID: 919132149155446097, guid: eec6cd852d2184d43993a3314534c507, type: 3}
       propertyPath: m_Name
       value: Prop_Vent_Big (40)
@@ -14602,6 +15014,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
     - target: {fileID: 919132149155446097, guid: eec6cd852d2184d43993a3314534c507, type: 3}
       propertyPath: m_Name
       value: Prop_Vent_Big (18)
@@ -15346,6 +15766,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
     - target: {fileID: 919132149155446097, guid: eec6cd852d2184d43993a3314534c507, type: 3}
       propertyPath: m_Name
       value: Prop_Vent_Big (25)
@@ -15431,6 +15859,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
     - target: {fileID: 919132149155446097, guid: eec6cd852d2184d43993a3314534c507, type: 3}
       propertyPath: m_Name
       value: Prop_Vent_Big (36)
@@ -15568,6 +16004,30 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[4]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 73c127ee9963dba4196bbb66dab1153b, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[5]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 37c8af9e31d01004398a3d3f3c7b2e4e, type: 2}
     - target: {fileID: 919132149155446097, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
       propertyPath: m_Name
       value: WallAstra_Straight_Broken (7)
@@ -15734,6 +16194,30 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[4]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 73c127ee9963dba4196bbb66dab1153b, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[5]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 37c8af9e31d01004398a3d3f3c7b2e4e, type: 2}
     - target: {fileID: 919132149155446097, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
       propertyPath: m_Name
       value: WallAstra_Straight_Broken (1)
@@ -15942,6 +16426,30 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[4]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 73c127ee9963dba4196bbb66dab1153b, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[5]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 37c8af9e31d01004398a3d3f3c7b2e4e, type: 2}
     - target: {fileID: 919132149155446097, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
       propertyPath: m_Name
       value: WallAstra_Straight_Broken (15)
@@ -16633,6 +17141,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 4542cc14fe1cf874585009be57c67129, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -7994644453449871478, guid: 970dbcc5783c3d9469d19468f13aa280, type: 3}
     - target: {fileID: 919132149155446097, guid: 4542cc14fe1cf874585009be57c67129, type: 3}
       propertyPath: m_Name
       value: Prop_Rail_2 (9)
@@ -16718,6 +17230,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
     - target: {fileID: 919132149155446097, guid: eec6cd852d2184d43993a3314534c507, type: 3}
       propertyPath: m_Name
       value: Prop_Vent_Big (47)
@@ -16798,6 +17318,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
     - target: {fileID: 919132149155446097, guid: eec6cd852d2184d43993a3314534c507, type: 3}
       propertyPath: m_Name
       value: Prop_Vent_Big (24)
@@ -17039,7 +17567,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e84322709687f494ebc830e07b34b1a1, type: 2}
+  - {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -17156,7 +17684,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e84322709687f494ebc830e07b34b1a1, type: 2}
+  - {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -17558,6 +18086,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
     - target: {fileID: 919132149155446097, guid: eec6cd852d2184d43993a3314534c507, type: 3}
       propertyPath: m_Name
       value: Prop_Vent_Big (27)
@@ -18360,6 +18896,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
     - target: {fileID: 919132149155446097, guid: eec6cd852d2184d43993a3314534c507, type: 3}
       propertyPath: m_Name
       value: Prop_Vent_Big (22)
@@ -18992,6 +19536,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: bbf7cd97a898fe2439fd95cac67aa20f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
+    - target: {fileID: -7511558181221131132, guid: bbf7cd97a898fe2439fd95cac67aa20f, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: 8f0db06b87148034a9353d96641b3baa, type: 2}
@@ -19327,6 +19875,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
     - target: {fileID: 919132149155446097, guid: eec6cd852d2184d43993a3314534c507, type: 3}
       propertyPath: m_Name
       value: Prop_Vent_Big (38)
@@ -19407,6 +19963,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
     - target: {fileID: 919132149155446097, guid: eec6cd852d2184d43993a3314534c507, type: 3}
       propertyPath: m_Name
       value: Prop_Vent_Big (29)
@@ -19898,6 +20462,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 4542cc14fe1cf874585009be57c67129, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -7994644453449871478, guid: 970dbcc5783c3d9469d19468f13aa280, type: 3}
     - target: {fileID: 919132149155446097, guid: 4542cc14fe1cf874585009be57c67129, type: 3}
       propertyPath: m_Name
       value: Prop_Rail_2 (2)
@@ -20071,6 +20639,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
     - target: {fileID: 919132149155446097, guid: eec6cd852d2184d43993a3314534c507, type: 3}
       propertyPath: m_Name
       value: Prop_Vent_Big (46)
@@ -20332,6 +20908,30 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[4]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 73c127ee9963dba4196bbb66dab1153b, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[5]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 37c8af9e31d01004398a3d3f3c7b2e4e, type: 2}
     - target: {fileID: 919132149155446097, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
       propertyPath: m_Name
       value: WallAstra_Straight_Broken (3)
@@ -20520,6 +21120,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 4542cc14fe1cf874585009be57c67129, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -7994644453449871478, guid: 970dbcc5783c3d9469d19468f13aa280, type: 3}
     - target: {fileID: 919132149155446097, guid: 4542cc14fe1cf874585009be57c67129, type: 3}
       propertyPath: m_Name
       value: Prop_Rail_2 (12)
@@ -20600,6 +21204,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
     - target: {fileID: 919132149155446097, guid: eec6cd852d2184d43993a3314534c507, type: 3}
       propertyPath: m_Name
       value: Prop_Vent_Big (49)
@@ -20680,6 +21292,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
     - target: {fileID: 919132149155446097, guid: eec6cd852d2184d43993a3314534c507, type: 3}
       propertyPath: m_Name
       value: Prop_Vent_Big (19)
@@ -20844,7 +21464,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e84322709687f494ebc830e07b34b1a1, type: 2}
+  - {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -20975,6 +21595,10 @@ PrefabInstance:
       propertyPath: m_StaticShadowCaster
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7567011942005314597, guid: bafa517097e5a8a458cc885ee7d42300, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
     - target: {fileID: -5208168869408721032, guid: bafa517097e5a8a458cc885ee7d42300, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -20987,6 +21611,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3326411501355489296, guid: bafa517097e5a8a458cc885ee7d42300, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
     - target: {fileID: 919132149155446097, guid: bafa517097e5a8a458cc885ee7d42300, type: 3}
       propertyPath: m_Name
       value: SM_Wall_Doorway (1)
@@ -21204,6 +21832,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 4542cc14fe1cf874585009be57c67129, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -7994644453449871478, guid: 970dbcc5783c3d9469d19468f13aa280, type: 3}
     - target: {fileID: 919132149155446097, guid: 4542cc14fe1cf874585009be57c67129, type: 3}
       propertyPath: m_Name
       value: Prop_Rail_2 (7)
@@ -21315,6 +21947,30 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[4]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 73c127ee9963dba4196bbb66dab1153b, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[5]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 37c8af9e31d01004398a3d3f3c7b2e4e, type: 2}
     - target: {fileID: 919132149155446097, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
       propertyPath: m_Name
       value: WallAstra_Straight_Broken (5)
@@ -21577,6 +22233,30 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[4]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 73c127ee9963dba4196bbb66dab1153b, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[5]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 37c8af9e31d01004398a3d3f3c7b2e4e, type: 2}
     - target: {fileID: 919132149155446097, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
       propertyPath: m_Name
       value: WallAstra_Straight_Broken (12)
@@ -21838,6 +22518,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
     - target: {fileID: 919132149155446097, guid: eec6cd852d2184d43993a3314534c507, type: 3}
       propertyPath: m_Name
       value: Prop_Vent_Big (21)
@@ -21918,6 +22606,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
     - target: {fileID: 919132149155446097, guid: eec6cd852d2184d43993a3314534c507, type: 3}
       propertyPath: m_Name
       value: Prop_Vent_Big (37)
@@ -22107,6 +22803,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
     - target: {fileID: 919132149155446097, guid: eec6cd852d2184d43993a3314534c507, type: 3}
       propertyPath: m_Name
       value: Prop_Vent_Big (30)
@@ -22559,6 +23263,30 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[4]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 73c127ee9963dba4196bbb66dab1153b, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[5]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 37c8af9e31d01004398a3d3f3c7b2e4e, type: 2}
     - target: {fileID: 919132149155446097, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
       propertyPath: m_Name
       value: WallAstra_Straight_Broken
@@ -22674,6 +23402,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
     - target: {fileID: 919132149155446097, guid: eec6cd852d2184d43993a3314534c507, type: 3}
       propertyPath: m_Name
       value: Prop_Vent_Big (20)
@@ -23310,6 +24046,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 4542cc14fe1cf874585009be57c67129, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -7994644453449871478, guid: 970dbcc5783c3d9469d19468f13aa280, type: 3}
     - target: {fileID: 919132149155446097, guid: 4542cc14fe1cf874585009be57c67129, type: 3}
       propertyPath: m_Name
       value: Prop_Rail_2 (15)
@@ -23566,6 +24306,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 4542cc14fe1cf874585009be57c67129, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -7994644453449871478, guid: 970dbcc5783c3d9469d19468f13aa280, type: 3}
     - target: {fileID: 919132149155446097, guid: 4542cc14fe1cf874585009be57c67129, type: 3}
       propertyPath: m_Name
       value: Prop_Rail_2 (5)
@@ -24106,6 +24850,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: bbf7cd97a898fe2439fd95cac67aa20f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
+    - target: {fileID: -7511558181221131132, guid: bbf7cd97a898fe2439fd95cac67aa20f, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: 8f0db06b87148034a9353d96641b3baa, type: 2}
@@ -24388,6 +25136,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
     - target: {fileID: 919132149155446097, guid: eec6cd852d2184d43993a3314534c507, type: 3}
       propertyPath: m_Name
       value: Prop_Vent_Big (34)
@@ -24888,6 +25644,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 4542cc14fe1cf874585009be57c67129, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -7994644453449871478, guid: 970dbcc5783c3d9469d19468f13aa280, type: 3}
     - target: {fileID: 919132149155446097, guid: 4542cc14fe1cf874585009be57c67129, type: 3}
       propertyPath: m_Name
       value: Prop_Rail_2 (1)
@@ -25046,6 +25806,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
     - target: {fileID: 919132149155446097, guid: eec6cd852d2184d43993a3314534c507, type: 3}
       propertyPath: m_Name
       value: Prop_Vent_Big (17)
@@ -25424,6 +26192,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 4542cc14fe1cf874585009be57c67129, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -7994644453449871478, guid: 970dbcc5783c3d9469d19468f13aa280, type: 3}
     - target: {fileID: 919132149155446097, guid: 4542cc14fe1cf874585009be57c67129, type: 3}
       propertyPath: m_Name
       value: Prop_Rail_2 (13)
@@ -25869,6 +26641,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: a5c30fe741094914280bf09bcd475311, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74452a05720b4a94ba397481d77db58f, type: 2}
     - target: {fileID: 919132149155446097, guid: a5c30fe741094914280bf09bcd475311, type: 3}
       propertyPath: m_Name
       value: Platform_Stairs_4WideTall (1)
@@ -26032,6 +26808,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: eec6cd852d2184d43993a3314534c507, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bb28ddfe6690c147b1cb812b0757624, type: 2}
     - target: {fileID: 919132149155446097, guid: eec6cd852d2184d43993a3314534c507, type: 3}
       propertyPath: m_Name
       value: Prop_Vent_Big (39)

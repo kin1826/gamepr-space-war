@@ -451,10 +451,22 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
+    - target: {fileID: 1535840007461215253, guid: a1ee9658746a9c54ba65f6ea3e49f650, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
+    - target: {fileID: 2329100026086150371, guid: a1ee9658746a9c54ba65f6ea3e49f650, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
     - target: {fileID: 6330978244842056023, guid: a1ee9658746a9c54ba65f6ea3e49f650, type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
+    - target: {fileID: 6907260143829428166, guid: a1ee9658746a9c54ba65f6ea3e49f650, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac0f23738ef019d4a9db86e4d434f07f, type: 2}
     - target: {fileID: 8351437166458707879, guid: a1ee9658746a9c54ba65f6ea3e49f650, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
