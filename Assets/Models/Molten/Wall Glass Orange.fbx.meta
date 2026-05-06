@@ -1,9 +1,19 @@
 fileFormatVersion: 2
 guid: e5d6972e7f070004989823a880dd9e8a
 ModelImporter:
-  serializedVersion: 22200
+  serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Atlas
+    second: {fileID: 2100000, guid: 28c2e83c9e5affd4a95bf6a751bf78f9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Atlas Glass
+    second: {fileID: 2100000, guid: 7bbd43928e57d524ba87389299f627c6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -56,6 +66,9 @@ ModelImporter:
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
     optimizeBones: 1
+    generateMeshLods: 0
+    meshLodGenerationFlags: 0
+    maximumMeshLod: -1
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
