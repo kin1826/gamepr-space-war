@@ -37,8 +37,6 @@ public class DoorComController : MonoBehaviour
     public void ToggleDoor()
     {
         isOpen = !isOpen;
-
-        Debug.Log(isOpen ? "Door Opening" : "Door Closing");
     }
 
     public bool IsOpen()
