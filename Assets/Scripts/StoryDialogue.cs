@@ -37,6 +37,7 @@ public class StoryDialogue : MonoBehaviour
     void Start()
     {
         ShowDialogue();
+
     }
 
     void NextDialogue(InputAction.CallbackContext ctx)
@@ -44,8 +45,7 @@ public class StoryDialogue : MonoBehaviour
         // 🎯 nếu đang ở câu cuối
         if (currentIndex >= dialogues.Length - 1)
         {
-            FindObjectOfType<MainSceneManager>()
-                .ContinueGame();
+            MapManager.Instance.ContinueGame();
 
             return;
         }

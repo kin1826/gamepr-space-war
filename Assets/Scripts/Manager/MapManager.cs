@@ -2,14 +2,16 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 
-public class MainSceneManager : MonoBehaviour
+public class MapManager : MonoBehaviour
 {
-    public static MainSceneManager Instance;
+    public static MapManager Instance;
 
     [Header("UI Panels")]
     public GameObject gamePlayHUD_Panel;
 
     public GameObject story_Panel;
+
+    public GameObject soidler_Panel;
 
     [Header("Hint UI")]
     public TMP_Text hintText;
@@ -18,13 +20,21 @@ public class MainSceneManager : MonoBehaviour
 
     private Coroutine blinkRoutine;
 
+    public bool isFirstDoor = true;
+
+    // [Header("Trigger")]
+
     private void Awake()
     {
         Instance = this;
     }
-
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        story_Panel.SetActive(false);
+        gamePlayHUD_Panel.SetActive(false);
+        soidler_Panel.SetActive(false);
+
         OpenStory();
     }
 
@@ -44,6 +54,7 @@ public class MainSceneManager : MonoBehaviour
     public void ContinueGame()
     {
         story_Panel.SetActive(false);
+        soidler_Panel.SetActive(false);
         ShowHint("Use [WASD] to move, [Mouse] to look around, [Left Click] to shoot.");
 
         gamePlayHUD_Panel.SetActive(true);
@@ -89,5 +100,29 @@ public class MainSceneManager : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    public void OpenSoilderPanel()
+    {
+        soidler_Panel.SetActive(true);
+
+        gamePlayHUD_Panel.SetActive(false);
+
+        Time.timeScale = 0f;
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = false;
+    }
+
+    public void CloseSoilderPanel()
+    {
+        soidler_Panel.SetActive(false);
+
+        gamePlayHUD_Panel.SetActive(true);
+
+        Time.timeScale = 1f;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }
