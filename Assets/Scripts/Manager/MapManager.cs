@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 
-public class MapManager : MonoBehaviour
+public class MapManager : BaseSceneManager
 {
     public static MapManager Instance;
 
@@ -26,7 +26,7 @@ public class MapManager : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        base.Awake();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -35,10 +35,10 @@ public class MapManager : MonoBehaviour
         gamePlayHUD_Panel.SetActive(false);
         soidler_Panel.SetActive(false);
 
-        OpenStory();
+        ShowStory();
     }
 
-    public void OpenStory()
+    public override void ShowStory()
     {
         story_Panel.SetActive(true);
         ShowHint("Click [F] to continue...");
@@ -51,7 +51,7 @@ public class MapManager : MonoBehaviour
         Cursor.visible = true;
     }
 
-    public void ContinueGame()
+    public override void ContinueGame()
     {
         story_Panel.SetActive(false);
         soidler_Panel.SetActive(false);
@@ -65,7 +65,7 @@ public class MapManager : MonoBehaviour
         Cursor.visible = false;
     }
 
-    public void ShowHint(string text)
+    public override void ShowHint(string text)
     {
         hintText.text = text;
 
@@ -77,7 +77,7 @@ public class MapManager : MonoBehaviour
         blinkRoutine = StartCoroutine(BlinkHint());
     }
 
-    public void HideHint()
+    public override void HideHint()
     {
         if (blinkRoutine != null)
             StopCoroutine(blinkRoutine);
@@ -102,7 +102,7 @@ public class MapManager : MonoBehaviour
         }
     }
 
-    public void OpenSoilderPanel()
+    public override void OpenSoilderPanel()
     {
         soidler_Panel.SetActive(true);
 
@@ -114,7 +114,7 @@ public class MapManager : MonoBehaviour
         Cursor.visible = false;
     }
 
-    public void CloseSoilderPanel()
+    public override void CloseSoilderPanel()
     {
         soidler_Panel.SetActive(false);
 
