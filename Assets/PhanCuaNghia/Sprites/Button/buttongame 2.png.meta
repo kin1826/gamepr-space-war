@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e858dfb52685b9f45ae14986c569cb21
+guid: 2c1813064a95e5c49b02099748ae2748
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: title_0
+      name: buttongame 2_0
       rect:
         serializedVersion: 2
-        x: 200
-        y: 324
-        width: 1276
-        height: 495
+        x: 160
+        y: 831
+        width: 1032
+        height: 236
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,96 +112,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c7b051acff553c41bc6f706af16e5fb
-      internalID: -1935623346
+      spriteID: e246733419457e144ad245464af2d250
+      internalID: 426105879
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: title_1
+      name: buttongame 2_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 457
-        height: 274
+        x: 159
+        y: 558
+        width: 1036
+        height: 236
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be16c49c34237754cbf40177f8ef734e
-      internalID: 272657423
+      spriteID: c073901049413854a98715bfd9608007
+      internalID: -1980966185
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: title_2
+      name: buttongame 2_2
       rect:
         serializedVersion: 2
-        x: 477
-        y: 105
-        width: 362
-        height: 169
+        x: 160
+        y: 290
+        width: 1033
+        height: 234
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 839d6a02dce8ae643b3cbeed371d6707
-      internalID: 486502345
+      spriteID: 83133ec709df6cb4484b09d3ca0e2f89
+      internalID: -36970096
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: title_3
+      name: buttongame 2_3
       rect:
         serializedVersion: 2
-        x: 858
-        y: 104
-        width: 358
-        height: 170
+        x: 160
+        y: 24
+        width: 1033
+        height: 232
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da253aacabfc77f4c88904ddea5adc60
-      internalID: 89320369
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: title_4
-      rect:
-        serializedVersion: 2
-        x: 1238
-        y: 105
-        width: 357
-        height: 168
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 40e025ef95d959542a177606dd271660
-      internalID: -1234209038
+      spriteID: eb56eec51cc3f534aa207c5d2434d901
+      internalID: -578943713
       vertices: []
       indices: 
       edges: []
@@ -210,7 +188,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 1a164ce374b4c684fa89f1099d126089
+    spriteID: 3510fd640e1419f419ee84b42136d69a
     internalID: 0
     vertices: []
     indices: 
@@ -222,11 +200,10 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      title_0: -1935623346
-      title_1: 272657423
-      title_2: 486502345
-      title_3: 89320369
-      title_4: -1234209038
+      buttongame 2_0: 426105879
+      buttongame 2_1: -1980966185
+      buttongame 2_2: -36970096
+      buttongame 2_3: -578943713
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
