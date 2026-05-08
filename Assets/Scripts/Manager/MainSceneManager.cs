@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 
-public class MainSceneManager : MonoBehaviour
+public class MainSceneManager : BaseSceneManager
 {
     public static MainSceneManager Instance;
 
@@ -18,17 +18,22 @@ public class MainSceneManager : MonoBehaviour
 
     private Coroutine blinkRoutine;
 
-    private void Awake()
+    protected override void Awake()
     {
-        Instance = this;
+        base.Awake();
     }
 
-    void Start()
+    IEnumerator Start()
     {
-        OpenStory();
+        while (FadeManager.Instance.isFading)
+        {
+            yield return null;
+        }
+
+        ShowStory();
     }
 
-    public void OpenStory()
+    public override void ShowStory()
     {
         story_Panel.SetActive(true);
         ShowHint("Click [F] to continue...");
@@ -41,7 +46,7 @@ public class MainSceneManager : MonoBehaviour
         Cursor.visible = true;
     }
 
-    public void ContinueGame()
+    public override void ContinueGame()
     {
         story_Panel.SetActive(false);
         ShowHint("Use [WASD] to move, [Mouse] to look around, [Left Click] to shoot.");
@@ -54,7 +59,7 @@ public class MainSceneManager : MonoBehaviour
         Cursor.visible = false;
     }
 
-    public void ShowHint(string text)
+    public override void ShowHint(string text)
     {
         hintText.text = text;
 
@@ -66,7 +71,7 @@ public class MainSceneManager : MonoBehaviour
         blinkRoutine = StartCoroutine(BlinkHint());
     }
 
-    public void HideHint()
+    public override void HideHint()
     {
         if (blinkRoutine != null)
             StopCoroutine(blinkRoutine);
