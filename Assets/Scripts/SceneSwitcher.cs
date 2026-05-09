@@ -9,6 +9,6 @@ public class SceneSwitcher : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
 
-        SceneManager.LoadScene(sceneName);
+        FadeManager.Instance.LoadScene(sceneName);
     }
 }
