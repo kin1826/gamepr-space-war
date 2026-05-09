@@ -3,12 +3,15 @@ using UnityEngine.SceneManagement;
 
 public class SceneSwitcher : MonoBehaviour
 {
-    private string sceneName = "Map";
+    public string sceneName;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Player")) return;
+        if (other.CompareTag("Player") || other.CompareTag("Ship"))
+        {
+            FadeManager.Instance.LoadScene(sceneName);
+        }
 
-        SceneManager.LoadScene(sceneName);
+        
     }
 }
