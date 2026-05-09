@@ -7772,6 +7772,8 @@ GameObject:
   - component: {fileID: 215975066}
   - component: {fileID: 215975068}
   - component: {fileID: 215975067}
+  - component: {fileID: 215975070}
+  - component: {fileID: 215975069}
   m_Layer: 5
   m_Name: Soldier_Panel
   m_TagString: Untagged
@@ -7838,6 +7840,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 215975065}
   m_CullTransparentMesh: 1
+--- !u!114 &215975069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215975065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae8c89febfb7f5844bf256296ca23808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIPanelFader
+  canvasGroup: {fileID: 215975070}
+  fadeSpeed: 4
+--- !u!225 &215975070
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215975065}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &216153404
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24360,7 +24388,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1223241541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32282,13 +32310,15 @@ GameObject:
   - component: {fileID: 1859251418}
   - component: {fileID: 1859251420}
   - component: {fileID: 1859251419}
+  - component: {fileID: 1859251422}
+  - component: {fileID: 1859251421}
   m_Layer: 5
   m_Name: Caption_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1859251418
 RectTransform:
   m_ObjectHideFlags: 0
@@ -32348,6 +32378,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1859251417}
   m_CullTransparentMesh: 1
+--- !u!114 &1859251421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859251417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae8c89febfb7f5844bf256296ca23808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIPanelFader
+  canvasGroup: {fileID: 1859251422}
+  fadeSpeed: 4
+--- !u!225 &1859251422
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859251417}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &1859481990
 PrefabInstance:
   m_ObjectHideFlags: 0
