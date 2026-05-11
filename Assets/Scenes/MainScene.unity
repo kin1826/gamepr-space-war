@@ -28510,6 +28510,18 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 291353152}
+    - target: {fileID: 4571250909679761269, guid: b7b82d3918ab0e8408a230ccc6a1dd0e, type: 3}
+      propertyPath: worldOffset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4571250909679761269, guid: b7b82d3918ab0e8408a230ccc6a1dd0e, type: 3}
+      propertyPath: objectives.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4571250909679761269, guid: b7b82d3918ab0e8408a230ccc6a1dd0e, type: 3}
+      propertyPath: objectives.Array.data[0].target
+      value: 
+      objectReference: {fileID: 201625206}
     - target: {fileID: 6515836780303659332, guid: b7b82d3918ab0e8408a230ccc6a1dd0e, type: 3}
       propertyPath: m_Name
       value: ObjectiveMarkerRoot

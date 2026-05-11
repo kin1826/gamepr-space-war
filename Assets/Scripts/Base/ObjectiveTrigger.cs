@@ -22,8 +22,5 @@ public class ObjectiveTrigger : MonoBehaviour
         {
             objectiveSystem.EndObjective();
         }
-
-        // 🚀 tránh trigger lại
-        gameObject.SetActive(false);
     }
 }
