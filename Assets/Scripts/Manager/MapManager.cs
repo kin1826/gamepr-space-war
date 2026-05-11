@@ -124,7 +124,7 @@ public class MapManager : BaseSceneManager
         Time.timeScale = 0f;
 
         Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = false;
+        Cursor.visible = true;
     }
 
     public override void CloseSoilderPanel()

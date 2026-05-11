@@ -2367,7 +2367,9 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3530207363083062828, guid: dc6078ddf8050bf459236d5186f06bcd, type: 3}
+    - {fileID: 6113096401469206433, guid: dc6078ddf8050bf459236d5186f06bcd, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc6078ddf8050bf459236d5186f06bcd, type: 3}
@@ -8976,6 +8978,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 72dfcb44d0285f64db5c208b0fe4207f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 678116204}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 72dfcb44d0285f64db5c208b0fe4207f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 678116206}
   m_SourcePrefab: {fileID: 100100000, guid: 72dfcb44d0285f64db5c208b0fe4207f, type: 3}
 --- !u!4 &678116202 stripped
 Transform:
@@ -9021,6 +9026,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.69, y: 1.5927558, z: 1.47}
   m_Center: {x: 0.00000017881392, y: 0.79518616, z: 0.06499913}
+--- !u!114 &678116206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678116203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff7123a9c37c072439c78c8247a2e2b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectiveTrigger
+  objectiveSystem: {fileID: 900331823}
+  nextObjective: 1
 --- !u!1001 &685600521
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12377,6 +12396,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7b82d3918ab0e8408a230ccc6a1dd0e, type: 3}
+--- !u!114 &900331823 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4571250909679761269, guid: b7b82d3918ab0e8408a230ccc6a1dd0e, type: 3}
+  m_PrefabInstance: {fileID: 900331822}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ff178bdeb4c2543a4922fc7639b662, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectiveMarkerSystem
 --- !u!1 &901114447 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5a1e41233a73dc1408b140324620d3e5, type: 3}
