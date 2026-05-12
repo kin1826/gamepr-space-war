@@ -35,7 +35,8 @@ public class MainSceneManager : BaseSceneManager
 
     public override void ShowStory()
     {
-        story_Panel.SetActive(true);
+        // story_Panel.SetActive(true);
+        story_Panel.GetComponent<UIPanelFader>().ShowPanel();
         ShowHint("Click [F] to continue...");
 
         gamePlayHUD_Panel.SetActive(false);
@@ -48,7 +49,7 @@ public class MainSceneManager : BaseSceneManager
 
     public override void ContinueGame()
     {
-        story_Panel.SetActive(false);
+        story_Panel.GetComponent<UIPanelFader>().HidePanel();
         ShowHint("Use [WASD] to move, [Mouse] to look around, [Left Click] to shoot.");
 
         gamePlayHUD_Panel.SetActive(true);
