@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 
 public class StoryDialogue : MonoBehaviour
 {
+
     [Header("UI")]
     public TMP_Text dialogueText;
 
@@ -45,7 +46,7 @@ public class StoryDialogue : MonoBehaviour
         // 🎯 nếu đang ở câu cuối
         if (currentIndex >= dialogues.Length - 1)
         {
-            MapManager.Instance.ContinueGame();
+            BaseSceneManager.Instance.ContinueGame();
 
             return;
         }

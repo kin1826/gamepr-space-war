@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 
-public class MapManager : MonoBehaviour
+public class MapManager : BaseSceneManager
 {
     public static MapManager Instance;
 
@@ -26,21 +26,33 @@ public class MapManager : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        base.Awake();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    // void Start()
+    // {
+        
+    // }
+
+    IEnumerator Start()
     {
+        while (FadeManager.Instance.isFading)
+        {
+            yield return null;
+        }
+
         story_Panel.SetActive(false);
         gamePlayHUD_Panel.SetActive(false);
         soidler_Panel.SetActive(false);
 
-        OpenStory();
+        HideHint();
+
+        ShowStory();
     }
 
-    public void OpenStory()
+    public override void ShowStory()
     {
-        story_Panel.SetActive(true);
+        story_Panel.GetComponent<UIPanelFader>().ShowPanel();
         ShowHint("Click [F] to continue...");
 
         gamePlayHUD_Panel.SetActive(false);
@@ -51,12 +63,12 @@ public class MapManager : MonoBehaviour
         Cursor.visible = true;
     }
 
-    public void ContinueGame()
+    public override void ContinueGame()
     {
-        story_Panel.SetActive(false);
-        soidler_Panel.SetActive(false);
-        ShowHint("Use [WASD] to move, [Mouse] to look around, [Left Click] to shoot.");
-
+        story_Panel.GetComponent<UIPanelFader>().HidePanel();
+        soidler_Panel.GetComponent<UIPanelFader>().HidePanel();
+        HideHint();
+        
         gamePlayHUD_Panel.SetActive(true);
 
         Time.timeScale = 1f;
@@ -65,7 +77,7 @@ public class MapManager : MonoBehaviour
         Cursor.visible = false;
     }
 
-    public void ShowHint(string text)
+    public override void ShowHint(string text)
     {
         hintText.text = text;
 
@@ -77,7 +89,7 @@ public class MapManager : MonoBehaviour
         blinkRoutine = StartCoroutine(BlinkHint());
     }
 
-    public void HideHint()
+    public override void HideHint()
     {
         if (blinkRoutine != null)
             StopCoroutine(blinkRoutine);
@@ -102,21 +114,23 @@ public class MapManager : MonoBehaviour
         }
     }
 
-    public void OpenSoilderPanel()
+    public override void OpenSoilderPanel()
     {
-        soidler_Panel.SetActive(true);
+        soidler_Panel.GetComponent<UIPanelFader>().ShowPanel();
+        ShowHint("Click [F] to continue...");
 
         gamePlayHUD_Panel.SetActive(false);
 
         Time.timeScale = 0f;
 
         Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = false;
+        Cursor.visible = true;
     }
 
-    public void CloseSoilderPanel()
+    public override void CloseSoilderPanel()
     {
-        soidler_Panel.SetActive(false);
+        soidler_Panel.GetComponent<UIPanelFader>().HidePanel();
+        
 
         gamePlayHUD_Panel.SetActive(true);
 

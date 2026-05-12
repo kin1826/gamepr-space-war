@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0916f8ca9571e7045b1466d8cddc6212, type: 3}
+  m_Name: AttackData
+  m_EditorClassIdentifier: Assembly-CSharp::WolfbossAttackData
+  atk1Damage: 30
+  atk1Knockback: 5
+  atk1Duration: 1.2
+  atk1Range: 3.5
+  atk2Damage: 55
+  atk2Knockback: 10
+  atk2Duration: 2.5
+  atk2BackupDist: 2.5
+  atk2BackupTime: 0.4
+  atk2LungeSpeed: 16
+  atk2LungeRange: 9
+  atk2LandRadius: 2.2
+  atk3Duration: 1.8
+  atk3BuffMultiplier: 1.5
+  phase2SpeedMult: 1.4
+  phase2CooldownMult: 0.65
+  phase2DamageMult: 1.35
+  minAttackRange: 3.6
+  maxAttackRange: 6.25
+  detectionRange: 11.4
+  backoffSpeed: 3
+  chaseSpeed: 4
+  attackCooldown: 2
