@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/CanvasMenu.unity
+    path: Assets/Scenes/CanvasLobby.unity
     guid: 49b437768f1ba8145a0e97003f9501c9
   - enabled: 1
     path: Assets/Scenes/MainScene.unity
