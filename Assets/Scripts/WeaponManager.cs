@@ -77,7 +77,12 @@ public class WeaponManager : MonoBehaviour
 
     void TriggerMuzzleFlash()
     {
-        muzzleFlashParticles.Play();
+        // Dừng cái cũ lại (nếu đang chạy) và dọn sạch các hạt cũ
+        muzzleFlashParticles.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        
+        // Chạy cái mới
+        muzzleFlashParticles.Play(true);
+        
         muzzleFlashLight.intensity = lightIntensity;
     }
 }
