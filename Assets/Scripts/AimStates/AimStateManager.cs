@@ -4,9 +4,10 @@ using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using Unity.Cinemachine;
 
+
 public class AimStateManager : MonoBehaviour
 {
-    AimBaseState currentState;
+    public AimBaseState currentState;
     public HipFireState Hip = new HipFireState();
     public AimState Aim = new AimState();
 
@@ -25,8 +26,18 @@ public class AimStateManager : MonoBehaviour
     [SerializeField] float aimSmoothSpeed = 20;
     [SerializeField] LayerMask aimMask;
 
+    float xFollowPos;
+    float yFollowPos, ogYPos;
+    [SerializeField] float crouchCamHeight = 0.6f;
+    [SerializeField] float shoulderSwapSpeed = 10;
+    MovementStateManager moving;
+
     void Start()
     {
+        moving = GetComponent<MovementStateManager>();
+        xFollowPos = camFollowPos.localPosition.x;
+        ogYPos = camFollowPos.localPosition.y;
+        yFollowPos = ogYPos;
         vCam = GetComponentInChildren<CinemachineCamera>();
         hipFov = vCam.Lens.FieldOfView;
         anim = GetComponent<Animator>();
@@ -47,6 +58,8 @@ public class AimStateManager : MonoBehaviour
         if(Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, aimMask))
         aimPos.position = Vector3.Lerp(aimPos.position, hit.point, aimSmoothSpeed * Time.deltaTime);
 
+        MoveCamera();
+
         currentState.UpdateState(this);
     }
 
@@ -60,5 +73,15 @@ public class AimStateManager : MonoBehaviour
     {
         currentState = state;
         currentState.EnterState(this);
+    }
+
+    void MoveCamera()
+    {
+        if(Input.GetKeyDown(KeyCode.LeftAlt)) xFollowPos = -xFollowPos;
+        if(moving.currentState == moving.Crouch) yFollowPos = crouchCamHeight;
+        else yFollowPos = ogYPos;
+
+        Vector3 newFollowPos = new Vector3(xFollowPos, yFollowPos, camFollowPos.localPosition.z);
+        camFollowPos.localPosition = Vector3.Lerp(camFollowPos.localPosition, newFollowPos, shoulderSwapSpeed * Time.deltaTime);
     }
 }

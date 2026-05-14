@@ -18,6 +18,7 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] AudioClip gunShot;
     AudioSource audioSource;
     WeaponAmmo ammo;
+    WeaponBloom bloom;
     ActionStateManager actions;
     WeaponRecoil recoil;
 
@@ -33,6 +34,7 @@ public class WeaponManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         aim = GetComponentInParent<AimStateManager>();
         ammo = GetComponent<WeaponAmmo>();
+        bloom = GetComponent<WeaponBloom>();
         actions = GetComponentInParent<ActionStateManager>();
         muzzleFlashLight = GetComponentInChildren<Light>();
         lightIntensity = muzzleFlashLight.intensity;
@@ -63,6 +65,7 @@ public class WeaponManager : MonoBehaviour
     {
         fireRateTimer = 0;
         barrelPos.LookAt(aim.aimPos);
+        barrelPos.localEulerAngles = bloom.BloomAngle(barrelPos);
         audioSource.PlayOneShot(gunShot);
         recoil.TriggerRecoil();
         TriggerMuzzleFlash();
@@ -77,12 +80,7 @@ public class WeaponManager : MonoBehaviour
 
     void TriggerMuzzleFlash()
     {
-        // Dừng cái cũ lại (nếu đang chạy) và dọn sạch các hạt cũ
-        muzzleFlashParticles.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
-        
-        // Chạy cái mới
-        muzzleFlashParticles.Play(true);
-        
+        muzzleFlashParticles.Play();
         muzzleFlashLight.intensity = lightIntensity;
     }
 }
