@@ -13,11 +13,12 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] Transform barrelPos;
     [SerializeField] int bulletsPerShot;
     [SerializeField] float bulletVelocity;
+    public float damage = 20;
     AimStateManager aim;
 
     [SerializeField] AudioClip gunShot;
-    AudioSource audioSource;
-    WeaponAmmo ammo;
+    [HideInInspector] public AudioSource audioSource;
+    [HideInInspector] public WeaponAmmo ammo;
     WeaponBloom bloom;
     ActionStateManager actions;
     WeaponRecoil recoil;
@@ -27,13 +28,16 @@ public class WeaponManager : MonoBehaviour
     float lightIntensity;
     [SerializeField] float lightReturnSpeed = 20;
 
+    public float enemyKickbackForce = 100;
+
+    public Transform leftHandTarget, leftHandHint;
+    WeaponClassManager weaponClass;
+
 
     void Start()
     {
-        recoil = GetComponent<WeaponRecoil>();
-        audioSource = GetComponent<AudioSource>();
         aim = GetComponentInParent<AimStateManager>();
-        ammo = GetComponent<WeaponAmmo>();
+
         bloom = GetComponent<WeaponBloom>();
         actions = GetComponentInParent<ActionStateManager>();
         muzzleFlashLight = GetComponentInChildren<Light>();
@@ -41,6 +45,19 @@ public class WeaponManager : MonoBehaviour
         muzzleFlashLight.intensity = 0;
         muzzleFlashParticles = GetComponentInChildren<ParticleSystem>();
         fireRateTimer = fireRate;
+    }
+
+    private void OnEnable()
+    {
+        if(weaponClass == null)
+        {
+           weaponClass = GetComponentInParent<WeaponClassManager>();
+           ammo = GetComponent<WeaponAmmo>();
+           recoil = GetComponent<WeaponRecoil>();
+           audioSource = GetComponent<AudioSource>();  
+           recoil.recoilFollowPos = weaponClass.recoiFollowPos; 
+        }
+        weaponClass.SetCurrentWeapon(this);
     }
 
     // Update is called once per frame
@@ -73,6 +90,10 @@ public class WeaponManager : MonoBehaviour
         for(int i = 0; i < bulletsPerShot; i++)
         {
             GameObject currentBullet = Instantiate(bullet, barrelPos.position, barrelPos.rotation);
+            Bullet bulletScript = currentBullet.GetComponent<Bullet>();
+            bulletScript.weapon = this; 
+
+            bulletScript.dir = barrelPos.transform.forward;
             Rigidbody rb = currentBullet.GetComponent<Rigidbody>();
             rb.AddForce(barrelPos.forward * bulletVelocity, ForceMode.Impulse);
         }
