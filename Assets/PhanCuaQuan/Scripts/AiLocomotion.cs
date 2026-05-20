@@ -9,7 +9,7 @@ public class AILocomotion : MonoBehaviour
     public Transform playerTransform;
 
     [Header("Detection")]
-    public float detectionRange = 10f;
+    public float detectionRange = 20f;
     public float attackRange    = 2f;
     public float fieldOfView    = 120f;
 
