@@ -10,6 +10,13 @@ public class WolfbossAttack1 : MonoBehaviour
     [Header("Layer")]
     public LayerMask playerLayer;
 
+    [Header("VFX")]
+    public GameObject slashVFX; // kéo prefab slash vào đây
+
+    [Header("SFX")]
+    public AudioSource swooshSFX;
+    public AudioSource hitSFX;     // tiếng bịch khi trúng player
+
     // ── Private ───────────────────────────────────────────────
     private Collider _hitbox;
     private bool     _hasHit;
@@ -24,9 +31,15 @@ public class WolfbossAttack1 : MonoBehaviour
     // ── Gọi từ Animation Event ────────────────────────────────
     public void EnableHitbox()
     {
-        _hitbox.enabled = true;
-        _hasHit         = false;
-        Debug.Log("[Attack1] Hitbox ON");
+    _hitbox.enabled = true;
+    _hasHit         = false;
+    if (swooshSFX != null) swooshSFX.Play();
+    if (slashVFX != null)
+    {
+        GameObject fx = Instantiate(slashVFX, transform.position, transform.rotation);
+        Destroy(fx, 1f);
+    }
+    Debug.Log("[Attack1] Hitbox ON");
     }
 
     public void DisableHitbox()
@@ -63,6 +76,8 @@ public class WolfbossAttack1 : MonoBehaviour
         Debug.Log($"[Attack1] Trúng {other.name}, dmg={finalDmg}");
 
         other.GetComponent<PlayerHealth>()?.TakeDamage(finalDmg);
+
+        if (hitSFX != null) hitSFX.Play();
 
         Rigidbody rb = other.GetComponent<Rigidbody>();
         if (rb != null)

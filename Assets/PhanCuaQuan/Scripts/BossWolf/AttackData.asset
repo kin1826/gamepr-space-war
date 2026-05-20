@@ -15,7 +15,7 @@ MonoBehaviour:
   atk1Damage: 30
   atk1Knockback: 5
   atk1Duration: 1.2
-  atk1Range: 3.5
+  atk1Range: 5.04
   atk2Damage: 55
   atk2Knockback: 10
   atk2Duration: 2.5

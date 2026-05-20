@@ -9,14 +9,22 @@ public class WolfbossAttack2 : MonoBehaviour
     [Header("Animator")]
     public string paramAttack2 = "Attack2";
 
-    [Header("Optional VFX")]
-    public ParticleSystem landVFX;
-    public AudioSource    landSFX;
+    [Header("VFX")]
+    public GameObject chargeDustVFX;  // bụi khi lùi lấy đà
+    public GameObject trailVFX;       // trail khi đang bay
+    public GameObject landImpactVFX;  // khi đáp xuống
 
-    // ── Public ────────────────────────────────────────────────
+    [Header("SFX")]
+    public AudioSource chargeSFX;
+    public AudioSource whooshSFX;
+    public AudioSource landSFX;
+
+    [Header("Camera Shake")]
+    public float shakeDuration  = 0.3f;
+    public float shakeMagnitude = 0.4f;
+
     public bool IsLunging { get; private set; }
 
-    // ── Private ───────────────────────────────────────────────
     private WolfbossAttackData _data;
     private NavMeshAgent       _agent;
     private Animator           _anim;
@@ -31,7 +39,6 @@ public class WolfbossAttack2 : MonoBehaviour
 
     public void Init(WolfbossAttackData data) => _data = data;
 
-    // ── Gọi từ WolfbossAI ─────────────────────────────────────
     public void StartLunge(Transform player)
     {
         if (IsLunging || _data == null) return;
@@ -44,6 +51,16 @@ public class WolfbossAttack2 : MonoBehaviour
         _anim.SetTrigger(paramAttack2);
 
         // ── Phase 1: Lùi lấy đà ──────────────────────────────
+        if (chargeSFX != null) chargeSFX.Play();
+
+        // Spawn charge dust đi theo boss
+        GameObject chargeFX = null;
+        if (chargeDustVFX != null)
+        {
+            chargeFX = Instantiate(chargeDustVFX, transform.position, transform.rotation);
+            chargeFX.transform.SetParent(transform);
+        }
+
         _agent.isStopped = true;
         _agent.enabled   = false;
 
@@ -59,8 +76,21 @@ public class WolfbossAttack2 : MonoBehaviour
             yield return null;
         }
 
+        // Xóa charge dust
+        if (chargeFX != null) Destroy(chargeFX);
+
         // ── Phase 2: Nhảy lao vào ─────────────────────────────
         yield return new WaitForSeconds(0.15f);
+
+        if (whooshSFX != null) whooshSFX.Play();
+
+        // Spawn trail đi theo boss khi bay
+        GameObject trailFX = null;
+        if (trailVFX != null)
+        {
+            trailFX = Instantiate(trailVFX, transform.position, transform.rotation);
+            trailFX.transform.SetParent(transform);
+        }
 
         Vector3 start    = transform.position;
         Vector3 lungeDir = player.position - start;
@@ -69,7 +99,7 @@ public class WolfbossAttack2 : MonoBehaviour
         if (lungeDir.magnitude > _data.atk2LungeRange)
             lungeDir = lungeDir.normalized * _data.atk2LungeRange;
 
-        Vector3 end      = start + lungeDir;
+        Vector3 end       = start + lungeDir;
         float   lungeTime = lungeDir.magnitude / _data.atk2LungeSpeed;
         elapsed = 0f;
 
@@ -85,14 +115,25 @@ public class WolfbossAttack2 : MonoBehaviour
 
         transform.position = end;
 
-        // ── Phase 3: Hit khi đáp xuống ───────────────────────
-        if (landVFX != null) landVFX.Play();
+        // Xóa trail
+        if (trailFX != null) Destroy(trailFX);
+
+        // ── Phase 3: Đáp xuống ───────────────────────────────
         if (landSFX != null) landSFX.Play();
+
+        if (landImpactVFX != null)
+        {
+            Vector3 landPos = transform.position;
+            landPos.y = 0f; // sát đất
+            GameObject fx = Instantiate(landImpactVFX, landPos, Quaternion.identity);
+            Destroy(fx, 2f);
+        }
+
+        StartCoroutine(ShakeCamera());
         CheckLandHit();
 
         yield return new WaitForSeconds(0.3f);
 
-        // Bật lại NavMesh
         _agent.enabled = true;
         if (NavMesh.SamplePosition(transform.position, out NavMeshHit hit, 2f, NavMesh.AllAreas))
             _agent.Warp(hit.position);
@@ -125,6 +166,26 @@ public class WolfbossAttack2 : MonoBehaviour
 
             Debug.Log($"[Attack2] Lunge trúng {col.name}, dmg={finalDmg}");
         }
+    }
+
+    IEnumerator ShakeCamera()
+    {
+        Camera cam = Camera.main;
+        if (cam == null) yield break;
+
+        Vector3 originalPos = cam.transform.localPosition;
+        float   elapsed     = 0f;
+
+        while (elapsed < shakeDuration)
+        {
+            float x = Random.Range(-1f, 1f) * shakeMagnitude;
+            float y = Random.Range(-1f, 1f) * shakeMagnitude;
+            cam.transform.localPosition = new Vector3(x, y, originalPos.z);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        cam.transform.localPosition = originalPos;
     }
 
     void FaceTarget(Vector3 target)
