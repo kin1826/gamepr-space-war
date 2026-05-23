@@ -67,6 +67,6 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "SpaceWar.slnx"
+    "SpaceWar.slnxdotnet.defaultSolution": "gamepr-space-war.slnx",
     "dotnet.defaultSolution": "gamepr-space-war.slnx"
 }
