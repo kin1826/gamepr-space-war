@@ -38,4 +38,13 @@ public class BaseSceneManager : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Được gọi bởi EnemySpawnZone khi tiêu diệt hết toàn bộ quái trong 1 đợt.
+    /// Override ở class con để xử lý logic tiếp theo (mở cửa, chuyển cảnh, spawn đợt mới, v.v.)
+    /// </summary>
+    public virtual void OnWaveCleared()
+    {
+        Debug.Log("[BaseSceneManager] OnWaveCleared — override ở class con để xử lý tiếp.");
+    }
+
 }
