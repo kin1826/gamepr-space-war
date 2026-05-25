@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
@@ -6,6 +7,12 @@ public class EnemyHealth : MonoBehaviour
     RagdollManager ragdollManager;
     [HideInInspector] public bool isDead;
 
+    /// <summary>
+    /// Được gọi 1 lần duy nhất khi enemy chết.
+    /// EnemySpawnZone sẽ subscribe vào đây để track số lượng còn sống.
+    /// </summary>
+    [HideInInspector] public Action onDeath;
+
     private void Start()
     {
         ragdollManager = GetComponent<RagdollManager>();
@@ -13,17 +20,19 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamge(float damage)
     {
-        if(health > 0 )
+        if (!isDead && health > 0)
         {
             health -= damage;
-            if(health <= 0 ) EnemyDeath();
+            if (health <= 0) EnemyDeath();
             else Debug.Log("Hit");
         }
     }
 
     void EnemyDeath()
     {
+        isDead = true;
         ragdollManager.TriggerRagdoll();
         Debug.Log("Death");
+        onDeath?.Invoke();
     }
 }
