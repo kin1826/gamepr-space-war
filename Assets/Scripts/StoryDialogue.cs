@@ -46,7 +46,7 @@ public class StoryDialogue : MonoBehaviour
         // 🎯 nếu đang ở câu cuối
         if (currentIndex >= dialogues.Length - 1)
         {
-            BaseSceneManager.Instance.ContinueGame();
+            Manager.Instance.ContinueGame();
 
             return;
         }

@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 
-public class BaseManager : BaseSceneManager
+public class BaseManager : Manager
 {
     public static BaseManager Instance;
 

@@ -3,7 +3,7 @@ using TMPro;
 using System.Collections;
 using Unity.Cinemachine;
 
-public class MapManager : BaseSceneManager
+public class MapManager : Manager
 {
     public static MapManager Instance;
 

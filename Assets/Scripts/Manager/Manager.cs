@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class BaseSceneManager : MonoBehaviour
+public class Manager : MonoBehaviour
 {
-    public static BaseSceneManager Instance;
+    public static Manager Instance;
 
     protected virtual void Awake()
     {
@@ -44,7 +44,13 @@ public class BaseSceneManager : MonoBehaviour
     /// </summary>
     public virtual void OnWaveCleared()
     {
-        Debug.Log("[BaseSceneManager] OnWaveCleared — override ở class con để xử lý tiếp.");
+        Debug.Log("[Manager] OnWaveCleared — override ở class con để xử lý tiếp.");
     }
+
+    /// <summary>
+    /// Được gọi mỗi khi đạn thay đổi (bắn, reload, khởi tạo).
+    /// Override ở class con để cập nhật UI hiển thị đạn.
+    /// </summary>
+    public virtual void OnAmmoChanged(int current, int extra) { }
 
 }

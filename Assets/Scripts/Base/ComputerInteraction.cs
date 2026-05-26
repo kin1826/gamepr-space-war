@@ -33,16 +33,16 @@ public class ComputerInteraction : MonoBehaviour
         if (!playerInRange) return;
 
         if (door.IsOpen())
-            BaseSceneManager.Instance.ShowHint("Press F to CLOSE door");
+            Manager.Instance.ShowHint("Press F to CLOSE door");
         else
-            BaseSceneManager.Instance.ShowHint("Press F to OPEN door");
+            Manager.Instance.ShowHint("Press F to OPEN door");
     }
 
     void Interact(InputAction.CallbackContext ctx)
     {
         if (!playerInRange) return;
 
-        BaseSceneManager.Instance.ShowHint("Interact");
+        Manager.Instance.ShowHint("Interact");
 
         door.ToggleDoor();
     }
@@ -52,7 +52,7 @@ public class ComputerInteraction : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
-            // BaseSceneManager.Instance.ShowHint("Click F to open/close the door");
+            // Manager.Instance.ShowHint("Click F to open/close the door");
         }
     }
 
@@ -61,7 +61,7 @@ public class ComputerInteraction : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
-            BaseSceneManager.Instance.HideHint();
+            Manager.Instance.HideHint();
         }
     }
 }
