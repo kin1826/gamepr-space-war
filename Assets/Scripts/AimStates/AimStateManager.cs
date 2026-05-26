@@ -1,72 +1,159 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using Unity.Cinemachine;
 
-
 public class AimStateManager : MonoBehaviour
 {
+    [Header("States")]
     public AimBaseState currentState;
     public HipFireState Hip = new HipFireState();
     public AimState Aim = new AimState();
 
-    [SerializeField] float mouseSense = 1;
-    float xAxis, yAxis;
+    [Header("Mouse Settings")]
+    [SerializeField] float mouseSense = 1f;
+
+    float xAxis;
+    float yAxis;
+
+    [Header("Camera")]
     [SerializeField] Transform camFollowPos;
 
     [HideInInspector] public Animator anim;
-    [HideInInspector] public CinemachineCamera vCam;
-    public float adsFov = 40;
+
+    public CinemachineCamera vCam;
+
+    [Header("FOV")]
+    public float adsFov = 20f;
+
     [HideInInspector] public float hipFov;
     [HideInInspector] public float currentFov;
-    public float fovSmoothSpeed = 10;
 
+    public float fovSmoothSpeed = 10f;
+
+    [Header("Aim")]
     public Transform aimPos;
-    [SerializeField] float aimSmoothSpeed = 20;
+
+    [SerializeField] float aimSmoothSpeed = 20f;
     [SerializeField] LayerMask aimMask;
 
+    [Header("Shoulder Swap")]
     float xFollowPos;
-    float yFollowPos, ogYPos;
-    [SerializeField] float crouchCamHeight = 0.6f;
-    [SerializeField] float shoulderSwapSpeed = 10;
-    MovementStateManager moving;
+    float yFollowPos;
+    float ogYPos;
+
+    [SerializeField] float shoulderSwapSpeed = 10f;
 
     void Start()
     {
-        moving = GetComponent<MovementStateManager>();
-        xFollowPos = camFollowPos.localPosition.x;
-        ogYPos = camFollowPos.localPosition.y;
-        yFollowPos = ogYPos;
-        vCam = GetComponentInChildren<CinemachineCamera>();
-        hipFov = vCam.Lens.FieldOfView;
+        if (camFollowPos != null)
+        {
+            xFollowPos = camFollowPos.localPosition.x;
+
+            ogYPos = camFollowPos.localPosition.y;
+            yFollowPos = ogYPos;
+
+            xAxis = camFollowPos.eulerAngles.y;
+            yAxis = camFollowPos.eulerAngles.x;
+        }
+
+        // Lấy Cinemachine Camera
+        vCam = FindFirstObjectByType<CinemachineCamera>();
+
+        if(vCam != null)
+{
+    hipFov = vCam.Lens.FieldOfView;
+    currentFov = hipFov;
+}
+else
+{
+    Debug.LogError("VCam chưa được gán!");
+
+}
+
         anim = GetComponent<Animator>();
+
         SwitchState(Hip);
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void Update()
     {
-        xAxis += Input.GetAxisRaw("Mouse X") * mouseSense;
-        yAxis -= Input.GetAxisRaw("Mouse Y") * mouseSense;
-        yAxis = Mathf.Clamp(yAxis, -80, 80);
+        MouseInput();
+        CameraFov();
+        AimPosition();
 
-        vCam.Lens.FieldOfView = Mathf.Lerp(vCam.Lens.FieldOfView, currentFov, fovSmoothSpeed * Time.deltaTime);
-
-        Vector2 screenCentre = new Vector2(Screen.width / 2, Screen.height / 2);
-        Ray ray = Camera.main.ScreenPointToRay(screenCentre);
-
-        if(Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, aimMask))
-        aimPos.position = Vector3.Lerp(aimPos.position, hit.point, aimSmoothSpeed * Time.deltaTime);
-
-        MoveCamera();
-
-        currentState.UpdateState(this);
+        if (currentState != null)
+        {
+            currentState.UpdateState(this);
+        }
     }
 
     private void LateUpdate()
     {
-        camFollowPos.eulerAngles = new Vector3(yAxis, camFollowPos.eulerAngles.y,  camFollowPos.eulerAngles.z);
-        transform.eulerAngles = new Vector3(transform.eulerAngles.x, xAxis, transform.eulerAngles.z);
+        CameraRotation();
+        MoveCamera();
+    }
+
+    void MouseInput()
+    {
+        xAxis += Input.GetAxisRaw("Mouse X") * mouseSense;
+
+        yAxis -= Input.GetAxisRaw("Mouse Y") * mouseSense;
+
+        yAxis = Mathf.Clamp(yAxis, -80f, 80f);
+    }
+
+    void CameraRotation()
+    {
+        if (camFollowPos == null) return;
+
+        // Xoay camera
+        camFollowPos.rotation = Quaternion.Euler(yAxis, xAxis, 0f);
+
+        // Xoay player theo chuột ngang
+        if (Input.GetKey(KeyCode.Mouse1))
+    {
+        transform.rotation = Quaternion.Euler(0f, xAxis, 0f);
+    }
+    }
+
+    void CameraFov()
+    {
+        if (vCam == null) return;
+
+        LensSettings lens = vCam.Lens;
+
+        lens.FieldOfView = Mathf.Lerp(
+            lens.FieldOfView,
+            currentFov,
+            fovSmoothSpeed * Time.deltaTime
+        );
+
+        vCam.Lens = lens;
+    }
+
+    void AimPosition()
+    {
+        if (Camera.main == null) return;
+
+        Vector2 screenCentre = new Vector2(Screen.width / 2f, Screen.height / 2f);
+
+        Ray ray = Camera.main.ScreenPointToRay(screenCentre);
+
+        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, aimMask))
+        {
+            if (aimPos != null)
+            {
+                aimPos.position = Vector3.Lerp(
+                    aimPos.position,
+                    hit.point,
+                    aimSmoothSpeed * Time.deltaTime
+                );
+            }
+        }
     }
 
     public void SwitchState(AimBaseState state)
@@ -77,11 +164,24 @@ public class AimStateManager : MonoBehaviour
 
     void MoveCamera()
     {
-        if(Input.GetKeyDown(KeyCode.LeftAlt)) xFollowPos = -xFollowPos;
-        if(moving.currentState == moving.Crouch) yFollowPos = crouchCamHeight;
-        else yFollowPos = ogYPos;
+        if (camFollowPos == null) return;
 
-        Vector3 newFollowPos = new Vector3(xFollowPos, yFollowPos, camFollowPos.localPosition.z);
-        camFollowPos.localPosition = Vector3.Lerp(camFollowPos.localPosition, newFollowPos, shoulderSwapSpeed * Time.deltaTime);
+        // Shoulder Swap
+        if (Input.GetKeyDown(KeyCode.LeftAlt))
+        {
+            xFollowPos = -xFollowPos;
+        }
+
+        Vector3 targetPos = new Vector3(
+            xFollowPos,
+            yFollowPos,
+            camFollowPos.localPosition.z
+        );
+
+        camFollowPos.localPosition = Vector3.Lerp(
+            camFollowPos.localPosition,
+            targetPos,
+            shoulderSwapSpeed * Time.deltaTime
+        );
     }
 }
