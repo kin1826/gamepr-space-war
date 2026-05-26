@@ -123,7 +123,7 @@ public class WeaponManager : MonoBehaviour
         
         TriggerMuzzleFlash();
         
-        if (ammo != null) ammo.currentAmmo--;
+        if (ammo != null) ammo.UseAmmo();
 
         if (bullet != null && barrelPos != null)
         {

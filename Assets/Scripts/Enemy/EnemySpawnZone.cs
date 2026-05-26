@@ -137,10 +137,10 @@ public class EnemySpawnZone : MonoBehaviour
     {
         Debug.Log($"[EnemySpawnZone] Đã tiêu diệt hết đợt quái trên {gameObject.name}!");
 
-        if (BaseSceneManager.Instance != null)
-            BaseSceneManager.Instance.OnWaveCleared();
+        if (Manager.Instance != null)
+            Manager.Instance.OnWaveCleared();
         else
-            Debug.LogWarning("[EnemySpawnZone] Không tìm thấy BaseSceneManager.Instance!");
+            Debug.LogWarning("[EnemySpawnZone] Không tìm thấy Manager.Instance!");
     }
 
     // ──────────────────────────────────────────

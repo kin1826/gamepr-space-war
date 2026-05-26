@@ -13,13 +13,20 @@ public class WeaponAmmo : MonoBehaviour
     void Start()
     {
         currentAmmo = clipSize;
+        NotifyAmmoChanged();
+    }
+
+    public void UseAmmo()
+    {
+        currentAmmo--;
+        NotifyAmmoChanged();
     }
 
     public void Reload()
     {
         if(extraAmmo >= clipSize)
         {
-            int  ammoToReload = clipSize - currentAmmo;
+            int ammoToReload = clipSize - currentAmmo;
             extraAmmo -= ammoToReload;
             currentAmmo += ammoToReload;
         }
@@ -28,10 +35,18 @@ public class WeaponAmmo : MonoBehaviour
             int leftOverAmmo = extraAmmo + currentAmmo - clipSize;
             extraAmmo = leftOverAmmo;
             currentAmmo = clipSize;
-        } else
+        }
+        else
         {
             currentAmmo += extraAmmo;
             extraAmmo = 0;
         }
+
+        NotifyAmmoChanged();
+    }
+
+    void NotifyAmmoChanged()
+    {
+        Manager.Instance?.OnAmmoChanged(currentAmmo, extraAmmo);
     }
 }
