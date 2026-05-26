@@ -1,6 +1,4 @@
-
-
-public abstract class AimBaseState 
+public abstract class AimBaseState
 {
     public abstract void EnterState(AimStateManager aim);
 
