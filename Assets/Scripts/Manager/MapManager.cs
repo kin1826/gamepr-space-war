@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 using Unity.Cinemachine;
@@ -19,6 +20,10 @@ public class MapManager : Manager
 
     [Header("Ammo UI")]
     public TMP_Text clipSizeText;
+
+    [Header("Health UI")]
+    public Slider healthSlider;
+    public TMP_Text healthText;
 
     [Header("Hint UI")]
     public TMP_Text hintText;
@@ -170,5 +175,15 @@ public class MapManager : Manager
     public override void OnAmmoChanged(int current, int extra)
     {
         if (clipSizeText) clipSizeText.text = current.ToString();
+    }
+
+    public override void OnPlayerHealthChanged(int current, int max)
+    {
+        if (healthSlider)
+        {
+            healthSlider.maxValue = max;
+            healthSlider.value    = current;
+        }
+        if (healthText) healthText.text = current.ToString();
     }
 }

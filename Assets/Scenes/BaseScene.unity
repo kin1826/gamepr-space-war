@@ -1894,7 +1894,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0203bc03f590265449069f7bd3eb9059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
-  maxHealth: 1000
+  maxHealth: 200
   invincibleDuration: 0.5
 --- !u!1001 &134466894
 PrefabInstance:
@@ -3407,6 +3407,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BaseManager
   gamePlayHUD_Panel: {fileID: 155000573}
   clipSizeText: {fileID: 921870540}
+  healthSlider: {fileID: 434244478}
+  healthText: {fileID: 1185114810}
   hintText: {fileID: 462034457}
   blinkSpeed: 2
 --- !u!4 &253007244
@@ -3805,6 +3807,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD
       objectReference: {fileID: 0}
+    - target: {fileID: 2536029252859810424, guid: 95f51a5284cec004da99d5b578780889, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536029252859810424, guid: 95f51a5284cec004da99d5b578780889, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2902125992764385693, guid: 95f51a5284cec004da99d5b578780889, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2902125992764385693, guid: 95f51a5284cec004da99d5b578780889, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2902125992764385693, guid: 95f51a5284cec004da99d5b578780889, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5570811175459682601, guid: 95f51a5284cec004da99d5b578780889, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3884,6 +3906,14 @@ PrefabInstance:
     - target: {fileID: 5570811175459682601, guid: 95f51a5284cec004da99d5b578780889, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629789980050922782, guid: 95f51a5284cec004da99d5b578780889, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629789980050922782, guid: 95f51a5284cec004da99d5b578780889, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5620,6 +5650,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5c68cdea62f08d642b4d3969df2e6a57, type: 3}
   m_PrefabInstance: {fileID: 423232380}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &434244478 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 735630921204018139, guid: 95f51a5284cec004da99d5b578780889, type: 3}
+  m_PrefabInstance: {fileID: 293374677}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1001 &438892400
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17412,6 +17453,17 @@ Transform:
   - {fileID: 990392631}
   m_Father: {fileID: 315533366}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1185114810 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9185617965845720984, guid: 95f51a5284cec004da99d5b578780889, type: 3}
+  m_PrefabInstance: {fileID: 293374677}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1186728040 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0cb421e1566ce134fbb8ed8f694e03af, type: 3}

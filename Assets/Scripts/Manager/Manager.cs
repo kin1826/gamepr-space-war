@@ -53,4 +53,10 @@ public class Manager : MonoBehaviour
     /// </summary>
     public virtual void OnAmmoChanged(int current, int extra) { }
 
+    /// <summary>
+    /// Được gọi mỗi khi máu player thay đổi.
+    /// Override ở class con để cập nhật Slider hiển thị máu.
+    /// </summary>
+    public virtual void OnPlayerHealthChanged(int current, int max) { }
+
 }
