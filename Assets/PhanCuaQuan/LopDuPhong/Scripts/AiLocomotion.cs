@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class AILocomotion : MonoBehaviour
 {
     [Header("References")]
-    public Transform playerTransform;
+    public Transform playerTransform; // Bỏ trống → tự tìm tag "Player"
 
     [Header("Detection")]
     public float detectionRange = 20f;
@@ -53,12 +53,21 @@ public class AILocomotion : MonoBehaviour
         _agent.stoppingDistance = attackRange * 0.8f;
 
         EnterPatrol();
+
+        FindPlayer();
+    }
+
+    void FindPlayer()
+    {
+        GameObject player =
+            GameObject.FindWithTag("Player");
+
+        if (player != null && player.activeInHierarchy)
+            playerTransform = player.transform;
     }
 
     void Update()
     {
-        if (playerTransform == null) return;
-
         // Cập nhật animation tốc độ liên tục
         _anim.SetFloat(speedParam, _agent.velocity.magnitude, 0.1f, Time.deltaTime);
 
