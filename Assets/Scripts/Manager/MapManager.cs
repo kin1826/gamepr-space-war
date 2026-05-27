@@ -17,6 +17,9 @@ public class MapManager : Manager
 
     public GameObject soidler_Panel;
 
+    [Header("Ammo UI")]
+    public TMP_Text clipSizeText;
+
     [Header("Hint UI")]
     public TMP_Text hintText;
 
@@ -162,5 +165,10 @@ public class MapManager : Manager
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = false;
+    }
+
+    public override void OnAmmoChanged(int current, int extra)
+    {
+        if (clipSizeText) clipSizeText.text = current.ToString();
     }
 }
