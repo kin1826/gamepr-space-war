@@ -14,16 +14,17 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.GetComponentInParent<EnemyHealth>())
+        EnemyHealth enemyHealth = collision.gameObject.GetComponentInParent<EnemyHealth>();
+        if (enemyHealth != null)
         {
-            EnemyHealth enemyHealth = collision.gameObject.GetComponentInParent<EnemyHealth>();
+            bool wasDead = enemyHealth.isDead;
             enemyHealth.TakeDamge(weapon.damage);
 
-            if(enemyHealth.health <= 0 && enemyHealth.isDead == false)
+            // Áp lực kickback khi phát đạn này là phát kết liễu
+            if (!wasDead && enemyHealth.isDead)
             {
                 Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
-                rb.AddForce(dir * weapon.enemyKickbackForce, ForceMode.Impulse);
-                enemyHealth.isDead = true;
+                if (rb) rb.AddForce(dir * weapon.enemyKickbackForce, ForceMode.Impulse);
             }
         }
         Destroy(this.gameObject);
