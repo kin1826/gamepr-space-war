@@ -1,8 +1,9 @@
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 
-public class BaseManager : BaseSceneManager
+public class BaseManager : Manager
 {
     public static BaseManager Instance;
 
@@ -10,6 +11,13 @@ public class BaseManager : BaseSceneManager
     public GameObject gamePlayHUD_Panel;
 
     // public GameObject story_Panel;
+
+    [Header("Ammo UI")]
+    public TMP_Text clipSizeText;
+
+    [Header("Health UI")]
+    public Slider healthSlider;
+    public TMP_Text healthText;
 
     [Header("Hint UI")]
     public TMP_Text hintText;
@@ -89,6 +97,21 @@ public class BaseManager : BaseSceneManager
             StopCoroutine(blinkRoutine);
 
         hintText.gameObject.SetActive(false);
+    }
+
+    public override void OnAmmoChanged(int current, int extra)
+    {
+        if (clipSizeText) clipSizeText.text = current.ToString();
+    }
+
+    public override void OnPlayerHealthChanged(int current, int max)
+    {
+        if (healthSlider)
+        {
+            healthSlider.maxValue = max;
+            healthSlider.value    = current;
+        }
+        if (healthText) healthText.text = current.ToString();
     }
 
     IEnumerator BlinkHint()

@@ -7,11 +7,12 @@ TagManager:
   - Ground
   - Ship
   - Enemy
+  - CinemachineTarget
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - Base

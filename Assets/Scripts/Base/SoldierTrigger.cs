@@ -12,7 +12,7 @@ public class SoldierTrigger : MonoBehaviour
         {
             triggered = true;
 
-            BaseSceneManager.Instance.OpenSoilderPanel();
+            Manager.Instance.OpenSoilderPanel();
         }
     }
 }

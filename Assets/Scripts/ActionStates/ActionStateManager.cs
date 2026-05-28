@@ -19,45 +19,64 @@ public class ActionStateManager : MonoBehaviour
     void Start()
     {
         SwitchState(Default);
-        ammo = currentWeapon.GetComponent<WeaponAmmo>();
-        audioSource = currentWeapon.GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
+
+        // ĐÃ XÓA đoạn lấy ammo và audioSource trực tiếp từ currentWeapon ở đây.
+        // Các biến này sẽ tự động được gán thông qua hàm SetWeapon() bên dưới khi đổi súng.
     }
 
-    // Update is called once per frame
     void Update()
     {
-        currentState.UpdateState(this);
+        if (currentState != null)
+        {
+            currentState.UpdateState(this);
+        }
     }
 
     public void SwitchState(ActionBaseState state)
     {
         currentState = state;
-        currentState.EnterState(this);
+        if (currentState != null)
+        {
+            currentState.EnterState(this);
+        }
     }
 
     public void WeaponReloaded()
     {
-        ammo.Reload();
+        if (ammo != null) ammo.Reload();
         SwitchState(Default);
     }
 
     public void MagOut()
     {
-        audioSource.PlayOneShot(ammo.magOutSound);
+        if (audioSource != null && ammo != null && ammo.magOutSound != null)
+        {
+            audioSource.PlayOneShot(ammo.magOutSound);
+        }
     }
+
     public void MagIn()
     {
-        audioSource.PlayOneShot(ammo.magInSound);
+        if (audioSource != null && ammo != null && ammo.magInSound != null)
+        {
+            audioSource.PlayOneShot(ammo.magInSound);
+        }
     }
 
     public void ReleaseSlide()
     {
-        audioSource.PlayOneShot(ammo.releaseSlideSound);
+        if (audioSource != null && ammo != null && ammo.releaseSlideSound != null)
+        {
+            audioSource.PlayOneShot(ammo.releaseSlideSound);
+        }
     }
 
+    // Hàm quan trọng để thiết lập thông số mỗi khi người chơi cầm vũ khí lên
     public void SetWeapon(WeaponManager weapon)
     {
+        if (weapon == null) return;
+
         currentWeapon = weapon;
         audioSource = weapon.audioSource;
         ammo = weapon.ammo;

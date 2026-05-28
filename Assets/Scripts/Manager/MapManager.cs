@@ -1,10 +1,15 @@
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using Unity.Cinemachine;
 
-public class MapManager : BaseSceneManager
+public class MapManager : Manager
 {
     public static MapManager Instance;
+
+    [Header("Camera")]
+    public CinemachineCamera machineCam;
 
     [Header("UI Panels")]
     public GameObject gamePlayHUD_Panel;
@@ -12,6 +17,13 @@ public class MapManager : BaseSceneManager
     public GameObject story_Panel;
 
     public GameObject soidler_Panel;
+
+    [Header("Ammo UI")]
+    public TMP_Text clipSizeText;
+
+    [Header("Health UI")]
+    public Slider healthSlider;
+    public TMP_Text healthText;
 
     [Header("Hint UI")]
     public TMP_Text hintText;
@@ -59,7 +71,7 @@ public class MapManager : BaseSceneManager
 
         Time.timeScale = 0f;
 
-        Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = true;
     }
 
@@ -73,7 +85,9 @@ public class MapManager : BaseSceneManager
 
         Time.timeScale = 1f;
 
-        Cursor.lockState = CursorLockMode.Locked;
+        if (machineCam) machineCam.enabled = false;
+
+        Cursor.lockState = CursorLockMode.None;
         Cursor.visible = false;
     }
 
@@ -114,8 +128,27 @@ public class MapManager : BaseSceneManager
         }
     }
 
+    [Header("Camera Transition")]
+    public float camTransitionDelay = 2f;
+
     public override void OpenSoilderPanel()
     {
+        StartCoroutine(OpenSoilderPanelRoutine());
+    }
+
+    IEnumerator OpenSoilderPanelRoutine()
+    {
+        // 1. Chuyển cam trước
+        if (machineCam)
+        {
+            machineCam.enabled = true;
+            machineCam.Priority = 100;
+        }
+
+        // 2. Chờ cam blend xong
+        yield return new WaitForSecondsRealtime(camTransitionDelay);
+
+        // 3. Sau đó mới hiện panel
         soidler_Panel.GetComponent<UIPanelFader>().ShowPanel();
         ShowHint("Click [F] to continue...");
 
@@ -123,20 +156,34 @@ public class MapManager : BaseSceneManager
 
         Time.timeScale = 0f;
 
-        Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = true;
     }
 
     public override void CloseSoilderPanel()
     {
         soidler_Panel.GetComponent<UIPanelFader>().HidePanel();
-        
 
         gamePlayHUD_Panel.SetActive(true);
 
         Time.timeScale = 1f;
 
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.None;
         Cursor.visible = false;
+    }
+
+    public override void OnAmmoChanged(int current, int extra)
+    {
+        if (clipSizeText) clipSizeText.text = current.ToString();
+    }
+
+    public override void OnPlayerHealthChanged(int current, int max)
+    {
+        if (healthSlider)
+        {
+            healthSlider.maxValue = max;
+            healthSlider.value    = current;
+        }
+        if (healthText) healthText.text = current.ToString();
     }
 }
