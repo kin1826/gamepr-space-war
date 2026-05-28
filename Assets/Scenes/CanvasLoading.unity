@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 22600032}
   - component: {fileID: 22600031}
   m_Layer: 5
-  m_Name: BackgroundLoading
+  m_Name: Background_Loading
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -333,7 +333,7 @@ GameObject:
   - component: {fileID: 281398471}
   - component: {fileID: 281398470}
   m_Layer: 5
-  m_Name: LoadingBar
+  m_Name: Loading_Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -409,7 +409,7 @@ GameObject:
   - component: {fileID: 315477314}
   - component: {fileID: 315477313}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Fill_Loading_Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -725,7 +725,7 @@ GameObject:
   - component: {fileID: 1210196121}
   - component: {fileID: 1210196120}
   m_Layer: 5
-  m_Name: Loading
+  m_Name: Loading_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
