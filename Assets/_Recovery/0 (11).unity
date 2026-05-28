@@ -9198,7 +9198,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 72dfcb44d0285f64db5c208b0fe4207f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 37c8af9e31d01004398a3d3f3c7b2e4e, type: 2}
+      objectReference: {fileID: 2100000, guid: 998320a84a261ea478b71988a011d380, type: 2}
     - target: {fileID: 919132149155446097, guid: 72dfcb44d0285f64db5c208b0fe4207f, type: 3}
       propertyPath: m_Name
       value: Prop_Computer
@@ -9216,9 +9216,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 72dfcb44d0285f64db5c208b0fe4207f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 678116206}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 72dfcb44d0285f64db5c208b0fe4207f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 678116207}
   m_SourcePrefab: {fileID: 100100000, guid: 72dfcb44d0285f64db5c208b0fe4207f, type: 3}
 --- !u!4 &678116202 stripped
 Transform:
@@ -9243,7 +9240,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 1227442764}
-  materialChange: {fileID: 678116207}
 --- !u!65 &678116205
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9279,27 +9275,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ObjectiveTrigger
   objectiveSystem: {fileID: 900331823}
   nextObjective: 1
---- !u!114 &678116207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 678116203}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cce543e7e1b58543adbc9e816afe7a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MaterialChange
-  targetRenderer: {fileID: 678116208}
-  states:
-  - {fileID: 2100000, guid: 37c8af9e31d01004398a3d3f3c7b2e4e, type: 2}
-  - {fileID: 2100000, guid: 998320a84a261ea478b71988a011d380, type: 2}
---- !u!23 &678116208 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 72dfcb44d0285f64db5c208b0fe4207f, type: 3}
-  m_PrefabInstance: {fileID: 678116201}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &685600521
 PrefabInstance:
   m_ObjectHideFlags: 0

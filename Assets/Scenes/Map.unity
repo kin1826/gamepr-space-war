@@ -303,6 +303,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a58d9a29c5534f14c893b0badda3c8fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoldierTrigger
+  panelIndex: 0
+  camIndex: 0
 --- !u!4 &11947362 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8208335379212236750, guid: dc6078ddf8050bf459236d5186f06bcd, type: 3}
@@ -1234,17 +1236,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79a8caf2cdb7ac34ebc26d571e0ab948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapManager
-  machineCam: {fileID: 1914564199}
+  defaultHints:
+  - Kill enemy !!
+  - Go to the energy room.
+  machineCams:
+  - {fileID: 1914564199}
+  - {fileID: 390742502}
+  camTransitionDelay: 2
   gamePlayHUD_Panel: {fileID: 1210429820}
-  story_Panel: {fileID: 1859251417}
-  soidler_Panel: {fileID: 215975065}
+  storyPanel: {fileID: 1859251417}
+  soidlerPanel: {fileID: 215975065}
   clipSizeText: {fileID: 1566118972}
   healthSlider: {fileID: 1571479749}
   healthText: {fileID: 1571479748}
   hintText: {fileID: 1724406808}
   blinkSpeed: 2
   isFirstDoor: 0
-  camTransitionDelay: 2
+  isWaveCleared: 0
 --- !u!4 &105189811
 Transform:
   m_ObjectHideFlags: 0
@@ -2952,13 +2960,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StoryDialogue
   dialogueText: {fileID: 957303438}
-  dialogues:
-  - "\u201CAlex, a few survivors are trapped inside the evacuation rooms near the
-    engineering sector.\u201D"
-  - "\u201CThe corridors are under enemy control, so clear the area and rescue the
-    crew members.\u201D"
-  - "\u201CGo save them. They\u2019ll be a great help to you.\u201D"
-  - "\u201CGood luck.\u201D"
+  dialogueSets:
+  - setName: Story_1
+    lines:
+    - "\u201CAlex\u2026 ch\xFAng t\xF4i \u0111\xE3 c\u1ED1 g\u1EAFng h\u1EBFt s\u1EE9c
+      \u0111\u1EC3 b\u1EA3o v\u1EC7 con t\xE0u\u2026 nh\u01B0ng b\u1ECDn ch\xFAng
+      qu\xE1 m\u1EA1nh.\u201D"
+    - "\u201CC\xE1c \u0111\u1ED9i chi\u1EBFn \u0111\u1EA5u \u0111\xE3 b\u1ECB ti\xEAu
+      di\u1EC7t l\u1EA7n l\u01B0\u1EE3t. Ch\xFAng t\xF4i kh\xF4ng th\u1EC3 ng\u0103n
+      \u0111\u01B0\u1EE3c ch\xFAng\u2026\u201D"
+    - "\u201CB\u1ECDn T\xE0 Th\u1EA7n \u0111\xE3 chi\u1EBFm \u0111\u01B0\u1EE3c khu
+      n\u0103ng l\u01B0\u1EE3ng. N\u1EBFu l\xF5i n\u0103ng l\u01B0\u1EE3ng b\u1ECB
+      ph\xE1 h\u1EE7y, to\xE0n b\u1ED9 t\xE0u m\u1EB9 s\u1EBD s\u1EE5p \u0111\u1ED5.\u201D"
+    - "\u201CAnh ph\u1EA3i t\u1EDBi \u0111\xF3\u2026 ti\xEAu di\u1EC7t ch\xFAng tr\u01B0\u1EDBc
+      khi qu\xE1 mu\u1ED9n.\u201D"
+    - "\u201CXin h\xE3y\u2026 c\u1EE9u l\u1EA5y con t\xE0u.\u201D"
+  - setName: Story_2
+    lines:
+    - "\u201CL\u0169 binh l\xEDnh x\u01B0\u01A1ng \u0111ang canh g\xE1c xung quanh
+      l\xF5i n\u0103ng l\u01B0\u1EE3ng t\u1EEB m\u1ECDi ph\xEDa.\u201D"
+    - "\u201CCh\xFAng \u0111\xE3 bi\u1EBFn to\xE0n b\u1ED9 khu v\u1EF1c n\xE0y th\xE0nh
+      m\u1ED9t ph\xE1o \u0111\xE0i ph\xF2ng th\u1EE7.\u201D"
+    - "\u201CH\xE3y ti\xEAu di\u1EC7t m\u1ECDi th\u1EE9 c\u1EA3n \u0111\u01B0\u1EDDng,
+      chi\u1EBFm l\u1EA1i l\xF5i n\u0103ng l\u01B0\u1EE3ng v\xE0 ti\u1EBFn \u0111\u1EBFn
+      ph\xF2ng \u0111i\u1EC1u khi\u1EC3n.\u201D"
+    - "\u201CM\u1ECDi ng\u01B0\u1EDDi \u0111ang tr\xF4ng c\u1EADy v\xE0o anh, Alex.\u201D"
+    - "\u201CXin h\xE3y\u2026 c\u1EE9u l\u1EA5y con t\xE0u.\u201D"
 --- !u!114 &203076185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7916,6 +7943,7 @@ GameObject:
   - component: {fileID: 215975067}
   - component: {fileID: 215975070}
   - component: {fileID: 215975069}
+  - component: {fileID: 215975071}
   m_Layer: 5
   m_Name: Soldier_Panel
   m_TagString: Untagged
@@ -8008,6 +8036,45 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &215975071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215975065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b031e8866e04b8441a56ee472768b03e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StoryDialogue
+  dialogueText: {fileID: 957303438}
+  dialogueSets:
+  - setName: Story_1
+    lines:
+    - "\u201CAlex\u2026 ch\xFAng t\xF4i \u0111\xE3 c\u1ED1 g\u1EAFng h\u1EBFt s\u1EE9c
+      \u0111\u1EC3 b\u1EA3o v\u1EC7 con t\xE0u\u2026 nh\u01B0ng b\u1ECDn ch\xFAng
+      qu\xE1 m\u1EA1nh.\u201D"
+    - "\u201CC\xE1c \u0111\u1ED9i chi\u1EBFn \u0111\u1EA5u \u0111\xE3 b\u1ECB ti\xEAu
+      di\u1EC7t l\u1EA7n l\u01B0\u1EE3t. Ch\xFAng t\xF4i kh\xF4ng th\u1EC3 ng\u0103n
+      \u0111\u01B0\u1EE3c ch\xFAng\u2026\u201D"
+    - "\u201CB\u1ECDn T\xE0 Th\u1EA7n \u0111\xE3 chi\u1EBFm \u0111\u01B0\u1EE3c khu
+      n\u0103ng l\u01B0\u1EE3ng. N\u1EBFu l\xF5i n\u0103ng l\u01B0\u1EE3ng b\u1ECB
+      ph\xE1 h\u1EE7y, to\xE0n b\u1ED9 t\xE0u m\u1EB9 s\u1EBD s\u1EE5p \u0111\u1ED5.\u201D"
+    - "\u201CAnh ph\u1EA3i t\u1EDBi \u0111\xF3\u2026 ti\xEAu di\u1EC7t ch\xFAng tr\u01B0\u1EDBc
+      khi qu\xE1 mu\u1ED9n.\u201D"
+    - "\u201CXin h\xE3y\u2026 c\u1EE9u l\u1EA5y con t\xE0u.\u201D"
+  - setName: Story_2
+    lines:
+    - "\u201CL\u0169 binh l\xEDnh x\u01B0\u01A1ng \u0111ang canh g\xE1c xung quanh
+      l\xF5i n\u0103ng l\u01B0\u1EE3ng t\u1EEB m\u1ECDi ph\xEDa.\u201D"
+    - "\u201CCh\xFAng \u0111\xE3 bi\u1EBFn to\xE0n b\u1ED9 khu v\u1EF1c n\xE0y th\xE0nh
+      m\u1ED9t ph\xE1o \u0111\xE0i ph\xF2ng th\u1EE7.\u201D"
+    - "\u201CH\xE3y ti\xEAu di\u1EC7t m\u1ECDi th\u1EE9 c\u1EA3n \u0111\u01B0\u1EDDng,
+      chi\u1EBFm l\u1EA1i l\xF5i n\u0103ng l\u01B0\u1EE3ng v\xE0 ti\u1EBFn \u0111\u1EBFn
+      ph\xF2ng \u0111i\u1EC1u khi\u1EC3n.\u201D"
+    - "\u201CM\u1ECDi ng\u01B0\u1EDDi \u0111ang tr\xF4ng c\u1EADy v\xE0o anh, Alex.\u201D"
+    - "\u201CXin h\xE3y\u2026 c\u1EE9u l\u1EA5y con t\xE0u.\u201D"
 --- !u!1001 &216153404
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8343,6 +8410,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2059625490667129216, guid: 9e612240ef5c96443b106d742fc8dcee, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1677201133}
+    - targetCorrespondingSourceObject: {fileID: 2059625490667129216, guid: 9e612240ef5c96443b106d742fc8dcee, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1677201134}
   m_SourcePrefab: {fileID: 100100000, guid: 9e612240ef5c96443b106d742fc8dcee, type: 3}
 --- !u!1 &219538954
 GameObject:
@@ -10893,6 +10963,81 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1366186195458969940, guid: 6340cbd150d87ed4e93e86ec778da798, type: 3}
+--- !u!1 &390742500
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 390742501}
+  - component: {fileID: 390742502}
+  m_Layer: 0
+  m_Name: CinemachineCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &390742501
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390742500}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.2714353, y: -0.19829926, z: 0.05727509, w: 0.9400638}
+  m_LocalPosition: {x: 40.65969, y: 60.528587, z: -70.60179}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1034284597}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &390742502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390742500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
+  Priority:
+    Enabled: 0
+    m_Value: 0
+  OutputChannel: 1
+  StandbyUpdate: 2
+  m_StreamingVersion: 20241001
+  m_LegacyPriority: 0
+  Target:
+    TrackingTarget: {fileID: 1034284597}
+    LookAtTarget: {fileID: 0}
+    CustomLookAtTarget: 0
+  Lens:
+    FieldOfView: 84
+    OrthographicSize: 10
+    NearClipPlane: 0.2
+    FarClipPlane: 500
+    Dutch: 0
+    ModeOverride: 0
+    PhysicalProperties:
+      GateFit: 2
+      SensorSize: {x: 21.946, y: 16.002}
+      LensShift: {x: 0, y: 0}
+      FocusDistance: 10
+      Iso: 200
+      ShutterSpeed: 0.005
+      Aperture: 16
+      BladeCount: 5
+      Curvature: {x: 2, y: 11}
+      BarrelClipping: 0.25
+      Anamorphism: 0
+  BlendHint: 0
 --- !u!1001 &395400333
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11716,7 +11861,6 @@ GameObject:
   - component: {fileID: 440660000}
   - component: {fileID: 440660003}
   - component: {fileID: 440660002}
-  - component: {fileID: 440660001}
   m_Layer: 5
   m_Name: Text_Panel
   m_TagString: Untagged
@@ -11745,26 +11889,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1400, y: 600}
   m_Pivot: {x: 1, y: 0.5}
---- !u!114 &440660001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 440659999}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b031e8866e04b8441a56ee472768b03e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::StoryDialogue
-  dialogueText: {fileID: 1703658666}
-  dialogues:
-  - "\u201CAlex, a few survivors are trapped inside the evacuation rooms near the
-    engineering sector.\u201D"
-  - "\u201CThe corridors are under enemy control, so clear the area and rescue the
-    crew members.\u201D"
-  - "\u201CGo save them. They\u2019ll be a great help to you.\u201D"
-  - "\u201CGood luck.\u201D"
 --- !u!114 &440660002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23725,7 +23849,8 @@ Transform:
   m_LocalPosition: {x: 1706.8262, y: -7.063656, z: 856.65576}
   m_LocalScale: {x: 6.5217385, y: 6.5217385, z: 6.5217385}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 390742501}
   m_Father: {fileID: 219538956}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1034284598
@@ -31014,6 +31139,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD
       objectReference: {fileID: 0}
+    - target: {fileID: 2536029252859810424, guid: 95f51a5284cec004da99d5b578780889, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536029252859810424, guid: 95f51a5284cec004da99d5b578780889, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5570811175459682601, guid: 95f51a5284cec004da99d5b578780889, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -32270,6 +32403,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1677201134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677201131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a58d9a29c5534f14c893b0badda3c8fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SoldierTrigger
+  panelIndex: 1
+  camIndex: 1
 --- !u!1001 &1681001501
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34373,6 +34520,7 @@ GameObject:
   - component: {fileID: 1859251419}
   - component: {fileID: 1859251422}
   - component: {fileID: 1859251421}
+  - component: {fileID: 1859251423}
   m_Layer: 5
   m_Name: Caption_Panel
   m_TagString: Untagged
@@ -34465,6 +34613,31 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1859251423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859251417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b031e8866e04b8441a56ee472768b03e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StoryDialogue
+  dialogueText: {fileID: 1703658666}
+  dialogueSets:
+  - setName: Intro
+    lines:
+    - "\u201CAlex, v\u1EABn c\xF2n v\xE0i ng\u01B0\u1EDDi s\u1ED1ng s\xF3t b\u1ECB
+      m\u1EAFc k\u1EB9t trong c\xE1c ph\xF2ng s\u01A1 t\xE1n g\u1EA7n khu k\u1EF9
+      thu\u1EADt.\u201D"
+    - "\u201CH\xE0nh lang \u0111\xE3 b\u1ECB k\u1EBB \u0111\u1ECBch ki\u1EC3m so\xE1t,
+      h\xE3y d\u1ECDn s\u1EA1ch khu v\u1EF1c v\xE0 gi\u1EA3i c\u1EE9u c\xE1c th\xE0nh
+      vi\xEAn.\u201D"
+    - "\u201CH\xE3y \u0111\u1EBFn gi\u1EA3i c\u1EE9u h\u1ECD, h\u1ECD s\u1EBD h\u1ED7
+      tr\u1EE3 c\u1EADu r\u1EA5t nhi\u1EC1u \u0111\u1EA5y.\u201D"
+    - "\u201CCh\xFAc may m\u1EAFn.\u201D"
 --- !u!1001 &1859481990
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37515,8 +37688,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2054380367}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.95170164, z: -0.30702436, w: 0}
-  m_LocalPosition: {x: 6, y: 0.46396, z: 1.9999998}
+  m_LocalRotation: {x: 0.2714353, y: -0.19829926, z: 0.05727509, w: 0.9400638}
+  m_LocalPosition: {x: 55.098953, y: 8.579288, z: 7.409733}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

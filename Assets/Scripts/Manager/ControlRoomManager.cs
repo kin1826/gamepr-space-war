@@ -41,7 +41,7 @@ public class ControlRoomManager : Manager
         ShowStory();
     }
 
-    public override void ShowStory()
+    public override void ShowStory(int index = 0)
     {
         story_Panel.GetComponent<UIPanelFader>().ShowPanel();
         ShowHint("Click [F] to continue...");
@@ -57,7 +57,7 @@ public class ControlRoomManager : Manager
     public override void ContinueGame()
     {
         story_Panel.GetComponent<UIPanelFader>().HidePanel();
-        HideHint();
+        InitDefaultHint();
 
         gamePlayHUD_Panel.SetActive(true);
 
