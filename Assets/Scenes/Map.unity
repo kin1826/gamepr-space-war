@@ -1239,6 +1239,8 @@ MonoBehaviour:
   story_Panel: {fileID: 1859251417}
   soidler_Panel: {fileID: 215975065}
   clipSizeText: {fileID: 1566118972}
+  healthSlider: {fileID: 1571479749}
+  healthText: {fileID: 1571479748}
   hintText: {fileID: 1724406808}
   blinkSpeed: 2
   isFirstDoor: 0
@@ -31097,6 +31099,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95f51a5284cec004da99d5b578780889, type: 3}
+--- !u!114 &1571479748 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9185617965845720984, guid: 95f51a5284cec004da99d5b578780889, type: 3}
+  m_PrefabInstance: {fileID: 1571479747}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!114 &1571479749 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 735630921204018139, guid: 95f51a5284cec004da99d5b578780889, type: 3}
+  m_PrefabInstance: {fileID: 1571479747}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!4 &1572900577 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4845223779194089186, guid: 82a1dcb756d9f614ca6702d1d87da6ec, type: 3}
@@ -36527,7 +36551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0203bc03f590265449069f7bd3eb9059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
-  maxHealth: 1000
+  maxHealth: 200
   invincibleDuration: 0.5
 --- !u!1 &2020963895 stripped
 GameObject:
