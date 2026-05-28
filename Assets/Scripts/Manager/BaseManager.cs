@@ -26,11 +26,14 @@ public class BaseManager : Manager
 
     private Coroutine blinkRoutine;
 
+    public bool isWaveCleared = false;
+
     // [Header("Trigger")]
 
     private void Awake()
     {
         base.Awake();
+        Instance = this;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     // void Start()
@@ -48,12 +51,12 @@ public class BaseManager : Manager
         // story_Panel.SetActive(false);
         gamePlayHUD_Panel.SetActive(true);
 
-        HideHint();
+        InitDefaultHint();
 
         // ShowStory();
     }
 
-    public override void ShowStory()
+    public override void ShowStory(int index = 0)
     {
         // story_Panel.GetComponent<UIPanelFader>().ShowPanel();
         ShowHint("Click [F] to continue...");
@@ -112,6 +115,12 @@ public class BaseManager : Manager
             healthSlider.value    = current;
         }
         if (healthText) healthText.text = current.ToString();
+    }
+
+    public override void OnWaveCleared()
+    {
+        isWaveCleared = true;
+        Manager.Instance.NextDefaultHint();
     }
 
     IEnumerator BlinkHint()

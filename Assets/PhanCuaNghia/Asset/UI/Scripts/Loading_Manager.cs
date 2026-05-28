@@ -8,7 +8,7 @@ public class Loading_Manager : MonoBehaviour
 {
     [Header("UI")]
     public GameObject loadingPanel;
-    public Image fillBar;
+    public Slider loadingSlider;
     public TextMeshProUGUI loadingText;
 
     [Header("Scene")]
@@ -24,8 +24,7 @@ public class Loading_Manager : MonoBehaviour
         // Ẩn panel lúc đầu
         loadingPanel.SetActive(false);
 
-        // Reset loading bar
-        fillBar.fillAmount = 0;
+        if (loadingSlider) loadingSlider.value = 0;
 
         // Reset text
         loadingText.text = "Loading 0%";
@@ -47,18 +46,18 @@ public class Loading_Manager : MonoBehaviour
 
     IEnumerator LoadingCoroutine()
     {
-        fillBar.fillAmount = 0;
+        if (loadingSlider) loadingSlider.value = 0;
 
-        while (fillBar.fillAmount < 1f)
+        float progress = 0f;
+
+        while (progress < 1f)
         {
-            // Tăng loading
-            fillBar.fillAmount += Time.deltaTime * loadingSpeed;
+            progress += Time.deltaTime * loadingSpeed;
+            progress  = Mathf.Clamp01(progress);
 
-            // Giới hạn tối đa
-            fillBar.fillAmount = Mathf.Clamp01(fillBar.fillAmount);
+            if (loadingSlider) loadingSlider.value = progress;
 
-            // Đổi sang %
-            int percent = Mathf.RoundToInt(fillBar.fillAmount * 100);
+            int percent = Mathf.RoundToInt(progress * 100);
 
             // Update text
             loadingText.text = "Loading " + percent + "%";
