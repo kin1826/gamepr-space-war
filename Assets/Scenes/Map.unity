@@ -8592,7 +8592,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 80482b8dcb7b13e4eade17c760d49e30, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 28fdd3241c5f72848a9cb27450ee7e2b, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &219538956
 Transform:
@@ -23477,7 +23477,7 @@ Transform:
   m_GameObject: {fileID: 1006953076}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2272.0437, y: -137.49844, z: -730.3007}
+  m_LocalPosition: {x: 2272.0437, y: -94.02019, z: -643.34424}
   m_LocalScale: {x: 6.5217385, y: 6.5217385, z: 6.5217385}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -23496,6 +23496,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawnZone
   enemyPrefab: {fileID: 7469849676186037689, guid: e6353b0b865067c40b3d7667a5691b3b, type: 3}
+  enemyPrefab: {fileID: 0}
   maxEnemies: 5
   spawnInterval: 2
   player: {fileID: 2016179740}
@@ -34677,6 +34678,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 633145367}
     m_Modifications:
+    - target: {fileID: 1267019424842110532, guid: 5239f613550e14a40ad0da3e78db6a41, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4922640171582904781, guid: 5239f613550e14a40ad0da3e78db6a41, type: 3}
       propertyPath: m_Name
       value: Floor_12 (11)
