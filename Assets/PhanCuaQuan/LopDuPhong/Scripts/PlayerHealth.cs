@@ -4,7 +4,7 @@ using System;
 public class PlayerHealth : MonoBehaviour
 {
     [Header("Stats")]
-    public int maxHealth = 100;
+    public int maxHealth = 200;
 
     [Header("Invincibility after hit")]
     [Tooltip("Thời gian bất tử sau khi bị hit (tránh nhận damage liên tục)")]
@@ -26,6 +26,7 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         CurrentHealth = maxHealth;
+        Manager.Instance?.OnPlayerHealthChanged(CurrentHealth, maxHealth);
     }
 
     void Update()
@@ -46,6 +47,7 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log($"[PlayerHealth] HP: {CurrentHealth}/{maxHealth} (-{amount})");
 
         OnHealthChanged?.Invoke(CurrentHealth, maxHealth);
+        Manager.Instance?.OnPlayerHealthChanged(CurrentHealth, maxHealth);
 
         if (CurrentHealth <= 0) Die();
     }
@@ -56,6 +58,7 @@ public class PlayerHealth : MonoBehaviour
         if (IsDead) return;
         CurrentHealth = Mathf.Clamp(CurrentHealth + amount, 0, maxHealth);
         OnHealthChanged?.Invoke(CurrentHealth, maxHealth);
+        Manager.Instance?.OnPlayerHealthChanged(CurrentHealth, maxHealth);
         Debug.Log($"[PlayerHealth] Heal +{amount} → {CurrentHealth}/{maxHealth}");
     }
 

@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 
-public class MainSceneManager : BaseSceneManager
+public class MainSceneManager : Manager
 {
     public static MainSceneManager Instance;
 
@@ -33,7 +33,7 @@ public class MainSceneManager : BaseSceneManager
         ShowStory();
     }
 
-    public override void ShowStory()
+    public override void ShowStory(int index = 0)
     {
         // story_Panel.SetActive(true);
         story_Panel.GetComponent<UIPanelFader>().ShowPanel();
@@ -50,7 +50,7 @@ public class MainSceneManager : BaseSceneManager
     public override void ContinueGame()
     {
         story_Panel.GetComponent<UIPanelFader>().HidePanel();
-        ShowHint("Use [WASD] to move, [Mouse] to look around, [Left Click] to shoot.");
+        InitDefaultHint();
 
         gamePlayHUD_Panel.SetActive(true);
 

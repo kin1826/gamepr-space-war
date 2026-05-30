@@ -4,8 +4,10 @@ using UnityEngine.InputSystem;
 public class ComputerInteraction : MonoBehaviour
 {
     public DoorComController door;
+    public MaterialChange materialChange;
 
     private bool playerInRange = false;
+    private bool _lastWaveState;
 
     private InputSystem_Actions input;
 
@@ -30,21 +32,45 @@ public class ComputerInteraction : MonoBehaviour
 
     void Update()
     {
+        // Đổi material khi trạng thái wave thay đổi
+        if (BaseManager.Instance != null)
+        {
+            bool current = BaseManager.Instance.isWaveCleared;
+            if (current != _lastWaveState)
+            {
+                _lastWaveState = current;
+                materialChange?.SetState(current ? 1 : 0);
+            }
+        }
+
         if (!playerInRange) return;
 
-        if (door.IsOpen())
-            BaseSceneManager.Instance.ShowHint("Press F to CLOSE door");
+        bool waveCleared = BaseManager.Instance != null && BaseManager.Instance.isWaveCleared;
+
+        if (waveCleared)
+        {
+            if (door.IsOpen())
+                Manager.Instance.ShowHint("Press F to CLOSE door");
+            else
+                Manager.Instance.ShowHint("Press F to OPEN door");
+        }
         else
-            BaseSceneManager.Instance.ShowHint("Press F to OPEN door");
+        {
+            Manager.Instance.ShowHint("Defeat all enemies to unlock the door");
+        }
+
+        
     }
 
     void Interact(InputAction.CallbackContext ctx)
     {
         if (!playerInRange) return;
 
-        BaseSceneManager.Instance.ShowHint("Interact");
+        Manager.Instance.ShowHint("Interact");
 
         door.ToggleDoor();
+
+        Manager.Instance.SetDefaultHint(2); // Chuyển sang hint thứ 2 trong list mặc định (nếu có)
     }
 
     void OnTriggerEnter(Collider other)
@@ -52,7 +78,7 @@ public class ComputerInteraction : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
-            // BaseSceneManager.Instance.ShowHint("Click F to open/close the door");
+            // Manager.Instance.ShowHint("Click F to open/close the door");
         }
     }
 
@@ -61,7 +87,8 @@ public class ComputerInteraction : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
-            BaseSceneManager.Instance.HideHint();
+            
+            Manager.Instance.ShowDefaultHint();
         }
     }
 }
