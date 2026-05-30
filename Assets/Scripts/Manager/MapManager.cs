@@ -86,8 +86,7 @@ public class MapManager : Manager
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible   = false;
 
-        SetDefaultHint(1);
-        ShowDefaultHint();
+        NextDefaultHint();
     }
 
     // ── Soldier Panel ──────────────────────────────────────────────
@@ -174,7 +173,7 @@ public class MapManager : Manager
     public override void OnWaveCleared()
     {
         isWaveCleared = true;
-        SetDefaultHint(1);
+        NextDefaultHint();
     }
 
     // ── Helper ─────────────────────────────────────────────────────
