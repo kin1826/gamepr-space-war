@@ -37,6 +37,8 @@ public class ControlRoomManager : Manager
     private Coroutine blinkRoutine;
     private int _activeCamIndex = -1;
 
+    private bool isDoneStory = false;
+
     private void Awake()
     {
         base.Awake();
@@ -61,6 +63,7 @@ public class ControlRoomManager : Manager
     // ── Story ──────────────────────────────────────────────────────
     public override void ShowStory(int index = 0)
     {
+        isDoneStory = false;
         storyPanel.GetComponent<StoryDialogue>()?.LoadDialogueSet(index);
         storyPanel.GetComponent<UIPanelFader>().ShowPanel();
         ShowHint("Click [F] to continue...");
@@ -74,6 +77,7 @@ public class ControlRoomManager : Manager
 
     public override void ContinueGame()
     {
+    
         storyPanel.GetComponent<UIPanelFader>().HidePanel();
         soidlerPanel.GetComponent<UIPanelFader>().HidePanel();
 
@@ -87,6 +91,12 @@ public class ControlRoomManager : Manager
         Cursor.visible   = false;
 
         NextDefaultHint();
+
+        if (!isDoneStory) 
+        {
+            OpenSoilderPanel(0, 1);
+            isDoneStory = true;
+        }
     }
 
     // ── Soldier Panel ──────────────────────────────────────────────
