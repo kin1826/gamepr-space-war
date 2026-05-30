@@ -20781,6 +20781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MaterialChange
   targetRenderer: {fileID: 738276425}
+  slotIndex: 0
   states:
   - {fileID: 2100000, guid: c216201be352e8e4d8c8fc25cce96c03, type: 2}
   - {fileID: 2100000, guid: 318b18c9b08a76a41ab055b522d2b617, type: 2}
@@ -23497,7 +23498,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 7469849676186037689, guid: e6353b0b865067c40b3d7667a5691b3b, type: 3}
   maxEnemies: 5
   spawnInterval: 2
-  player: {fileID: 0}
+  player: {fileID: 2016179740}
   zoneSize: {x: 5, y: 0, z: 5}
   autoStart: 1
 --- !u!1 &1007010608 stripped
@@ -24285,7 +24286,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 7469849676186037689, guid: e6353b0b865067c40b3d7667a5691b3b, type: 3}
   maxEnemies: 5
   spawnInterval: 2
-  player: {fileID: 0}
+  player: {fileID: 2016179740}
   zoneSize: {x: 5, y: 0, z: 5}
   autoStart: 1
 --- !u!1001 &1046379228
@@ -24629,7 +24630,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 7469849676186037689, guid: e6353b0b865067c40b3d7667a5691b3b, type: 3}
   maxEnemies: 2
   spawnInterval: 1
-  player: {fileID: 0}
+  player: {fileID: 2016179740}
   zoneSize: {x: 3, y: 0, z: 3}
   autoStart: 1
 --- !u!108 &1076877578 stripped
@@ -33975,6 +33976,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MaterialChange
   targetRenderer: {fileID: 1738945371}
+  slotIndex: 0
   states:
   - {fileID: 2100000, guid: c216201be352e8e4d8c8fc25cce96c03, type: 2}
   - {fileID: 2100000, guid: 318b18c9b08a76a41ab055b522d2b617, type: 2}

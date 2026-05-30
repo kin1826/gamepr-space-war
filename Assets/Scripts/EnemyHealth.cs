@@ -5,52 +5,39 @@ using UnityEngine.UI;
 public class EnemyHealth : MonoBehaviour
 {
     [Header("Stats")]
-    public float maxHealth = 200f;
-    [Tooltip("Thời gian chờ trước khi destroy (để animation death kịp chạy)")]
-    public float destroyDelay = 3f;
+    public float maxHealth   = 200f;
+
+    [Header("Death — Ragdoll Prefab")]
+    [Tooltip("Kéo prefab ragdoll vào đây")]
+    public GameObject ragdollPrefab;
+    [Tooltip("Thời gian tồn tại của ragdoll trước khi tự xóa (giây)")]
+    public float ragdollLifetime = 4f;
 
     [Header("UI")]
     public Canvas hpCanvas;
     public Slider hpSlider;
 
-    [Header("Death Animation")]
-    [Tooltip("Tên trigger trong Animator — phải khớp với parameter trong Animator Controller")]
-    public string deathTrigger = "Death";
-    [Tooltip("Delay trước khi bật ragdoll (giây) — để animation death chạy trước)")]
-    public float ragdollDelay  = 1.5f;
-
     [HideInInspector] public bool   isDead;
     [HideInInspector] public Action onDeath;
 
-    private float          _currentHealth;
-    private Camera         _cam;
-    private RagdollManager _ragdoll;
-    private Animator       _anim;
-    private AILocomotion   _ai;
+    private float        _currentHealth;
+    private Camera       _cam;
+    private AILocomotion _ai;
 
     void Start()
     {
-        _ragdoll       = GetComponent<RagdollManager>();
-        _anim          = GetComponent<Animator>();
         _ai            = GetComponent<AILocomotion>();
         _cam           = Camera.main;
         _currentHealth = maxHealth;
 
-        if (hpSlider)
-        {
-            hpSlider.maxValue = maxHealth;
-            hpSlider.value    = maxHealth;
-        }
-
+        if (hpSlider) { hpSlider.maxValue = maxHealth; hpSlider.value = maxHealth; }
         if (hpCanvas) hpCanvas.gameObject.SetActive(false);
     }
 
     void LateUpdate()
     {
         if (hpCanvas == null || _cam == null) return;
-
         hpCanvas.transform.forward = _cam.transform.forward;
-
         Vector3 dir     = (transform.position - _cam.transform.position).normalized;
         bool    visible = Vector3.Dot(_cam.transform.forward, dir) > 0.5f;
         hpCanvas.gameObject.SetActive(visible && !isDead);
@@ -59,45 +46,40 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamge(float damage)
     {
         if (isDead) return;
-
         _currentHealth = Mathf.Clamp(_currentHealth - damage, 0f, maxHealth);
-
         if (hpSlider) hpSlider.value = _currentHealth;
         if (hpCanvas) hpCanvas.gameObject.SetActive(true);
-
-        if (_currentHealth <= 0f) EnemyDeath();
+        if (_currentHealth <= 0f) Die();
     }
 
-    void EnemyDeath()
+    void Die()
     {
         if (isDead) return;
         isDead = true;
 
-        // 1. Ẩn HP bar
-        if (hpCanvas) hpCanvas.gameObject.SetActive(false);
-
-        // 2. Dừng AI hoàn toàn
+        // 1. Dừng AI
         _ai?.OnDead();
 
-        // 3. Trigger animation Death ngay lập tức
-        if (_anim != null)
+        // 2. Ẩn HP bar vĩnh viễn — tắt hẳn không cho LateUpdate bật lại
+        if (hpCanvas) hpCanvas.gameObject.SetActive(false);
+        hpCanvas = null; // null để LateUpdate bỏ qua hoàn toàn
+
+        // 3. Spawn ragdoll tại đúng vị trí + rotation của AI lúc chết
+        if (ragdollPrefab != null)
         {
-            _anim.SetTrigger(deathTrigger);
-            // Tắt mọi trigger attack đang pending để tránh conflict
-            _anim.ResetTrigger("Attack");
+            GameObject ragdoll = Instantiate(
+                ragdollPrefab,
+                transform.position,
+                transform.rotation);
+
+            // Tự xóa ragdoll sau ragdollLifetime giây
+            Destroy(ragdoll, ragdollLifetime);
         }
 
-        // 4. Bật ragdoll SAU khi animation death chạy xong
-        if (_ragdoll != null)
-            Invoke(nameof(TriggerRagdollDelayed), ragdollDelay);
-
-        // 5. Fire event & destroy
+        // 4. Fire event
         onDeath?.Invoke();
-        Destroy(gameObject, destroyDelay);
-    }
 
-    void TriggerRagdollDelayed()
-    {
-        if (_ragdoll != null) _ragdoll.TriggerRagdoll();
+        // 5. Xóa AI gốc ngay lập tức
+        Destroy(gameObject);
     }
 }
