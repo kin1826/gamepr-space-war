@@ -3409,7 +3409,11 @@ MonoBehaviour:
   - Destroy them!!
   - Move to the door
   - Move to the designated point
+  machineCams: []
+  camTransitionDelay: 2
   gamePlayHUD_Panel: {fileID: 155000573}
+  storyPanel: {fileID: 0}
+  soidlerPanel: {fileID: 0}
   clipSizeText: {fileID: 921870540}
   healthSlider: {fileID: 434244478}
   healthText: {fileID: 1185114810}
@@ -9292,6 +9296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MaterialChange
   targetRenderer: {fileID: 678116208}
+  slotIndex: 0
   states:
   - {fileID: 2100000, guid: 37c8af9e31d01004398a3d3f3c7b2e4e, type: 2}
   - {fileID: 2100000, guid: 998320a84a261ea478b71988a011d380, type: 2}
@@ -11977,7 +11982,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 80482b8dcb7b13e4eade17c760d49e30, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 11b8f71e04f289e4a9ceea8e7e639f96, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &859851266
 Transform:
@@ -13266,6 +13271,7 @@ MonoBehaviour:
   spawnInterval: 2
   player: {fileID: 0}
   zoneSize: {x: 10, y: 0, z: 10}
+  autoStart: 1
 --- !u!1 &910403719
 GameObject:
   m_ObjectHideFlags: 0

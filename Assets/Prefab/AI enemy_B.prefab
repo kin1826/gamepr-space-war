@@ -2512,15 +2512,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AiLocomotion
   playerTransform: {fileID: 0}
-  detectionRange: 4.3
+  detectionRange: 20
   attackRange: 2
-  fieldOfView: 120
+  fieldOfView: 500
   patrolPoints: []
   randomPatrolRadius: 4.08
   patrolWaitTime: 2
   patrolSpeed: 1
   chaseSpeed: 1.5
   attackCooldown: 2
+  attackHitDelay: 0.4
+  attackDamage: 10
   speedParam: Speed
   attackParam: Attack
 --- !u!195 &1851861921053989567
@@ -2583,6 +2585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   maxHealth: 200
+  destroyDelay: 3
   hpCanvas: {fileID: 4115029152574856838}
   hpSlider: {fileID: 8258528674293034215}
   isDead: 0
