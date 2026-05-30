@@ -939,6 +939,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8150013556232322380, guid: a2325a79881d9d24fb91073591000820, type: 3}
+      propertyPath: m_SlopeLimit
+      value: 45
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -1236,7 +1240,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 80482b8dcb7b13e4eade17c760d49e30, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: ab7c1050f0ea95b4c92b7f12614dde23, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &458854175
 Transform:
