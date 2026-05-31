@@ -71,6 +71,7 @@ public class Loading_Manager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         // Chuyển scene
-        SceneManager.LoadScene(sceneName);
+        FadeManager.Instance.LoadScene(sceneName);
+        // SceneManager.LoadScene(sceneName);
     }
 }

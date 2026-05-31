@@ -37,7 +37,11 @@ public class ControlRoomManager : Manager
     private Coroutine blinkRoutine;
     private int _activeCamIndex = -1;
 
-    private bool isDoneStory = false;
+    [Tooltip("Index của soldier panel cuối cùng — xong panel này sẽ load scene")]
+    public int finalPanelIndex  = 1;
+
+    private bool isDoneStory    = false;
+    private bool _soidlerShown  = false;
 
     private void Awake()
     {
@@ -92,16 +96,22 @@ public class ControlRoomManager : Manager
 
         NextDefaultHint();
 
-        if (!isDoneStory) 
+        if (!isDoneStory)
         {
             OpenSoilderPanel(0, 1);
             isDoneStory = true;
+        }
+
+        if (_soidlerShown)
+        {
+            FadeManager.Instance.LoadScene("CanvasLobby");
         }
     }
 
     // ── Soldier Panel ──────────────────────────────────────────────
     public override void OpenSoilderPanel(int panelIndex = 0, int camIndex = 0)
     {
+        if (panelIndex == finalPanelIndex) _soidlerShown = true;
         StartCoroutine(OpenSoilderPanelRoutine(panelIndex, camIndex));
     }
 

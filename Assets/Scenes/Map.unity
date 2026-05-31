@@ -2252,8 +2252,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaveRoom
   waves:
-  - {fileID: 1006953078}
   - {fileID: 1034284598}
+  - {fileID: 1006953078}
   doorsToUnlock:
   - {fileID: 1270122711}
   doorIndicators:
@@ -23500,7 +23500,7 @@ MonoBehaviour:
   spawnInterval: 2
   player: {fileID: 2016179740}
   zoneSize: {x: 5, y: 0, z: 5}
-  autoStart: 1
+  autoStart: 0
 --- !u!1 &1007010608 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 33cd8f27876cc304883fccbdc194ba9e, type: 3}
@@ -24288,7 +24288,7 @@ MonoBehaviour:
   spawnInterval: 2
   player: {fileID: 2016179740}
   zoneSize: {x: 5, y: 0, z: 5}
-  autoStart: 1
+  autoStart: 0
 --- !u!1001 &1046379228
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24632,7 +24632,7 @@ MonoBehaviour:
   spawnInterval: 1
   player: {fileID: 2016179740}
   zoneSize: {x: 3, y: 0, z: 3}
-  autoStart: 1
+  autoStart: 0
 --- !u!108 &1076877578 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 2742930727951525229, guid: 82a1dcb756d9f614ca6702d1d87da6ec, type: 3}
