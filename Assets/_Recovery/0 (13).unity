@@ -257,7 +257,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 299873997690667278, guid: b4678a11f2fbb6440bbe43bf7721f3c3, type: 3}
       propertyPath: m_Intensity
-      value: 5000
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 3561179293800233986, guid: b4678a11f2fbb6440bbe43bf7721f3c3, type: 3}
       propertyPath: m_LocalScale.x
@@ -5725,7 +5725,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &477963394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7184,7 +7184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 299873997690667278, guid: b4678a11f2fbb6440bbe43bf7721f3c3, type: 3}
       propertyPath: m_Intensity
-      value: 10000
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 3561179293800233986, guid: b4678a11f2fbb6440bbe43bf7721f3c3, type: 3}
       propertyPath: m_LocalScale.x
@@ -7957,9 +7957,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b031e8866e04b8441a56ee472768b03e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StoryDialogue
-  dialogueText: {fileID: 1019145898}
+  dialogueText: {fileID: 1934985983}
   dialogueSets:
-  - setName: Story_1
+  - setName: 
     lines:
     - abc
     - xyz
@@ -11966,17 +11966,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: eec6cd852d2184d43993a3314534c507, type: 3}
   m_PrefabInstance: {fileID: 1577162555}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1019145898 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6586650124464029358, guid: f3c0e1807894a174f9164c9cdb6c28df, type: 3}
-  m_PrefabInstance: {fileID: 5903980984221789254}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &1020531293
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12623,7 +12612,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 9f3a6743a0bd1cd458b2336a192b8080, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 73fa6b9048a08514aa73689f1e6ea58d, type: 2}
+      objectReference: {fileID: 2100000, guid: cee5920175f81d74192fcb323c92471b, type: 2}
     - target: {fileID: 919132149155446097, guid: 9f3a6743a0bd1cd458b2336a192b8080, type: 3}
       propertyPath: m_Name
       value: Destroyer_03
@@ -14447,10 +14436,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainSceneManager
   defaultHints:
-  - Back to Momship !!!
+  - Move To Cage !
+  machineCams: []
+  camTransitionDelay: 2
+  gamePlayHUD_Panel: {fileID: 0}
   storyPanel: {fileID: 684392910}
+  soidlerPanel: {fileID: 0}
+  clipSizeText: {fileID: 0}
+  healthSlider: {fileID: 0}
+  healthText: {fileID: 0}
   hintText: {fileID: 2086410640}
   blinkSpeed: 2
+  isFirstDoor: 1
+  isWaveCleared: 0
 --- !u!4 &1247060674
 Transform:
   m_ObjectHideFlags: 0
@@ -17400,10 +17398,18 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7918335002988649766, guid: 27fc5eda248202641ba13d26bf17089d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: cee5920175f81d74192fcb323c92471b, type: 2}
     - target: {fileID: 919132149155446097, guid: 27fc5eda248202641ba13d26bf17089d, type: 3}
       propertyPath: m_Name
       value: scifiscene
       objectReference: {fileID: 0}
+    - target: {fileID: 7071182760956848314, guid: 27fc5eda248202641ba13d26bf17089d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: cee5920175f81d74192fcb323c92471b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -24545,6 +24551,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 300
+--- !u!114 &1934985983 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6586650124464029358, guid: f3c0e1807894a174f9164c9cdb6c28df, type: 3}
+  m_PrefabInstance: {fileID: 5903980984221789254}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!4 &1944086017 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1cdb0bfb42be1fd4d84045b04eff73f6, type: 3}
@@ -28729,8 +28746,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Telling_Panel
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2745276345122853917, guid: f3c0e1807894a174f9164c9cdb6c28df, type: 3}
+    - target: {fileID: 5771820174208415709, guid: f3c0e1807894a174f9164c9cdb6c28df, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
