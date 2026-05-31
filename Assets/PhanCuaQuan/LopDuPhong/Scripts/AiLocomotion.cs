@@ -1,16 +1,15 @@
 using UnityEngine;
 using UnityEngine.AI;
-using System.Collections;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(Animator))]
 public class AILocomotion : MonoBehaviour
 {
     [Header("References")]
-    public Transform playerTransform; // Bỏ trống → tự tìm tag "Player"
+    public Transform playerTransform;
 
     [Header("Detection")]
-    public float detectionRange = 20f;
+    public float detectionRange = 10f;
     public float attackRange    = 2f;
     public float fieldOfView    = 120f;
 
@@ -24,9 +23,7 @@ public class AILocomotion : MonoBehaviour
     public float chaseSpeed  = 3f;
 
     [Header("Attack")]
-    public float attackCooldown  = 1.5f;
-    public float attackHitDelay  = 0.4f;
-    public int   attackDamage    = 10;
+    public float attackCooldown = 1.5f;
 
     [Header("Animator Parameters")]
     public string speedParam  = "Speed";
@@ -44,7 +41,6 @@ public class AILocomotion : MonoBehaviour
     private float _waitTimer;
     private bool  _waiting;
     private float _attackTimer;
-    private PlayerHealth _playerHealth;
 
     // ─────────────────────────────────────────────────────────────
     void Start()
@@ -57,24 +53,12 @@ public class AILocomotion : MonoBehaviour
         _agent.stoppingDistance = attackRange * 0.8f;
 
         EnterPatrol();
-
-        FindPlayer();
-    }
-
-    void FindPlayer()
-    {
-        GameObject player =
-            GameObject.FindWithTag("Player");
-
-        if (player != null && player.activeInHierarchy)
-        {
-            playerTransform = player.transform;
-            _playerHealth   = player.GetComponentInChildren<PlayerHealth>();
-        }
     }
 
     void Update()
     {
+        if (playerTransform == null) return;
+
         // Cập nhật animation tốc độ liên tục
         _anim.SetFloat(speedParam, _agent.velocity.magnitude, 0.1f, Time.deltaTime);
 
@@ -185,7 +169,6 @@ public class AILocomotion : MonoBehaviour
         {
             _attackTimer = attackCooldown;
             _anim.SetTrigger(attackParam);
-            StartCoroutine(DealDamageAfterDelay());
         }
     }
 
@@ -193,15 +176,7 @@ public class AILocomotion : MonoBehaviour
     {
         _state           = State.Attack;
         _agent.isStopped = true;
-        _attackTimer     = 0f;
-    }
-
-    IEnumerator DealDamageAfterDelay()
-    {
-        yield return new WaitForSeconds(attackHitDelay);
-        // Chỉ gây damage nếu player vẫn còn trong tầm đánh
-        if (_playerHealth != null && Dist() <= attackRange + 0.5f)
-            _playerHealth.TakeDamage(attackDamage);
+        _attackTimer     = 0f; // đánh ngay lần đầu
     }
 
     // ── HELPERS ──────────────────────────────────────────────────
@@ -227,6 +202,16 @@ public class AILocomotion : MonoBehaviour
         float angle = Vector3.Angle(transform.forward,
                       playerTransform.position - transform.position);
         return angle <= fieldOfView * 0.5f;
+    }
+
+    // ── CALLED BY EnemyHealth khi chết ───────────────────────────
+    public void OnDead()
+    {
+        _agent.isStopped = true;
+        _agent.velocity  = Vector3.zero;
+        _agent.enabled   = false;
+        StopAllCoroutines();
+        enabled = false; // tắt Update của script này
     }
 
     // ── GIZMOS ───────────────────────────────────────────────────
