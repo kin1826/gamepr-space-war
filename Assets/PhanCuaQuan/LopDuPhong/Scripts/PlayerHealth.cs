@@ -70,6 +70,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         if (IsDead) return;
         IsDead = true;
         OnDeath?.Invoke();
+        Manager.Instance?.OnPlayerDied();
         Debug.Log("[PlayerHealth] Player đã chết!");
 
         // Gọi animation chết, respawn, game over... tuỳ game sau này
