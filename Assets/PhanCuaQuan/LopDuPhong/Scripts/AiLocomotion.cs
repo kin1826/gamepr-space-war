@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(Animator))]
@@ -24,6 +25,8 @@ public class AILocomotion : MonoBehaviour
 
     [Header("Attack")]
     public float attackCooldown = 1.5f;
+    public float attackHitDelay = 0.4f;
+    public int   attackDamage   = 10;
 
     [Header("Animator Parameters")]
     public string speedParam  = "Speed";
@@ -37,10 +40,11 @@ public class AILocomotion : MonoBehaviour
     private enum State { Patrol, Chase, Attack }
     private State _state;
 
-    private int   _patrolIndex;
-    private float _waitTimer;
-    private bool  _waiting;
-    private float _attackTimer;
+    private int          _patrolIndex;
+    private float        _waitTimer;
+    private bool         _waiting;
+    private float        _attackTimer;
+    private IDamageable _playerHealth;
 
     // ─────────────────────────────────────────────────────────────
     void Start()
@@ -57,7 +61,18 @@ public class AILocomotion : MonoBehaviour
 
     void Update()
     {
-        if (playerTransform == null) return;
+        if (playerTransform == null)
+        {
+            var p = GameObject.FindWithTag("Player");
+            if (p != null)
+            {
+                playerTransform = p.transform;
+                _playerHealth = p.GetComponentInChildren<PlayerHealth>()
+                    ?? p.GetComponentInParent<PlayerHealth>()
+                    ?? FindObjectOfType<PlayerHealth>();
+            }
+            return;
+        }
 
         // Cập nhật animation tốc độ liên tục
         _anim.SetFloat(speedParam, _agent.velocity.magnitude, 0.1f, Time.deltaTime);
@@ -169,6 +184,7 @@ public class AILocomotion : MonoBehaviour
         {
             _attackTimer = attackCooldown;
             _anim.SetTrigger(attackParam);
+            StartCoroutine(DealDamageAfterDelay());
         }
     }
 
@@ -215,6 +231,17 @@ public class AILocomotion : MonoBehaviour
     }
 
     // ── GIZMOS ───────────────────────────────────────────────────
+    IEnumerator DealDamageAfterDelay()
+    {
+        yield return new WaitForSeconds(attackHitDelay);
+        if (Dist() > attackRange + 0.5f) yield break;
+
+        // Tìm trực tiếp như wolf — không phụ thuộc vào cache hay hierarchy
+        _playerHealth ??= FindObjectOfType<PlayerHealth>();
+
+        _playerHealth?.TakeDamage(attackDamage);
+    }
+
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;

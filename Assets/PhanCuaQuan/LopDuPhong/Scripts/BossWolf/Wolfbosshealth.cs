@@ -1,8 +1,9 @@
 // WolfbossHealth.cs
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 
-public class WolfbossHealth : MonoBehaviour
+public class WolfbossHealth : MonoBehaviour, IDamageable
 {
     [Header("Stats")]
     public int maxHealth = 500;
@@ -25,6 +26,10 @@ public class WolfbossHealth : MonoBehaviour
     public string paramDie  = "Die";
     public string paramRage = "Rage"; // trigger chuyển Phase 2
 
+    [Header("UI")]
+    public Canvas hpCanvas;
+    public Slider hpSlider;
+
     [Header("On Death")]
     public float destroyDelay = 5f;
 
@@ -42,6 +47,7 @@ public class WolfbossHealth : MonoBehaviour
     // ── Private ───────────────────────────────────────────────
     private Animator   _anim;
     private WolfbossAI _ai;
+    private Camera     _cam;
     private float      _poiseRegenTimer;
     private bool       _poiseBroken;
 
@@ -51,6 +57,10 @@ public class WolfbossHealth : MonoBehaviour
         CurrentPoise  = maxPoise;
         _anim = GetComponent<Animator>();
         _ai   = GetComponent<WolfbossAI>();
+        _cam  = Camera.main;
+
+        if (hpSlider) { hpSlider.maxValue = maxHealth; hpSlider.value = maxHealth; }
+        if (hpCanvas) hpCanvas.gameObject.SetActive(false);
     }
 
     void Update()
@@ -59,7 +69,18 @@ public class WolfbossHealth : MonoBehaviour
         RegeneratePoise();
     }
 
+    void LateUpdate()
+    {
+        if (hpCanvas == null || _cam == null) return;
+        hpCanvas.transform.forward = _cam.transform.forward;
+        Vector3 dir = (transform.position - _cam.transform.position).normalized;
+        bool visible = Vector3.Dot(_cam.transform.forward, dir) > 0.5f;
+        hpCanvas.gameObject.SetActive(visible && !IsDead);
+    }
+
     // ── Nhận damage ───────────────────────────────────────────
+    public void TakeDamage(float damage) => TakeDamage((int)damage);
+
     public void TakeDamage(int amount, float poiseDamage = 25f)
     {
         if (IsDead) return;
@@ -70,6 +91,9 @@ public class WolfbossHealth : MonoBehaviour
         // Poise
         CurrentPoise     -= poiseDamage;
         _poiseRegenTimer  = poiseRegenDelay;
+
+        if (hpSlider) hpSlider.value = CurrentHealth;
+        if (hpCanvas) hpCanvas.gameObject.SetActive(true);
 
         Debug.Log($"[Health] HP:{CurrentHealth}/{maxHealth} | Poise:{CurrentPoise:F0}/{maxPoise}");
 
@@ -125,6 +149,8 @@ public class WolfbossHealth : MonoBehaviour
     {
         if (IsDead) return;
         IsDead = true;
+        if (hpCanvas) hpCanvas.gameObject.SetActive(false);
+        hpCanvas = null;
         _anim.SetTrigger(paramDie);
         _ai?.OnDead();
         OnDeath?.Invoke();
