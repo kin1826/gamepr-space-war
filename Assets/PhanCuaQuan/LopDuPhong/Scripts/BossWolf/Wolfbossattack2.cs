@@ -19,9 +19,7 @@ public class WolfbossAttack2 : MonoBehaviour
     public AudioSource whooshSFX;
     public AudioSource landSFX;
 
-    [Header("Camera Shake")]
-    public float shakeDuration  = 0.3f;
-    public float shakeMagnitude = 0.4f;
+
 
     public bool IsLunging { get; private set; }
 
@@ -129,7 +127,6 @@ public class WolfbossAttack2 : MonoBehaviour
             Destroy(fx, 2f);
         }
 
-        StartCoroutine(ShakeCamera());
         CheckLandHit();
 
         yield return new WaitForSeconds(0.3f);
@@ -150,13 +147,18 @@ public class WolfbossAttack2 : MonoBehaviour
         Collider[] hits = Physics.OverlapSphere(transform.position, _data.atk2LandRadius);
         foreach (var col in hits)
         {
-            var ph = col.GetComponent<PlayerHealth>();
+            // Chỉ xử lý collider có tag "Player"
+            if (!col.CompareTag("Player")) continue;
+
+            PlayerHealth ph = col.GetComponent<PlayerHealth>()
+                           ?? col.GetComponentInParent<PlayerHealth>();
             if (ph == null) continue;
 
             int finalDmg = Mathf.RoundToInt(_data.atk2Damage * dmgMult);
             ph.TakeDamage(finalDmg);
 
-            Rigidbody rb = col.GetComponent<Rigidbody>();
+            Rigidbody rb = col.GetComponent<Rigidbody>()
+                        ?? col.GetComponentInParent<Rigidbody>();
             if (rb != null)
             {
                 Vector3 dir = (col.transform.position - transform.position).normalized;
@@ -166,26 +168,6 @@ public class WolfbossAttack2 : MonoBehaviour
 
             Debug.Log($"[Attack2] Lunge trúng {col.name}, dmg={finalDmg}");
         }
-    }
-
-    IEnumerator ShakeCamera()
-    {
-        Camera cam = Camera.main;
-        if (cam == null) yield break;
-
-        Vector3 originalPos = cam.transform.localPosition;
-        float   elapsed     = 0f;
-
-        while (elapsed < shakeDuration)
-        {
-            float x = Random.Range(-1f, 1f) * shakeMagnitude;
-            float y = Random.Range(-1f, 1f) * shakeMagnitude;
-            cam.transform.localPosition = new Vector3(x, y, originalPos.z);
-            elapsed += Time.deltaTime;
-            yield return null;
-        }
-
-        cam.transform.localPosition = originalPos;
     }
 
     void FaceTarget(Vector3 target)
