@@ -1896,6 +1896,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   maxHealth: 200
   invincibleDuration: 0.5
+--- !u!4 &133701622 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6416634168765042486, guid: a2325a79881d9d24fb91073591000820, type: 3}
+  m_PrefabInstance: {fileID: 1458159097}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &134466894
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13269,7 +13274,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 7469849676186037689, guid: e6353b0b865067c40b3d7667a5691b3b, type: 3}
   maxEnemies: 5
   spawnInterval: 2
-  player: {fileID: 0}
+  player: {fileID: 133701622}
   zoneSize: {x: 10, y: 0, z: 10}
   autoStart: 1
 --- !u!1 &910403719
