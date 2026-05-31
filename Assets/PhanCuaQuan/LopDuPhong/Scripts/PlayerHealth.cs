@@ -19,12 +19,18 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     public event Action<int, int> OnHealthChanged; // (current, max)
     public event Action           OnDeath;
 
+    [Header("Animation")]
+    [Tooltip("Tên trigger Death trong Animator. Để trống nếu không dùng.")]
+    public string deathAnimParam = "Die";
+
     // ── Private ───────────────────────────────────────────────
-    private float _invincibleTimer;
+    private float    _invincibleTimer;
+    private Animator _anim;
 
     // ─────────────────────────────────────────────────────────
     void Start()
     {
+        _anim         = GetComponentInChildren<Animator>();
         CurrentHealth = maxHealth;
         Manager.Instance?.OnPlayerHealthChanged(CurrentHealth, maxHealth);
     }
@@ -69,11 +75,12 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     {
         if (IsDead) return;
         IsDead = true;
+
+        if (_anim != null && !string.IsNullOrEmpty(deathAnimParam))
+            _anim.SetTrigger(deathAnimParam);
+
         OnDeath?.Invoke();
         Manager.Instance?.OnPlayerDied();
         Debug.Log("[PlayerHealth] Player đã chết!");
-
-        // Gọi animation chết, respawn, game over... tuỳ game sau này
-        // GetComponent<PlayerController>()?.OnDead();
     }
 }
