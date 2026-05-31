@@ -2521,8 +2521,6 @@ MonoBehaviour:
   patrolSpeed: 1.45
   chaseSpeed: 1.5
   attackCooldown: 2
-  attackHitDelay: 0.4
-  attackDamage: 10
   speedParam: Speed
   attackParam: Attack
 --- !u!195 &1851861921053989567
@@ -2585,7 +2583,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   maxHealth: 200
-  destroyDelay: 3
+  ragdollPrefab: {fileID: 796657074297448475, guid: 824d09be49d4c2c42aa76064803272fa, type: 3}
+  ragdollLifetime: 5
   hpCanvas: {fileID: 4115029152574856838}
   hpSlider: {fileID: 8258528674293034215}
   isDead: 0
