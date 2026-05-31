@@ -119,16 +119,21 @@ public class WolfbossAttack3 : MonoBehaviour
     // ── AoE Damage ────────────────────────────────────────────
     void HowlAoeDamage(bool isPhase2)
     {
-        float dmgMult = isPhase2 && _data != null ? _data.phase2DamageMult : 1f;
+        float dmgMult  = isPhase2 && _data != null ? _data.phase2DamageMult : 1f;
         int   finalDmg = Mathf.RoundToInt(aoeDamage * dmgMult);
 
         Collider[] hits = Physics.OverlapSphere(transform.position, aoeDamageRadius);
         foreach (var col in hits)
         {
-            var ph = col.GetComponent<PlayerHealth>();
+            if (!col.CompareTag("Player")) continue;
+
+            PlayerHealth ph = col.GetComponent<PlayerHealth>()
+                           ?? col.GetComponentInParent<PlayerHealth>()
+                           ?? col.GetComponentInChildren<PlayerHealth>();
             if (ph == null) continue;
 
             ph.TakeDamage(finalDmg);
+
             Debug.Log($"[Attack3] AoE trúng {col.name}, dmg={finalDmg}");
         }
     }

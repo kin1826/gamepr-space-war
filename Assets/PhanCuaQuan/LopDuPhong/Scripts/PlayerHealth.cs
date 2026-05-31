@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth : MonoBehaviour, IDamageable
 {
     [Header("Stats")]
     public int maxHealth = 200;
@@ -36,6 +36,8 @@ public class PlayerHealth : MonoBehaviour
     }
 
     // ── Nhận damage từ boss ───────────────────────────────────
+    public void TakeDamage(float damage) => TakeDamage((int)damage);
+
     public void TakeDamage(int amount)
     {
         if (IsDead)                  return;
@@ -68,6 +70,7 @@ public class PlayerHealth : MonoBehaviour
         if (IsDead) return;
         IsDead = true;
         OnDeath?.Invoke();
+        Manager.Instance?.OnPlayerDied();
         Debug.Log("[PlayerHealth] Player đã chết!");
 
         // Gọi animation chết, respawn, game over... tuỳ game sau này

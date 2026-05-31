@@ -4,6 +4,7 @@ using TMPro;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Cinemachine;
+using UnityEngine.SceneManagement;
 
 public class BaseManager : Manager
 {
@@ -32,6 +33,12 @@ public class BaseManager : Manager
     public float blinkSpeed = 2f;
 
     public bool isWaveCleared = false;
+
+    [Header("Death / Respawn")]
+    public int        deathCamIndex = 0;
+    public GameObject deathPanel;
+    public TMP_Text   respawningText;
+    public float      respawnDelay  = 3f;
 
     private Coroutine blinkRoutine;
     private int _activeCamIndex = -1;
@@ -182,6 +189,46 @@ public class BaseManager : Manager
     }
 
     // ── Helper ─────────────────────────────────────────────────────
+    public override void OnPlayerDied()
+    {
+        StartCoroutine(DeathRoutine());
+    }
+
+    IEnumerator DeathRoutine()
+    {
+        DisableAllCams();
+        if (deathCamIndex >= 0 && deathCamIndex < machineCams.Count && machineCams[deathCamIndex])
+        {
+            machineCams[deathCamIndex].enabled  = true;
+            machineCams[deathCamIndex].Priority = 100;
+        }
+
+        yield return new WaitForSecondsRealtime(camTransitionDelay);
+
+        if (deathPanel)
+        {
+            deathPanel.GetComponent<UIPanelFader>().ShowPanel();
+            deathPanel.GetComponentInChildren<ImageFadeToBlack>()?.FadeIn();
+        }
+        gamePlayHUD_Panel.SetActive(false);
+        HideHint();
+
+        if (respawningText) respawningText.gameObject.SetActive(true);
+
+        float elapsed = 0f;
+        int   dots    = 0;
+        while (elapsed < respawnDelay)
+        {
+            if (respawningText)
+                respawningText.text = "Respawning" + new string('.', dots % 4);
+            dots++;
+            elapsed += 0.5f;
+            yield return new WaitForSecondsRealtime(0.5f);
+        }
+
+        FadeManager.Instance.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
     void DisableAllCams()
     {
         foreach (var c in machineCams)
