@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyHealth : MonoBehaviour
+public class EnemyHealth : MonoBehaviour, IDamageable
 {
     [Header("Stats")]
     public float maxHealth   = 200f;
@@ -43,7 +43,7 @@ public class EnemyHealth : MonoBehaviour
         hpCanvas.gameObject.SetActive(visible && !isDead);
     }
 
-    public void TakeDamge(float damage)
+    public void TakeDamage(float damage)
     {
         if (isDead) return;
         _currentHealth = Mathf.Clamp(_currentHealth - damage, 0f, maxHealth);
