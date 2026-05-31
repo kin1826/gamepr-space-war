@@ -23498,7 +23498,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 7469849676186037689, guid: e6353b0b865067c40b3d7667a5691b3b, type: 3}
   maxEnemies: 5
   spawnInterval: 2
-  player: {fileID: 0}
+  player: {fileID: 2016179740}
   zoneSize: {x: 5, y: 0, z: 5}
   autoStart: 0
 --- !u!1 &1007010608 stripped
@@ -24286,7 +24286,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 7469849676186037689, guid: e6353b0b865067c40b3d7667a5691b3b, type: 3}
   maxEnemies: 5
   spawnInterval: 2
-  player: {fileID: 0}
+  player: {fileID: 2016179740}
   zoneSize: {x: 5, y: 0, z: 5}
   autoStart: 0
 --- !u!1001 &1046379228
@@ -24630,7 +24630,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 7469849676186037689, guid: e6353b0b865067c40b3d7667a5691b3b, type: 3}
   maxEnemies: 2
   spawnInterval: 1
-  player: {fileID: 0}
+  player: {fileID: 2016179740}
   zoneSize: {x: 3, y: 0, z: 3}
   autoStart: 0
 --- !u!108 &1076877578 stripped
