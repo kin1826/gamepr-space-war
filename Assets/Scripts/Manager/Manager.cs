@@ -121,4 +121,9 @@ public class Manager : MonoBehaviour
     /// </summary>
     public virtual void OnPlayerHealthChanged(int current, int max) { }
 
+    /// <summary>
+    /// Được gọi khi player chết. Override ở class con để xử lý respawn UI.
+    /// </summary>
+    public virtual void OnPlayerDied() { }
+
 }
