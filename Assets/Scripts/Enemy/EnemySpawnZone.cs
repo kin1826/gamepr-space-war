@@ -25,6 +25,13 @@ public class EnemySpawnZone : MonoBehaviour
     [Tooltip("Kích thước vùng spawn (X, Y, Z). Y = 0 để spawn trên mặt phẳng 2D/ngang")]
     public Vector3 zoneSize = new Vector3(10f, 0f, 10f);
 
+    [Header("Wave Control")]
+    [Tooltip("false nếu dùng WaveRoom để điều khiển thứ tự")]
+    public bool autoStart = true;
+
+    /// <summary>WaveRoom subscribe vào đây để biết khi đợt này xong.</summary>
+    [HideInInspector] public Action onZoneCleared;
+
     // ──────────────────────────────────────────
     // Runtime state
     // ──────────────────────────────────────────
@@ -37,7 +44,7 @@ public class EnemySpawnZone : MonoBehaviour
 
     public void Start()
     {
-        StartWave();
+        if (autoStart) StartWave();
     }
 
     /// <summary>
@@ -136,6 +143,8 @@ public class EnemySpawnZone : MonoBehaviour
     private void NotifyWaveCleared()
     {
         Debug.Log($"[EnemySpawnZone] Đã tiêu diệt hết đợt quái trên {gameObject.name}!");
+
+        onZoneCleared?.Invoke();
 
         if (Manager.Instance != null)
             Manager.Instance.OnWaveCleared();

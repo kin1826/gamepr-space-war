@@ -14,14 +14,16 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        EnemyHealth enemyHealth = collision.gameObject.GetComponentInParent<EnemyHealth>();
-        if (enemyHealth != null)
+        Debug.Log($"[Bullet] Va chạm với: {collision.gameObject.name} | Layer: {LayerMask.LayerToName(collision.gameObject.layer)}");
+        var target = collision.gameObject.GetComponentInParent<IDamageable>();
+        Debug.Log($"[Bullet] IDamageable tìm thấy: {(target != null ? target.GetType().Name : "NULL")}");
+        if (target != null)
         {
-            bool wasDead = enemyHealth.isDead;
-            enemyHealth.TakeDamge(weapon.damage);
+            target.TakeDamage(weapon.damage);
 
-            // Áp lực kickback khi phát đạn này là phát kết liễu
-            if (!wasDead && enemyHealth.isDead)
+            // Kickback chỉ áp dụng cho EnemyHealth (có ragdoll)
+            var enemyHealth = target as EnemyHealth;
+            if (enemyHealth != null && enemyHealth.isDead)
             {
                 Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
                 if (rb) rb.AddForce(dir * weapon.enemyKickbackForce, ForceMode.Impulse);

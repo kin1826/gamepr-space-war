@@ -7945,6 +7945,24 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2295888108945386739, guid: f3c0e1807894a174f9164c9cdb6c28df, type: 3}
   m_PrefabInstance: {fileID: 5903980984221789254}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &684392916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684392910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b031e8866e04b8441a56ee472768b03e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StoryDialogue
+  dialogueText: {fileID: 1019145898}
+  dialogueSets:
+  - setName: Story_1
+    lines:
+    - abc
+    - xyz
 --- !u!1001 &686422566
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10511,6 +10529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 870287801}
+  materialChange: {fileID: 0}
 --- !u!65 &893608931
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11947,6 +11966,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: eec6cd852d2184d43993a3314534c507, type: 3}
   m_PrefabInstance: {fileID: 1577162555}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1019145898 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6586650124464029358, guid: f3c0e1807894a174f9164c9cdb6c28df, type: 3}
+  m_PrefabInstance: {fileID: 5903980984221789254}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &1020531293
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14416,8 +14446,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9efb6b0559aea040abafcb860d6d89b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainSceneManager
-  gamePlayHUD_Panel: {fileID: 1371477829}
-  story_Panel: {fileID: 684392910}
+  defaultHints:
+  - Back to Momship !!!
+  storyPanel: {fileID: 684392910}
   hintText: {fileID: 2086410640}
   blinkSpeed: 2
 --- !u!4 &1247060674
@@ -15588,11 +15619,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: eec6cd852d2184d43993a3314534c507, type: 3}
   m_PrefabInstance: {fileID: 1410025182}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1371477829 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1379328597893493789, guid: 95f51a5284cec004da99d5b578780889, type: 3}
-  m_PrefabInstance: {fileID: 8804188619241588998}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &1371477830 stripped
 RectTransform:
@@ -28703,10 +28729,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Telling_Panel
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2745276345122853917, guid: f3c0e1807894a174f9164c9cdb6c28df, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5771820174208415709, guid: f3c0e1807894a174f9164c9cdb6c28df, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 684392916}
   m_SourcePrefab: {fileID: 100100000, guid: f3c0e1807894a174f9164c9cdb6c28df, type: 3}
 --- !u!1001 &8804188619241588998
 PrefabInstance:
@@ -28719,6 +28749,18 @@ PrefabInstance:
     - target: {fileID: 1379328597893493789, guid: 95f51a5284cec004da99d5b578780889, type: 3}
       propertyPath: m_Name
       value: HUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379328597893493789, guid: 95f51a5284cec004da99d5b578780889, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536029252859810424, guid: 95f51a5284cec004da99d5b578780889, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.405
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536029252859810424, guid: 95f51a5284cec004da99d5b578780889, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5570811175459682601, guid: 95f51a5284cec004da99d5b578780889, type: 3}
       propertyPath: m_Pivot.x

@@ -6,14 +6,11 @@ public class MainSceneManager : Manager
 {
     public static MainSceneManager Instance;
 
-    [Header("UI Panels")]
-    public GameObject gamePlayHUD_Panel;
-
-    public GameObject story_Panel;
+    [Header("UI")]
+    public GameObject storyPanel;
 
     [Header("Hint UI")]
     public TMP_Text hintText;
-
     public float blinkSpeed = 2f;
 
     private Coroutine blinkRoutine;
@@ -21,62 +18,50 @@ public class MainSceneManager : Manager
     protected override void Awake()
     {
         base.Awake();
+        Instance = this;
     }
 
     IEnumerator Start()
     {
         while (FadeManager.Instance.isFading)
-        {
             yield return null;
-        }
 
-        ShowStory();
+        ShowStory(0);
     }
 
-    public override void ShowStory()
+    public override void ShowStory(int index = 0)
     {
-        // story_Panel.SetActive(true);
-        story_Panel.GetComponent<UIPanelFader>().ShowPanel();
+        storyPanel.GetComponent<StoryDialogue>()?.LoadDialogueSet(index);
+        storyPanel.GetComponent<UIPanelFader>().ShowPanel();
         ShowHint("Click [F] to continue...");
 
-        gamePlayHUD_Panel.SetActive(false);
-
         Time.timeScale = 0f;
-
         Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        Cursor.visible   = true;
     }
 
     public override void ContinueGame()
     {
-        story_Panel.GetComponent<UIPanelFader>().HidePanel();
-        ShowHint("Use [WASD] to move, [Mouse] to look around, [Left Click] to shoot.");
-
-        gamePlayHUD_Panel.SetActive(true);
+        storyPanel.GetComponent<UIPanelFader>().HidePanel();
+        ShowHint("Move to the mom ship");
 
         Time.timeScale = 1f;
-
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        Cursor.visible   = false;
     }
 
     public override void ShowHint(string text)
     {
         hintText.text = text;
-
         hintText.gameObject.SetActive(true);
 
-        if (blinkRoutine != null)
-            StopCoroutine(blinkRoutine);
-
+        if (blinkRoutine != null) StopCoroutine(blinkRoutine);
         blinkRoutine = StartCoroutine(BlinkHint());
     }
 
     public override void HideHint()
     {
-        if (blinkRoutine != null)
-            StopCoroutine(blinkRoutine);
-
+        if (blinkRoutine != null) StopCoroutine(blinkRoutine);
         hintText.gameObject.SetActive(false);
     }
 
@@ -85,14 +70,8 @@ public class MainSceneManager : Manager
         while (true)
         {
             Color c = hintText.color;
-
-            c.a = Mathf.PingPong(
-                Time.unscaledTime * blinkSpeed,
-                1f
-            );
-
+            c.a = Mathf.PingPong(Time.unscaledTime * blinkSpeed, 1f);
             hintText.color = c;
-
             yield return null;
         }
     }

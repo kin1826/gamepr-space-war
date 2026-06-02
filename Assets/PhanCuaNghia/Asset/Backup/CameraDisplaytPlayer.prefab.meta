@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/PhanCuaNghia/Asset/Backup/CameraDisplaytPlayer.prefab.meta
 guid: 46c0e9bc307222548bd4f5e151dd0bf3
 PrefabImporter:
+========
+guid: dd4919022485e0e4c87e8d390aabad82
+DefaultImporter:
+>>>>>>>> origin/develop:Assets/_Recovery/0 (11).unity.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

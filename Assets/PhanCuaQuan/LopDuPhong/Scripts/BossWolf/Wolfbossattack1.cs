@@ -7,17 +7,20 @@ public class WolfbossAttack1 : MonoBehaviour
     public int   damage    = 30;
     public float knockback = 5f;
 
+    [Header("Hit Radius — OverlapSphere")]
+    [Tooltip("Bán kính kiểm tra damage khi vồ")]
+    public float hitRadius = 1.2f;
+
     [Header("Layer")]
     public LayerMask playerLayer;
 
     [Header("VFX")]
-    public GameObject slashVFX; // kéo prefab slash vào đây
+    public GameObject slashVFX;
 
     [Header("SFX")]
     public AudioSource swooshSFX;
-    public AudioSource hitSFX;     // tiếng bịch khi trúng player
+    public AudioSource hitSFX;
 
-    // ── Private ───────────────────────────────────────────────
     private Collider _hitbox;
     private bool     _hasHit;
     private float    _buffMult = 1f;
@@ -25,27 +28,82 @@ public class WolfbossAttack1 : MonoBehaviour
     void Awake()
     {
         _hitbox         = GetComponent<Collider>();
-        _hitbox.enabled = false;
+        if (_hitbox != null) _hitbox.enabled = false;
     }
 
     // ── Gọi từ Animation Event ────────────────────────────────
     public void EnableHitbox()
     {
-    _hitbox.enabled = true;
-    _hasHit         = false;
-    if (swooshSFX != null) swooshSFX.Play();
-    if (slashVFX != null)
-    {
-        GameObject fx = Instantiate(slashVFX, transform.position, transform.rotation);
-        Destroy(fx, 1f);
-    }
-    Debug.Log("[Attack1] Hitbox ON");
+        _hasHit = false;
+        if (_hitbox != null) _hitbox.enabled = true;
+        if (swooshSFX != null) swooshSFX.Play();
+        if (slashVFX != null)
+        {
+            GameObject fx = Instantiate(slashVFX, transform.position, transform.rotation);
+            Destroy(fx, 1f);
+        }
+        Debug.Log("[Attack1] Hitbox ON");
+
+        // OverlapSphere ngay lập tức — tương thích CharacterController
+        CheckHitOverlap();
     }
 
     public void DisableHitbox()
     {
-        _hitbox.enabled = false;
+        if (_hitbox != null) _hitbox.enabled = false;
         Debug.Log("[Attack1] Hitbox OFF");
+    }
+
+    void CheckHitOverlap()
+    {
+        if (_hasHit) return;
+
+        Collider[] hits = Physics.OverlapSphere(transform.position, hitRadius);
+        foreach (var col in hits)
+        {
+            if (!col.CompareTag("Player")) continue;
+
+            // Tìm PlayerHealth từ collider lên/xuống root
+            PlayerHealth ph = col.GetComponent<PlayerHealth>()
+                           ?? col.GetComponentInParent<PlayerHealth>()
+                           ?? col.GetComponentInChildren<PlayerHealth>();
+            if (ph == null) continue;
+
+            _hasHit = true;
+            if (_hitbox != null) _hitbox.enabled = false;
+
+            int finalDmg = Mathf.RoundToInt(damage * _buffMult);
+            ph.TakeDamage(finalDmg);
+            if (hitSFX != null) hitSFX.Play();
+
+            Debug.Log($"[Attack1] Trúng {col.name}, dmg={finalDmg}");
+
+            Rigidbody rb = col.GetComponentInParent<Rigidbody>();
+            if (rb != null)
+            {
+                Vector3 dir = (col.transform.position - transform.position).normalized;
+                dir.y = 0.3f;
+                rb.AddForce(dir * knockback, ForceMode.Impulse);
+            }
+            break;
+        }
+    }
+
+    // Fallback OnTriggerEnter (nếu player có Rigidbody)
+    void OnTriggerEnter(Collider other)
+    {
+        if (_hasHit || !other.CompareTag("Player")) return;
+        PlayerHealth ph = other.GetComponent<PlayerHealth>()
+                       ?? other.GetComponentInParent<PlayerHealth>()
+                       ?? other.GetComponentInChildren<PlayerHealth>();
+        if (ph == null) return;
+
+        _hasHit = true;
+        if (_hitbox != null) _hitbox.enabled = false;
+        int finalDmg = Mathf.RoundToInt(damage * _buffMult);
+        ph.TakeDamage(finalDmg);
+        if (hitSFX != null) hitSFX.Play();
+        Debug.Log($"[Attack1] Trúng {other.name}, dmg={finalDmg}");
     }
 
     // ── Buff damage từ Attack3 Phase 2 ────────────────────────
@@ -63,28 +121,9 @@ public class WolfbossAttack1 : MonoBehaviour
         Debug.Log("[Attack1] Buff hết hạn");
     }
 
-    // ── Va chạm ───────────────────────────────────────────────
-    void OnTriggerEnter(Collider other)
+    void OnDrawGizmosSelected()
     {
-        if (_hasHit) return;
-        if ((playerLayer.value & (1 << other.gameObject.layer)) == 0) return;
-
-        _hasHit         = true;
-        _hitbox.enabled = false;
-
-        int finalDmg = Mathf.RoundToInt(damage * _buffMult);
-        Debug.Log($"[Attack1] Trúng {other.name}, dmg={finalDmg}");
-
-        other.GetComponent<PlayerHealth>()?.TakeDamage(finalDmg);
-
-        if (hitSFX != null) hitSFX.Play();
-
-        Rigidbody rb = other.GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            Vector3 dir = (other.transform.position - transform.position).normalized;
-            dir.y = 0.3f;
-            rb.AddForce(dir * knockback, ForceMode.Impulse);
-        }
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, hitRadius);
     }
 }

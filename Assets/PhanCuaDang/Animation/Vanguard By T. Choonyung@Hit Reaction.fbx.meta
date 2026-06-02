@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 141794702dbf00f44b804b8013c756f9
+guid: 7e50c070d308dde4095168ab1c480585
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -84,17 +84,17 @@ ModelImporter:
     serializedVersion: 3
     human: []
     skeleton: []
-    armTwist: 1
-    foreArmTwist: 0
-    upperLegTwist: 1
-    legTwist: 0
-    armStretch: 0
-    legStretch: 0
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
     feetSpacing: 0
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
