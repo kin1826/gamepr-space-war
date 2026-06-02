@@ -105,7 +105,7 @@ TextureImporter:
         width: 713
         height: 410
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -127,7 +127,7 @@ TextureImporter:
         width: 239
         height: 712
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -146,10 +146,10 @@ TextureImporter:
         serializedVersion: 2
         x: 220
         y: 203
-        width: 748
-        height: 108
+        width: 255
+        height: 109
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -171,7 +171,7 @@ TextureImporter:
         width: 310
         height: 145
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -193,7 +193,7 @@ TextureImporter:
         width: 173
         height: 72
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -202,6 +202,28 @@ TextureImporter:
       bones: []
       spriteID: 4dd45909b1cdcfb49b8275f81bea1b8a
       internalID: -1208039213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: image-Photoroom (1)_5
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 203
+        width: 490
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e328a980b827504fa6eca9090c8609d
+      internalID: -1882301796
       vertices: []
       indices: 
       edges: []
@@ -225,6 +247,7 @@ TextureImporter:
       image-Photoroom (1)_2: -1098274250
       image-Photoroom (1)_3: -929088377
       image-Photoroom (1)_4: -1208039213
+      image-Photoroom (1)_5: -1882301796
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
