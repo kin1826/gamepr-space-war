@@ -218,11 +218,16 @@ public class WolfbossAI : MonoBehaviour
 
     public void OnDead()
     {
-        _state           = State.Dead;
-        _agent.isStopped = true;
-        _agent.velocity  = Vector3.zero;
-        _agent.enabled   = false;
+        _state = State.Dead;
+        // Dừng trước khi disable để tránh lỗi "Stop on inactive agent"
+        if (_agent.enabled && _agent.isOnNavMesh)
+        {
+            _agent.isStopped = true;
+            _agent.velocity  = Vector3.zero;
+        }
+        _agent.enabled = false;
         _anim.SetBool(paramBattleIdle, false);
+        StopAllCoroutines();
     }
 
     // ── STATE TRANSITIONS ────────────────────────────────────

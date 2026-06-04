@@ -1,4 +1,3 @@
-// WolfbossHealth.cs
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -10,49 +9,49 @@ public class WolfbossHealth : MonoBehaviour, IDamageable
     public int maxHealth = 500;
 
     [Header("Poise — Dark Souls style")]
-    [Tooltip("Poise tối đa, mỗi lần bị hit trừ poisedamage của đòn")]
     public float maxPoise        = 100f;
-    [Tooltip("Poise hồi phục mỗi giây khi không bị hit")]
     public float poiseRegenRate  = 20f;
-    [Tooltip("Delay trước khi poise bắt đầu hồi")]
     public float poiseRegenDelay = 2f;
 
     [Header("Phase 2")]
-    [Tooltip("Dưới % này đổi sang Phase 2")]
     [Range(0f, 1f)]
     public float phase2Threshold = 0.3f;
 
     [Header("Animator")]
     public string paramHit  = "Hit";
     public string paramDie  = "Die";
-    public string paramRage = "Rage"; // trigger chuyển Phase 2
+    public string paramRage = "Rage";
 
     [Header("UI")]
-    public Slider     hpSlider;
-    public TMP_Text   bossNameText;
-    public TMP_Text   healthText;
-    [Tooltip("Tên hiển thị trên UI")]
-    public string     bossName = "Wolf Boss";
+    public Slider   hpSlider;
+    public TMP_Text bossNameText;
+    public TMP_Text healthText;
+    public string   bossName = "Wolf Boss";
+
+    [Header("Hit Blink Effect")]
+    public float blinkIntensity = 3f;
+    public float blinkDuration  = 0.15f;
 
     [Header("On Death")]
     public float destroyDelay = 5f;
 
     // ── Public ────────────────────────────────────────────────
-    public int   CurrentHealth  { get; private set; }
-    public float CurrentPoise   { get; private set; }
-    public bool  IsDead         { get; private set; }
-    public bool  IsPhase2       { get; private set; }
-    public float HealthPercent  => (float)CurrentHealth / maxHealth;
+    public int   CurrentHealth { get; private set; }
+    public float CurrentPoise  { get; private set; }
+    public bool  IsDead        { get; private set; }
+    public bool  IsPhase2      { get; private set; }
+    public float HealthPercent => (float)CurrentHealth / maxHealth;
 
-    // Events
     public event Action OnPhase2Enter;
     public event Action OnDeath;
 
     // ── Private ───────────────────────────────────────────────
-    private Animator   _anim;
-    private WolfbossAI _ai;
-    private float      _poiseRegenTimer;
-    private bool       _poiseBroken;
+    private Animator             _anim;
+    private WolfbossAI           _ai;
+    private float                _poiseRegenTimer;
+    private bool                 _poiseBroken;
+    private float                _blinkTimer;
+    private SkinnedMeshRenderer  _smr;
 
     void Start()
     {
@@ -60,6 +59,20 @@ public class WolfbossHealth : MonoBehaviour, IDamageable
         CurrentPoise  = maxPoise;
         _anim = GetComponent<Animator>();
         _ai   = GetComponent<WolfbossAI>();
+
+        // Lấy SkinnedMeshRenderer lớn nhất (body chính)
+        var smrs = GetComponentsInChildren<SkinnedMeshRenderer>();
+        if (smrs.Length > 0)
+        {
+            _smr = smrs[0];
+            foreach (var s in smrs)
+                if (s.bounds.size.magnitude > _smr.bounds.size.magnitude)
+                    _smr = s;
+        }
+
+        // Bật keyword Emission để SetColor có hiệu lực trong URP
+        if (_smr != null)
+            _smr.material.EnableKeyword("_EMISSION");
 
         if (hpSlider)     { hpSlider.maxValue = maxHealth; hpSlider.value = maxHealth; }
         if (bossNameText) bossNameText.text = bossName;
@@ -70,8 +83,21 @@ public class WolfbossHealth : MonoBehaviour, IDamageable
     {
         if (IsDead) return;
         RegeneratePoise();
+        UpdateBlink();
     }
 
+    void UpdateBlink()
+    {
+        if (_smr == null) return;
+        float safeDuration = blinkDuration > 0f ? blinkDuration : 0.1f;
+        float lerp         = Mathf.Clamp01(_blinkTimer / safeDuration);
+        float intensity    = lerp * blinkIntensity;
+        _blinkTimer        = Mathf.Max(0f, _blinkTimer - Time.deltaTime);
+
+        // URP/Lit dùng _EmissionColor — không có _BlinkColor
+        Color emissive = Color.white * intensity;
+        _smr.material.SetColor("_EmissionColor", emissive);
+    }
 
     // ── Nhận damage ───────────────────────────────────────────
     public void TakeDamage(float damage) => TakeDamage((int)damage);
@@ -80,52 +106,45 @@ public class WolfbossHealth : MonoBehaviour, IDamageable
     {
         if (IsDead) return;
 
-        CurrentHealth -= amount;
-        CurrentHealth  = Mathf.Clamp(CurrentHealth, 0, maxHealth);
+        CurrentHealth  = Mathf.Clamp(CurrentHealth - amount, 0, maxHealth);
+        CurrentPoise  -= poiseDamage;
+        _poiseRegenTimer = poiseRegenDelay;
 
-        // Poise
-        CurrentPoise     -= poiseDamage;
-        _poiseRegenTimer  = poiseRegenDelay;
+        if (hpSlider)   hpSlider.value  = CurrentHealth;
+        if (healthText) healthText.text = CurrentHealth.ToString();
 
-        if (hpSlider)   hpSlider.value    = CurrentHealth;
-        if (healthText) healthText.text   = CurrentHealth.ToString();
+        // Bật blink
+        _blinkTimer = blinkDuration;
 
         Debug.Log($"[Health] HP:{CurrentHealth}/{maxHealth} | Poise:{CurrentPoise:F0}/{maxPoise}");
 
         if (CurrentHealth <= 0) { Die(); return; }
 
-        // Check Phase 2
         if (!IsPhase2 && HealthPercent <= phase2Threshold)
             EnterPhase2();
 
-        // Poise broken — stagger
         if (CurrentPoise <= 0f && !_poiseBroken)
             TriggerPoiseBroken();
         else if (CurrentPoise > 0f)
-            _anim.SetTrigger(paramHit); // hit nhỏ, không stagger
+            _anim.SetTrigger(paramHit);
     }
 
     // ── Poise ─────────────────────────────────────────────────
     void RegeneratePoise()
     {
-        if (_poiseRegenTimer > 0f)
-        {
-            _poiseRegenTimer -= Time.deltaTime;
-            return;
-        }
-
+        if (_poiseRegenTimer > 0f) { _poiseRegenTimer -= Time.deltaTime; return; }
         if (CurrentPoise < maxPoise)
         {
-            CurrentPoise  = Mathf.Min(CurrentPoise + poiseRegenRate * Time.deltaTime, maxPoise);
-            _poiseBroken  = false;
+            CurrentPoise = Mathf.Min(CurrentPoise + poiseRegenRate * Time.deltaTime, maxPoise);
+            _poiseBroken = false;
         }
     }
 
     void TriggerPoiseBroken()
     {
         _poiseBroken = true;
-        CurrentPoise = maxPoise * 0.5f; // hồi 50% poise ngay sau stagger
-        _anim.SetTrigger(paramHit);     // animation stagger (dùng chung Hit)
+        CurrentPoise = maxPoise * 0.5f;
+        _anim.SetTrigger(paramHit);
         _ai?.OnPoiseBreak();
         Debug.Log("[Health] Poise BROKEN — Stagger!");
     }
@@ -148,11 +167,12 @@ public class WolfbossHealth : MonoBehaviour, IDamageable
         _ai?.OnDead();
         OnDeath?.Invoke();
         Debug.Log("[Health] Boss đã chết!");
+
         if (destroyDelay > 0f) Destroy(gameObject, destroyDelay);
 
         if (Manager.Instance != null)
             Manager.Instance.OnWaveCleared();
         else
-            Debug.LogWarning("[EnemySpawnZone] Không tìm thấy Manager.Instance!");
+            Debug.LogWarning("[WolfbossHealth] Không tìm thấy Manager.Instance!");
     }
 }
