@@ -9,6 +9,9 @@ public class MainSceneManager : Manager
     [Header("UI")]
     public GameObject storyPanel;
 
+    [Header("Pause")]
+    public GameObject pausePanel;
+
     [Header("Hint UI")]
     public TMP_Text hintText;
     public float blinkSpeed = 2f;
@@ -63,6 +66,16 @@ public class MainSceneManager : Manager
     {
         if (blinkRoutine != null) StopCoroutine(blinkRoutine);
         hintText.gameObject.SetActive(false);
+    }
+
+    public override void OnPauseGame()
+    {
+        if (pausePanel) pausePanel.GetComponent<UIPanelFader>().ShowPanel();
+    }
+
+    public override void OnResumeGame()
+    {
+        if (pausePanel) pausePanel.GetComponent<UIPanelFader>().HidePanel();
     }
 
     IEnumerator BlinkHint()

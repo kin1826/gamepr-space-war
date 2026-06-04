@@ -7,71 +7,103 @@ using System.Collections;
 public class Loading_Manager : MonoBehaviour
 {
     [Header("UI")]
-    public GameObject loadingPanel;
-    public Slider loadingSlider;
-    public TextMeshProUGUI loadingText;
+    [SerializeField] private GameObject loadingPanel;
+    [SerializeField] private Image loadingFill;
+    [SerializeField] private TextMeshProUGUI loadingText;
 
     [Header("Scene")]
-    public string sceneName = "MainScene";
-
+    [SerializeField] private string sceneName = "MainScene";
+    
     [Header("Loading Speed")]
-    public float loadingSpeed = 0.5f;
+    [SerializeField] private float loadingSpeed = 0.5f;
 
     private bool isLoading = false;
 
-    void Start()
+    private void Start()
     {
-        // Ẩn panel lúc đầu
-        loadingPanel.SetActive(false);
+        if (loadingPanel != null)
+        {
+            loadingPanel.SetActive(false);
+        }
+        else
+        {
+            Debug.LogError("Loading Panel chưa được gán!");
+        }
 
-        if (loadingSlider) loadingSlider.value = 0;
+        if (loadingFill != null)
+        {
+            loadingFill.fillAmount = 0;
+        }
 
-        // Reset text
-        loadingText.text = "Loading 0%";
+        if (loadingText != null)
+        {
+            loadingText.text = "Loading 0%";
+        }
+        else
+        {
+            Debug.LogError("Loading Text chưa được gán!");
+        }
     }
 
     public void StartLoading()
     {
-        // Tránh spam click
         if (isLoading) return;
 
         isLoading = true;
 
-        // Bật panel trước
-        loadingPanel.SetActive(true);
+        if (loadingPanel != null)
+        {
+            loadingPanel.SetActive(true);
+        }
 
-        // Chạy coroutine
         StartCoroutine(LoadingCoroutine());
     }
 
-    IEnumerator LoadingCoroutine()
+    private IEnumerator LoadingCoroutine()
     {
-        if (loadingSlider) loadingSlider.value = 0;
+        if (loadingFill != null)
+        {
+            loadingFill.fillAmount = 0;
+        }
 
         float progress = 0f;
 
         while (progress < 1f)
         {
             progress += Time.deltaTime * loadingSpeed;
-            progress  = Mathf.Clamp01(progress);
+            progress = Mathf.Clamp01(progress);
 
-            if (loadingSlider) loadingSlider.value = progress;
+            if (loadingFill != null)
+            {
+                loadingFill.fillAmount = progress;
+            }
 
             int percent = Mathf.RoundToInt(progress * 100);
 
-            // Update text
-            loadingText.text = "Loading " + percent + "%";
+            if (loadingText != null)
+            {
+                loadingText.text = $"Loading {percent}%";
+            }
 
             yield return null;
         }
 
-        // Hoàn thành
-        loadingText.text = "Complete";
+        if (loadingText != null)
+        {
+            loadingText.text = "Complete";
+        }
 
         yield return new WaitForSeconds(0.5f);
 
-        // Chuyển scene
-        FadeManager.Instance.LoadScene(sceneName);
-        // SceneManager.LoadScene(sceneName);
+        // Nếu có FadeManager
+        if (FadeManager.Instance != null)
+        {
+            FadeManager.Instance.LoadScene(sceneName);
+        }
+        else
+        {
+            Debug.LogWarning("Không tìm thấy FadeManager. Load Scene trực tiếp.");
+            SceneManager.LoadScene(sceneName);
+        }
     }
 }
