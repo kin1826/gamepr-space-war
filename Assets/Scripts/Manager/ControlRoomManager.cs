@@ -228,6 +228,9 @@ public class ControlRoomManager : Manager
             yield return new WaitForSecondsRealtime(0.5f);
         }
 
+        PlayerPrefs.SetInt("ShowReward", 1);
+        PlayerPrefs.Save();
+
         FadeManager.Instance.LoadScene("CanvasLobby");
     }
 

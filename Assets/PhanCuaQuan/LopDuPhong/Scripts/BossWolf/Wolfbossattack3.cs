@@ -107,7 +107,7 @@ public class WolfbossAttack3 : MonoBehaviour
         yield return new WaitForSeconds(halfDuration);
 
         // ── Mở khóa di chuyển ─────────────────────────────────
-        if (_agent != null)
+        if (_agent != null && _agent.isActiveAndEnabled && _agent.isOnNavMesh)
             _agent.isStopped = false;
 
         // ── Xóa VFX ───────────────────────────────────────────

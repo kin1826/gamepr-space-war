@@ -29014,6 +29014,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Telling_Panel
       objectReference: {fileID: 0}
+    - target: {fileID: 7893288426787475362, guid: f3c0e1807894a174f9164c9cdb6c28df, type: 3}
+      propertyPath: m_text
+      value: Caption Nana-chan
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

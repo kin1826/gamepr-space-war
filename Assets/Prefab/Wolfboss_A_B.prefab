@@ -1623,6 +1623,7 @@ GameObject:
   - component: {fileID: 509676287177992006}
   - component: {fileID: 4509751592578379543}
   - component: {fileID: 1638626200906498399}
+  - component: {fileID: 3446906960619735705}
   m_Layer: 0
   m_Name: Wolfboss_A_B
   m_TagString: Untagged
@@ -1714,11 +1715,12 @@ MonoBehaviour:
   paramHit: Hit
   paramDie: Die
   paramRage: Rage
-  hpCanvas: {fileID: 0}
   hpSlider: {fileID: 0}
   bossNameText: {fileID: 0}
   healthText: {fileID: 0}
   bossName: Wolf Boss
+  blinkIntensity: 3
+  blinkDuration: 0.15
   destroyDelay: 5
 --- !u!114 &5783866021929105820
 MonoBehaviour:
@@ -1805,6 +1807,20 @@ MonoBehaviour:
   auraVFX: {fileID: 6630968421340218275}
   auraOffset: {x: 0, y: 0.5, z: 0}
   auraScale: {x: 3, y: 2, z: 2}
+--- !u!114 &3446906960619735705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5003244569356148472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45eab25e84281774d8b316bab7b77f46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyReward
+  minGold: 10
+  maxGold: 20
 --- !u!1 &5081734579096425340
 GameObject:
   m_ObjectHideFlags: 0
