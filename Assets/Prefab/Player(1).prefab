@@ -1170,6 +1170,7 @@ GameObject:
   - component: {fileID: 8969150114401711115}
   - component: {fileID: 7724886708276198575}
   - component: {fileID: 5343060202024781970}
+  - component: {fileID: 3744756444683158462}
   m_Layer: 8
   m_Name: Player(1)
   m_TagString: Player
@@ -1501,6 +1502,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponClassManager
   leftHandIK: {fileID: 759890477327691609}
   recoiFollowPos: {fileID: 6488625248671980153}
+--- !u!114 &3744756444683158462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2419281502137809230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3babdb2be31da24c90de32729de5849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PauseController
 --- !u!1 &2501629144158275470
 GameObject:
   m_ObjectHideFlags: 0

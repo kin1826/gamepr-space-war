@@ -35,6 +35,9 @@ public class MapManager : Manager
     public bool isFirstDoor   = true;
     public bool isWaveCleared = false;
 
+    [Header("Pause")]
+    public GameObject pausePanel;
+
     [Header("Death / Respawn")]
     public int        deathCamIndex = 0;
     public GameObject deathPanel;
@@ -176,6 +179,17 @@ public class MapManager : Manager
         if (healthText)   healthText.text = current.ToString();
     }
 
+    // ── Pause ──────────────────────────────────────────────────────
+    public override void OnPauseGame()
+    {
+        if (pausePanel) pausePanel.GetComponent<UIPanelFader>().ShowPanel();
+    }
+
+    public override void OnResumeGame()
+    {
+        if (pausePanel) pausePanel.GetComponent<UIPanelFader>().HidePanel();
+    }
+
     // ── Wave ───────────────────────────────────────────────────────
     public override void OnWaveCleared()
     {
@@ -207,6 +221,8 @@ public class MapManager : Manager
             deathPanel.GetComponent<UIPanelFader>().ShowPanel();
             deathPanel.GetComponentInChildren<ImageFadeToBlack>()?.FadeIn();
         }
+        gamePlayHUD_Panel.SetActive(false);
+        HideHint();
 
         if (respawningText) respawningText.gameObject.SetActive(true);
 
