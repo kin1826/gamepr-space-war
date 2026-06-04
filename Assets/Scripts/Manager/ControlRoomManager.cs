@@ -47,6 +47,11 @@ public class ControlRoomManager : Manager
     private Coroutine blinkRoutine;
     private int _activeCamIndex = -1;
 
+    [Header("Done Screen")]
+    public GameObject donePanel;
+    public TMP_Text   doneText;
+    public float      doneDuration = 5f;
+
     [Tooltip("Index của soldier panel cuối cùng — xong panel này sẽ load scene")]
     public int finalPanelIndex  = 1;
 
@@ -114,7 +119,7 @@ public class ControlRoomManager : Manager
 
         if (_soidlerShown)
         {
-            FadeManager.Instance.LoadScene("CanvasLobby");
+            StartCoroutine(DoneRoutine());
         }
     }
 
@@ -198,6 +203,26 @@ public class ControlRoomManager : Manager
     {
         if (healthSlider) { healthSlider.maxValue = max; healthSlider.value = current; }
         if (healthText)   healthText.text = current.ToString();
+    }
+
+    // ── Done Screen ────────────────────────────────────────────────
+    IEnumerator DoneRoutine()
+    {
+        if (donePanel) donePanel.GetComponent<UIPanelFader>()?.ShowPanel();
+        if (doneText)  doneText.gameObject.SetActive(true);
+
+        float elapsed = 0f;
+        int   dots    = 0;
+        while (elapsed < doneDuration)
+        {
+            if (doneText)
+                doneText.text = "Clearing the battlefield" + new string('.', dots % 4);
+            dots++;
+            elapsed += 0.5f;
+            yield return new WaitForSecondsRealtime(0.5f);
+        }
+
+        FadeManager.Instance.LoadScene("CanvasLobby");
     }
 
     // ── Pause ──────────────────────────────────────────────────────

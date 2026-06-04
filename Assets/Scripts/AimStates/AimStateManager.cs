@@ -81,6 +81,8 @@ else
 
     void Update()
     {
+        if (Manager.Instance != null && Manager.Instance.IsPaused) return;
+
         MouseInput();
         CameraFov();
         AimPosition();
@@ -93,6 +95,8 @@ else
 
     private void LateUpdate()
     {
+        if (Manager.Instance != null && Manager.Instance.IsPaused) return;
+
         CameraRotation();
         MoveCamera();
     }
