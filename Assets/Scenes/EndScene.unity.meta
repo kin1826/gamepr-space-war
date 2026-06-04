@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/PhanCuaNghia/Asset/Backup.meta
+guid: 751c728c82a3b664791045e9e84d3844
+folderAsset: yes
+========
 guid: dac251fbf37793c41a807f537b2ba0a4
+>>>>>>>> origin/develop:Assets/Scenes/EndScene.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
