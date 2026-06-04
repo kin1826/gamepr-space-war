@@ -1,16 +1,18 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Button_Equipment : MonoBehaviour
+public class Button_Equipment : MonoBehaviour, IPointerClickHandler
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [Header("Panels")]
+    public GameObject lobbyPanel;
+    public GameObject equipmentPanel;
 
-    // Update is called once per frame
-    void Update()
+    public void OnPointerClick(PointerEventData eventData)
     {
-        
+        if (lobbyPanel != null)
+            lobbyPanel.SetActive(false);
+
+        if (equipmentPanel != null)
+            equipmentPanel.SetActive(true);
     }
 }

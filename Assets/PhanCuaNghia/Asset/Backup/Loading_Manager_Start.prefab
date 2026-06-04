@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6757048697659987560}
   - component: {fileID: 7191215675283114883}
   m_Layer: 5
-  m_Name: LoadingManager
+  m_Name: Loading_Manager_Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Loading_Manager
   loadingPanel: {fileID: 0}
-  fillBar: {fileID: 0}
+  loadingFill: {fileID: 0}
   loadingText: {fileID: 0}
   sceneName: MainScene
   loadingSpeed: 0.5

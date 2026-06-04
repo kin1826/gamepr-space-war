@@ -1,16 +1,16 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Button_Exit : MonoBehaviour, IPointerClickHandler
+public class Button_Back : MonoBehaviour, IPointerClickHandler
 {
     [Header("Panels")]
     public GameObject lobbyPanel;
-    public GameObject eventPanel;
+    public GameObject equipmentPanel;
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (eventPanel != null)
-            eventPanel.SetActive(false);
+        if (equipmentPanel != null)
+            equipmentPanel.SetActive(false);
 
         if (lobbyPanel != null)
             lobbyPanel.SetActive(true);
