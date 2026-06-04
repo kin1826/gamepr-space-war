@@ -60,12 +60,16 @@ public class MapManager : Manager
 
         storyPanel.SetActive(false);
         soidlerPanel.SetActive(false);
+        if (pausePanel) pausePanel.SetActive(false);
+        if (deathPanel) deathPanel.SetActive(false);
         foreach (var c in machineCams) if (c) c.enabled = false;
 
         gamePlayHUD_Panel.SetActive(false);
 
         HideHint();
         ShowStory(0);
+
+        AudioManager.Instance.PlayTrack(0);
     }
 
     // ── Story ──────────────────────────────────────────────────────
@@ -195,6 +199,7 @@ public class MapManager : Manager
     {
         isWaveCleared = true;
         NextDefaultHint();
+        AudioManager.Instance.SwitchTrack(0);
     }
 
     // ── Death / Respawn ────────────────────────────────────────────

@@ -7,36 +7,44 @@ public class ButtonEffect : MonoBehaviour,
     IPointerDownHandler,
     IPointerUpHandler
 {
-    public Vector3 normalScale = Vector3.one;
-    public Vector3 hoverScale = new Vector3(1.1f, 1.1f, 1.1f);
-    public Vector3 pressedScale = new Vector3(0.9f, 0.9f, 0.9f);
+    private Vector3 normalScale  = Vector3.one;
+    private Vector3 hoverScale   = new Vector3(1.05f, 1.05f, 1.05f);
+    private Vector3 pressedScale = new Vector3(0.95f, 0.95f, 0.95f);
+    private float   lerpSpeed    = 16f;
 
-    private bool isHovering;
+    private Vector3 _targetScale;
+    private bool    _isHovering;
 
     void Start()
     {
-        normalScale = transform.localScale;
+        normalScale  = transform.localScale;
+        _targetScale = normalScale;
+    }
+
+    void Update()
+    {
+        transform.localScale = Vector3.Lerp(transform.localScale, _targetScale, Time.unscaledDeltaTime * lerpSpeed);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        isHovering = true;
-        transform.localScale = hoverScale;
+        _isHovering  = true;
+        _targetScale = hoverScale;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        isHovering = false;
-        transform.localScale = normalScale;
+        _isHovering  = false;
+        _targetScale = normalScale;
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        transform.localScale = pressedScale;
+        _targetScale = pressedScale;
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        transform.localScale = isHovering ? hoverScale : normalScale;
+        _targetScale = _isHovering ? hoverScale : normalScale;
     }
 }

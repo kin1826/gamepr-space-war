@@ -69,5 +69,7 @@ public class WaveRoom : MonoBehaviour
 
         foreach (var indicator in doorIndicators)
             if (indicator) indicator.SetState(true);
+
+        Manager.Instance?.OnWaveCleared();
     }
 }

@@ -105,7 +105,7 @@ public class EnemySpawnZone : MonoBehaviour
 
         // Gán player cho AILocomotion
         var ai = go.GetComponentInChildren<AILocomotion>();
-        if (ai != null) ai.playerTransform = player;
+        if (ai) ai.playerTransform = player;
 
         // Subscribe sự kiện chết
         var health = go.GetComponentInChildren<EnemyHealth>();
@@ -144,12 +144,17 @@ public class EnemySpawnZone : MonoBehaviour
     {
         Debug.Log($"[EnemySpawnZone] Đã tiêu diệt hết đợt quái trên {gameObject.name}!");
 
+        bool standalone = onZoneCleared == null;
+
         onZoneCleared?.Invoke();
 
-        if (Manager.Instance != null)
-            Manager.Instance.OnWaveCleared();
-        else
-            Debug.LogWarning("[EnemySpawnZone] Không tìm thấy Manager.Instance!");
+        if (standalone)
+        {
+            if (Manager.Instance != null)
+                Manager.Instance.OnWaveCleared();
+            else
+                Debug.LogWarning("[EnemySpawnZone] Không tìm thấy Manager.Instance!");
+        }
     }
 
     // ──────────────────────────────────────────

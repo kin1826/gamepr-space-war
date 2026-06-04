@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Caption Jack
+  m_text: Caption Nana-kun
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc8ee1f678bb15249b3c341ecbb6ab2b, type: 2}
   m_sharedMaterial: {fileID: 7686068212518494574, guid: dc8ee1f678bb15249b3c341ecbb6ab2b, type: 2}
@@ -148,7 +148,6 @@ GameObject:
   - component: {fileID: 8237651049395881697}
   - component: {fileID: 4109290414551282848}
   - component: {fileID: 5481056087040914069}
-  - component: {fileID: 2745276345122853917}
   m_Layer: 5
   m_Name: Text_Panel
   m_TagString: Untagged
@@ -174,7 +173,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -20}
   m_SizeDelta: {x: 1400, y: 600}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &4109290414551282848
@@ -215,35 +214,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2745276345122853917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4391118094115026273}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b031e8866e04b8441a56ee472768b03e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::StoryDialogue
-  dialogueText: {fileID: 6586650124464029358}
-  dialogues:
-  - "\u201CAlex, if you\u2019re receiving this transmission\u2026 then the situation
-    is far worse than we expected.\u201D"
-  - "\u201CThe Mothership has been discovered by the Dark Ones. They\u2019ve breached
-    our outer defenses, seized control of several critical sectors, and are advancing
-    toward the central command core.\u201D"
-  - "\u201CWe\u2019ve lost contact with multiple combat squads. A few survivors are
-    still holding out inside the engineering sectors, but they won\u2019t last much
-    longer.\u201D"
-  - "\u201CMost of the automated defense systems have been hacked and turned against
-    us. If you want to get inside, you\u2019ll have to destroy the enemy patrol ships
-    and clear a path to the main hangar.\u201D"
-  - "\u201CAlex\u2026 this ship is humanity\u2019s last hope. If it falls, everything
-    we fought for will disappear with it.\u201D"
-  - "\u201CTake back the ship\u2026 and save whoever is still alive.\u201D"
-  - "\u201CGood luck, soldier.\u201D"
 --- !u!1 &4517065567334827553
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,7 +280,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c46c4860bf8f2846a85ffb3a4f71c9d, type: 3}
+  m_Sprite: {fileID: -2100276921, guid: fa75a8af737b18c4ca104530206662d1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -354,8 +324,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1600, y: 1400}
+  m_AnchoredPosition: {x: 127, y: 14.559998}
+  m_SizeDelta: {x: 1300, y: 1400}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &8062594716594677595
 CanvasRenderer:
@@ -385,7 +355,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 872623c9ff20ebd47a3621a5a84b5b29, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e13d6963ef644f144a21bcd8211ff34c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -408,6 +378,7 @@ GameObject:
   - component: {fileID: 8781624007766470526}
   - component: {fileID: 4146034307700878156}
   - component: {fileID: 8358811083660814853}
+  - component: {fileID: 3879198251070241114}
   m_Layer: 5
   m_Name: Telling_Panel
   m_TagString: Untagged
@@ -500,6 +471,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UIPanelFader
   canvasGroup: {fileID: 4146034307700878156}
   fadeSpeed: 4
+--- !u!114 &3879198251070241114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5771820174208415709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b031e8866e04b8441a56ee472768b03e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StoryDialogue
+  dialogueText: {fileID: 6586650124464029358}
+  dialogueSets:
+  - setName: Story_1
+    lines:
+    - abc
+    - xyz
 --- !u!1 &5827462719868094836
 GameObject:
   m_ObjectHideFlags: 0
