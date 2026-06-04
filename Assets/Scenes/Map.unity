@@ -24201,7 +24201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawnZone
   enemyPrefab: {fileID: 7469849676186037689, guid: e6353b0b865067c40b3d7667a5691b3b, type: 3}
-  maxEnemies: 2
+  maxEnemies: 1
   spawnInterval: 1
   player: {fileID: 0}
   zoneSize: {x: 3, y: 0, z: 3}
@@ -38021,7 +38021,6 @@ RectTransform:
   - {fileID: 399686113}
   - {fileID: 2141223187}
   - {fileID: 1210429821}
-  - {fileID: 733195660}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
