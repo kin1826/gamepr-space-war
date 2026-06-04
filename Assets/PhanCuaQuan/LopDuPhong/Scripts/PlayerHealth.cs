@@ -26,7 +26,6 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     private void Start()
     {
-        _anim         = GetComponentInChildren<Animator>();
         CurrentHealth = maxHealth;
 
         // Tìm Animator ở player hoặc object con

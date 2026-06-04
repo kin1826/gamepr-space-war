@@ -79,6 +79,40 @@ public class Manager : MonoBehaviour
             HideHint();
     }
 
+    // ── Pause ──────────────────────────────────────────────────────
+    private bool _isPaused;
+
+    public bool IsPaused => _isPaused;
+
+    public void TogglePause()
+    {
+        if (_isPaused) Resume();
+        else           Pause();
+    }
+
+    public void Pause()
+    {
+        if (_isPaused) return;
+        _isPaused        = true;
+        Time.timeScale   = 0f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible   = true;
+        OnPauseGame();
+    }
+
+    public void Resume()
+    {
+        if (!_isPaused) return;
+        _isPaused        = false;
+        Time.timeScale   = 1f;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible   = false;
+        OnResumeGame();
+    }
+
+    public virtual void OnPauseGame()  { }
+    public virtual void OnResumeGame() { }
+
     // ── Virtual methods ────────────────────────────────────────────
     public virtual void ContinueGame()
     {

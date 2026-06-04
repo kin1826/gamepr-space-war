@@ -1,6 +1,7 @@
 // WolfbossHealth.cs
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using System;
 
 public class WolfbossHealth : MonoBehaviour, IDamageable
@@ -27,8 +28,11 @@ public class WolfbossHealth : MonoBehaviour, IDamageable
     public string paramRage = "Rage"; // trigger chuyển Phase 2
 
     [Header("UI")]
-    public Canvas hpCanvas;
-    public Slider hpSlider;
+    public Slider     hpSlider;
+    public TMP_Text   bossNameText;
+    public TMP_Text   healthText;
+    [Tooltip("Tên hiển thị trên UI")]
+    public string     bossName = "Wolf Boss";
 
     [Header("On Death")]
     public float destroyDelay = 5f;
@@ -47,7 +51,6 @@ public class WolfbossHealth : MonoBehaviour, IDamageable
     // ── Private ───────────────────────────────────────────────
     private Animator   _anim;
     private WolfbossAI _ai;
-    private Camera     _cam;
     private float      _poiseRegenTimer;
     private bool       _poiseBroken;
 
@@ -57,10 +60,10 @@ public class WolfbossHealth : MonoBehaviour, IDamageable
         CurrentPoise  = maxPoise;
         _anim = GetComponent<Animator>();
         _ai   = GetComponent<WolfbossAI>();
-        _cam  = Camera.main;
 
-        if (hpSlider) { hpSlider.maxValue = maxHealth; hpSlider.value = maxHealth; }
-        if (hpCanvas) hpCanvas.gameObject.SetActive(false);
+        if (hpSlider)     { hpSlider.maxValue = maxHealth; hpSlider.value = maxHealth; }
+        if (bossNameText) bossNameText.text = bossName;
+        if (healthText)   healthText.text   = maxHealth.ToString();
     }
 
     void Update()
@@ -69,14 +72,6 @@ public class WolfbossHealth : MonoBehaviour, IDamageable
         RegeneratePoise();
     }
 
-    void LateUpdate()
-    {
-        if (hpCanvas == null || _cam == null) return;
-        hpCanvas.transform.forward = _cam.transform.forward;
-        Vector3 dir = (transform.position - _cam.transform.position).normalized;
-        bool visible = Vector3.Dot(_cam.transform.forward, dir) > 0.5f;
-        hpCanvas.gameObject.SetActive(visible && !IsDead);
-    }
 
     // ── Nhận damage ───────────────────────────────────────────
     public void TakeDamage(float damage) => TakeDamage((int)damage);
@@ -92,8 +87,8 @@ public class WolfbossHealth : MonoBehaviour, IDamageable
         CurrentPoise     -= poiseDamage;
         _poiseRegenTimer  = poiseRegenDelay;
 
-        if (hpSlider) hpSlider.value = CurrentHealth;
-        if (hpCanvas) hpCanvas.gameObject.SetActive(true);
+        if (hpSlider)   hpSlider.value    = CurrentHealth;
+        if (healthText) healthText.text   = CurrentHealth.ToString();
 
         Debug.Log($"[Health] HP:{CurrentHealth}/{maxHealth} | Poise:{CurrentPoise:F0}/{maxPoise}");
 
@@ -149,12 +144,15 @@ public class WolfbossHealth : MonoBehaviour, IDamageable
     {
         if (IsDead) return;
         IsDead = true;
-        if (hpCanvas) hpCanvas.gameObject.SetActive(false);
-        hpCanvas = null;
         _anim.SetTrigger(paramDie);
         _ai?.OnDead();
         OnDeath?.Invoke();
         Debug.Log("[Health] Boss đã chết!");
         if (destroyDelay > 0f) Destroy(gameObject, destroyDelay);
+
+        if (Manager.Instance != null)
+            Manager.Instance.OnWaveCleared();
+        else
+            Debug.LogWarning("[EnemySpawnZone] Không tìm thấy Manager.Instance!");
     }
 }

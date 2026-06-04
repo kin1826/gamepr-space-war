@@ -34,6 +34,9 @@ public class BaseManager : Manager
 
     public bool isWaveCleared = false;
 
+    [Header("Pause")]
+    public GameObject pausePanel;
+
     [Header("Death / Respawn")]
     public int        deathCamIndex = 0;
     public GameObject deathPanel;
@@ -178,6 +181,17 @@ public class BaseManager : Manager
     {
         if (healthSlider) { healthSlider.maxValue = max; healthSlider.value = current; }
         if (healthText)   healthText.text = current.ToString();
+    }
+
+    // ── Pause ──────────────────────────────────────────────────────
+    public override void OnPauseGame()
+    {
+        if (pausePanel) pausePanel.GetComponent<UIPanelFader>().ShowPanel();
+    }
+
+    public override void OnResumeGame()
+    {
+        if (pausePanel) pausePanel.GetComponent<UIPanelFader>().HidePanel();
     }
 
     // ── Wave ───────────────────────────────────────────────────────
