@@ -34,6 +34,9 @@ public class BaseManager : Manager
 
     public bool isWaveCleared = false;
 
+    [Header("Tutorial Hint Panel")]
+    public GameObject hintPanel;
+
     [Header("Pause")]
     public GameObject pausePanel;
 
@@ -59,11 +62,22 @@ public class BaseManager : Manager
 
         if (storyPanel)   storyPanel.SetActive(false);
         if (soidlerPanel) soidlerPanel.SetActive(false);
+        if (pausePanel)   pausePanel.SetActive(false);
+        if (deathPanel)   deathPanel.SetActive(false);
+        if (hintPanel)    hintPanel.SetActive(false);
         foreach (var c in machineCams) if (c) c.enabled = false;
 
         gamePlayHUD_Panel.SetActive(true);
 
         InitDefaultHint();
+
+        AudioManager.Instance.PlayTrack(0);
+    }
+
+    void Update()
+    {
+        if (hintPanel && hintPanel.activeSelf && UnityEngine.InputSystem.Keyboard.current.fKey.wasPressedThisFrame)
+            hintPanel.GetComponent<UIPanelFader>()?.HidePanel();
     }
 
     // ── Story ──────────────────────────────────────────────────────
@@ -97,6 +111,8 @@ public class BaseManager : Manager
         Cursor.visible   = false;
 
         InitDefaultHint();
+
+        if (hintPanel) hintPanel.GetComponent<UIPanelFader>()?.ShowPanel();
     }
 
     // ── Soldier Panel ──────────────────────────────────────────────
@@ -200,6 +216,8 @@ public class BaseManager : Manager
         if (isWaveCleared) return;
         isWaveCleared = true;
         NextDefaultHint();
+
+        AudioManager.Instance.SwitchTrack(1);
     }
 
     // ── Helper ─────────────────────────────────────────────────────

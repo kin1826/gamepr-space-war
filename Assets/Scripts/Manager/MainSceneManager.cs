@@ -30,6 +30,8 @@ public class MainSceneManager : Manager
             yield return null;
 
         ShowStory(0);
+
+        AudioManager.Instance.PlayTrack(0);
     }
 
     public override void ShowStory(int index = 0)

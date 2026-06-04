@@ -7,6 +7,8 @@ public class SoldierTrigger : MonoBehaviour
 
     [Tooltip("Index của camera trong list MapManager.machineCams")]
     public int camIndex = 0;
+    public bool isChangeMusic = false;
+    public int musicTrackIndex = 0;
 
     private bool triggered = false;
 
@@ -18,6 +20,10 @@ public class SoldierTrigger : MonoBehaviour
         {
             triggered = true;
             Manager.Instance.OpenSoilderPanel(panelIndex, camIndex);
+            if (isChangeMusic)
+            {
+                AudioManager.Instance.SwitchTrack(musicTrackIndex); // Phát nhạc mới (giả sử clip thứ hai trong tracks là nhạc này)
+            }
         }
     }
 }

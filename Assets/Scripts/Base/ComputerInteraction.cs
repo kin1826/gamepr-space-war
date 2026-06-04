@@ -69,6 +69,7 @@ public class ComputerInteraction : MonoBehaviour
         Manager.Instance.ShowHint("Interact");
 
         door.ToggleDoor();
+        AudioManager.Instance.PlaySFX("DoorToggle"); // Phát âm thanh mở/đóng cửa (giả sử clip đầu tiên trong sfxClips là âm thanh này)
 
         Manager.Instance.SetDefaultHint(2); // Chuyển sang hint thứ 2 trong list mặc định (nếu có)
     }

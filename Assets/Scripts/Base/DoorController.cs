@@ -66,6 +66,7 @@ public class DoorController : MonoBehaviour
         if (currentRoutine != null)
             StopCoroutine(currentRoutine);
 
+        AudioManager.Instance.PlaySFX("DoorToggle"); // Phát âm thanh mở/đóng cửa (giả sử clip đầu tiên trong sfxClips là âm thanh này)
         if (isOpen)
         {
             currentRoutine = StartCoroutine(MoveDoor(leftClosedPos, rightClosedPos));

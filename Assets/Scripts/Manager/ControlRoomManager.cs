@@ -71,12 +71,17 @@ public class ControlRoomManager : Manager
 
         storyPanel.SetActive(false);
         soidlerPanel.SetActive(false);
+        if (pausePanel) pausePanel.SetActive(false);
+        if (deathPanel) deathPanel.SetActive(false);
+        if (donePanel)  donePanel.SetActive(false);
         foreach (var c in machineCams) if (c) c.enabled = false;
 
         gamePlayHUD_Panel.SetActive(false);
 
         HideHint();
         ShowStory(0);
+
+        AudioManager.Instance.PlayTrack(1);
     }
 
     // ── Story ──────────────────────────────────────────────────────
@@ -119,6 +124,7 @@ public class ControlRoomManager : Manager
 
         if (_soidlerShown)
         {
+            AudioManager.Instance.PlaySFX("Win");
             StartCoroutine(DoneRoutine());
         }
     }
@@ -241,6 +247,8 @@ public class ControlRoomManager : Manager
     {
         isWaveCleared = true;
         NextDefaultHint();
+
+        AudioManager.Instance.SwitchTrack(0);
     }
 
     // ── Helper ─────────────────────────────────────────────────────
