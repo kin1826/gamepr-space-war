@@ -53,6 +53,11 @@ public class BaseManager : Manager
     {
         base.Awake();
         Instance = this;
+
+        if (SessionReward.Instance == null)
+            new GameObject("SessionReward").AddComponent<SessionReward>();
+        else
+            SessionReward.Instance.Reset();
     }
 
     IEnumerator Start()
