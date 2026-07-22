@@ -37,9 +37,9 @@ Alex lập tức quay về — nhưng khi đến nơi, tàu mẹ đã trở thà
 *(Scene: MainScene)*
 
 Alex điều khiển phi thuyền chiến đấu, một mình đối đầu với:
-- Các tàu chiến tự động bị kiểm soát.
-- Hệ thống pháo phòng thủ bị chiếm quyền.
-- Drone và chiến hạm của Chúa tể bóng tối.
+- Các tàu chiến tự động bị kiểm soát
+- Hệ thống pháo phòng thủ bị chiếm quyền
+- Drone và chiến hạm của Chúa tể bóng tối
 
 **Mục tiêu:** Phá vỡ lớp phòng thủ ngoài và mở đường xâm nhập vào tàu mẹ.
 
