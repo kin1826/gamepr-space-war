@@ -17,11 +17,16 @@ public class CrateInteract : MonoBehaviour
     [Tooltip("Kéo các ItemData sẽ nhận được khi mở rương vào đây")]
     [SerializeField] private List<ItemData> lootItems = new List<ItemData>();
 
+    [Header("Loot UI")]
+    [Tooltip("Kéo object đang có LootPanelUI vào đây")]
+    [SerializeField] private LootPanelUI lootPanel;
+
     [Header("Audio")]
     [SerializeField] private AudioClip openSfx;
 
     private bool playerInRange = false;
     private bool isOpened = false;
+    private int nextLootIndex = 0;
     private Vector3 lidClosedEuler;
 
     private InputSystem_Actions input;
@@ -48,17 +53,24 @@ public class CrateInteract : MonoBehaviour
 
     private void Update()
     {
-        if (!playerInRange || isOpened) return;
+        if (!playerInRange) return;
 
-        // Lưu ý: action Interact hiện đang bind phím F trong InputSystem_Actions, không phải E
-        Manager.Instance.ShowHint("Press F to open");
+        if (!isOpened)
+            Manager.Instance.ShowHint("Press F to open");
+        else if (nextLootIndex < lootItems.Count)
+            Manager.Instance.ShowHint("Press F to take item");
+        else
+            Manager.Instance.ShowHint("Chest is empty");
     }
 
     private void Interact(InputAction.CallbackContext ctx)
     {
-        if (!playerInRange || isOpened) return;
+        if (!playerInRange) return;
 
-        OpenCrate();
+        if (!isOpened)
+            OpenCrate();
+        else
+            TakeNextLoot();
     }
 
     private void OpenCrate()
@@ -73,19 +85,43 @@ public class CrateInteract : MonoBehaviour
         if (lid != null)
             StartCoroutine(RotateLidOpen());
 
-        GiveLoot();
+        ShowLootPanel();
     }
 
-    private void GiveLoot()
+    private void TakeNextLoot()
     {
-        foreach (ItemData item in lootItems)
-        {
-            if (item == null) continue;
+        if (nextLootIndex >= lootItems.Count) return;
 
-            // TODO: chưa có hệ thống inventory/HUD nhận item -> tạm log ra để test.
-            // Khi có inventory, thay dòng dưới bằng ví dụ: Inventory.Instance.Add(item);
-            Debug.Log($"[CrateInteract] Nhận vật phẩm: {item.itemName} ({item.id})");
+        if (InventorySystem.Instance == null)
+        {
+            Debug.LogWarning("[CrateInteract] Không tìm thấy InventorySystem trong scene.", this);
+            return;
         }
+
+        ItemData item = lootItems[nextLootIndex];
+        nextLootIndex++;
+
+        if (item != null)
+        {
+            // Mỗi lần loot nhận đầy một stack của loại item này.
+            int lootAmount = Mathf.Max(1, item.maxStackSize);
+            InventorySystem.Instance.Add(item, lootAmount);
+        }
+
+        // Cập nhật panel để chỉ còn hiển thị các vật phẩm chưa lấy.
+        if (playerInRange)
+            ShowLootPanel();
+    }
+
+    private void ShowLootPanel()
+    {
+        if (lootPanel == null)
+        {
+            Debug.LogWarning("[CrateInteract] Chưa gán LootPanelUI trong Inspector.", this);
+            return;
+        }
+
+        lootPanel.ShowLoot(lootItems.GetRange(nextLootIndex, lootItems.Count - nextLootIndex));
     }
 
     private IEnumerator RotateLidOpen()
@@ -107,7 +143,13 @@ public class CrateInteract : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
+        {
             playerInRange = true;
+
+            // Rương đã mở từ trước: vào lại vùng trigger thì hiện danh sách loot.
+            if (isOpened)
+                ShowLootPanel();
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -116,6 +158,7 @@ public class CrateInteract : MonoBehaviour
         {
             playerInRange = false;
             Manager.Instance.ShowDefaultHint();
+            lootPanel?.HideAndClear();
         }
     }
 }

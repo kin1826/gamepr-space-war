@@ -81,7 +81,7 @@ else
 
     void Update()
     {
-        if (Manager.Instance != null && Manager.Instance.IsPaused) return;
+        if (InventoryController.IsInventoryOpen || (Manager.Instance != null && Manager.Instance.IsPaused)) return;
 
         MouseInput();
         CameraFov();
@@ -95,7 +95,7 @@ else
 
     private void LateUpdate()
     {
-        if (Manager.Instance != null && Manager.Instance.IsPaused) return;
+        if (InventoryController.IsInventoryOpen || (Manager.Instance != null && Manager.Instance.IsPaused)) return;
 
         CameraRotation();
         MoveCamera();

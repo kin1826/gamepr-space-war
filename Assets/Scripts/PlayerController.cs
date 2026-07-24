@@ -122,7 +122,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (!initialized) return;
+        if (!initialized || InventoryController.IsInventoryOpen) return;
 
         // 🎮 INPUT XOAY (chậm + mượt)
         yaw += lookInput.x * mouseSensitivity;
@@ -148,7 +148,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!initialized) return;
+        if (!initialized || InventoryController.IsInventoryOpen) return;
 
         // 🚀 THROTTLE (mượt)
         // 🚀 THROTTLE LOGIC

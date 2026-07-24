@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   id: bullet_box
   itemName: Bullet
-  icon: {fileID: 0}
-  description: 
+  icon: {fileID: 21300000, guid: 110f7201d7f9d4f12a7efd1e09f453f6, type: 3}
+  description: Rifle ammunition
