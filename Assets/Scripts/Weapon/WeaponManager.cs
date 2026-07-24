@@ -88,7 +88,7 @@ public class WeaponManager : MonoBehaviour
 
     void Update()
     {
-        if (ShouldFire()) Fire();
+        if (!InventoryController.IsInventoryOpen && ShouldFire()) Fire();
         
         // Chỉ Lerp ánh sáng nếu đèn tồn tại
         if (muzzleFlashLight != null)

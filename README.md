@@ -84,6 +84,7 @@ Sau khi đột nhập thành công, Alex chuyển sang chiến đấu bộ binh 
 - FPS kết hợp điều khiển phi thuyền
 - Hệ thống wave enemy với boss
 - Hệ thống nhân vật: level, XP, vàng, kim cương
+- Loot rương và balo stack không giới hạn ([hướng dẫn cấu hình](Docs/LOOT_INVENTORY.md))
 - Nhạc nền động thay đổi theo tình huống (thường / boss)
 - Hiệu ứng UI: fade, zoom, slider reward
 - Hỗ trợ pause, respawn, death camera

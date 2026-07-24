@@ -12,5 +12,6 @@ public class ItemData : ScriptableObject
 
     [Header("Hiển thị HUD")]
     public Sprite icon;
+    public int maxStackSize;
     [TextArea] public string description;
 }
