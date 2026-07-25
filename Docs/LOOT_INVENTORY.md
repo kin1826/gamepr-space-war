@@ -7,22 +7,22 @@ Tài liệu này mô tả luồng loot item hiện tại trong `BaseScene`.
 | Script | Trách nhiệm |
 |---|---|
 | `ItemData` | Dữ liệu cố định của một loại item: `id`, tên, icon, mô tả và `maxStackSize`. |
-| `CrateInteract` | Trigger rương, mở rương và nhận loot theo từng lần bấm `F`. |
+| `CrateInteract` | Trigger rương, mở rương và nhận từng `LootEntry` theo lần bấm `F`. |
 | `LootPanelUI` | Hiển thị danh sách item còn lại trong rương. |
 | `InventorySystem` | Lưu các stack trong balo trong thời gian chơi. |
 | `InventoryController` | Bật/tắt panel balo bằng `Tab` và dựng UI item trong Content. |
 
 ## Cấu hình ItemData
 
-`maxStackSize` là số lượng tối đa trong **một stack**, không phải số lượng item đang có.
+`maxStackSize` là số lượng tối đa trong **một stack**, không phải số lượng item đang có hoặc số loot rương cho.
 
 Ví dụ:
 
-| Item | Max Stack Size | Kết quả mỗi lần loot |
-|---|---:|---:|
-| Đạn | 30 | Nhận 30 viên. |
-| Túi máu | 1 | Nhận 1 túi. |
-| Coin | 9999 | Nhận 9999 coin nếu coin được đặt trong rương. |
+| Item | Max Stack Size | Ý nghĩa |
+|---|---:|---|
+| Đạn | 30 | Một stack đạn chứa tối đa 30 viên. |
+| Túi máu | 1 | Mỗi túi máu chiếm một stack. |
+| Coin | 9999 | Một stack coin chứa tối đa 9999 coin. |
 
 Nếu `maxStackSize` là `0` hoặc âm, code an toàn và coi giá trị là `1`.
 
@@ -31,8 +31,8 @@ Nếu `maxStackSize` là `0` hoặc âm, code an toàn và coi giá trị là `1
 1. Player đi vào `BoxCollider` có bật `Is Trigger` của rương.
 2. Khi rương chưa mở, hint hiển thị `Press F to open`.
 3. Bấm `F` lần đầu chỉ mở nắp rương, phát âm thanh và hiện panel loot.
-4. Các lần bấm `F` sau nhận lần lượt từng item theo thứ tự trong `lootItems`.
-5. Mỗi item nhận vào balo với số lượng bằng `maxStackSize` của item đó.
+4. Các lần bấm `F` sau nhận lần lượt từng `LootEntry` theo thứ tự trong `lootEntries`.
+5. Mỗi entry có `Item` và `Quantity`; player nhận chính xác `Quantity`, sau đó inventory tự chia stack theo `maxStackSize`.
 6. Panel loot cập nhật để chỉ hiển thị item còn lại. Khi hết item, hint là `Chest is empty`.
 
 Rương chỉ mở một lần. Chức năng bỏ item khỏi balo chưa được triển khai.
@@ -67,11 +67,24 @@ Ví dụ: nhận 60 đạn với `maxStackSize = 30` sẽ tạo hai stack: `30` 
 ### Rương
 
 1. Gắn `CrateInteract` lên object có `BoxCollider` với `Is Trigger` bật.
-2. Gán `Lid`, `Open Sfx`, `Loot Panel` và danh sách `Loot Items` theo thứ tự muốn loot.
-3. Player phải có tag `Player` để trigger hoạt động.
+2. Gán `Lid`, `Open Sfx`, `Loot Panel` và danh sách `Loot Entries` theo thứ tự muốn loot.
+3. Với mỗi entry, đặt `Item` và `Quantity` mong muốn, ví dụ Bullet × 15 hoặc Coin × 100.
+4. Player phải có tag `Player` để trigger hoạt động.
+
+## Đạn lấy từ balo
+
+Để một súng dùng đạn trong balo, gán asset đạn vào field `Inventory Ammo Item` của `WeaponAmmo`.
+
+- Player bắt đầu với một băng đầy: `clipSize / 0` (ví dụ `30 / 0`).
+- Mỗi phát bắn chỉ giảm đạn trong băng đang lắp, không giảm đạn dự trữ trong balo.
+- Loot đạn tăng số dự trữ và HUD cập nhật ngay (ví dụ `30 / 30`).
+- Reload chuyển đúng số đạn cần thiết từ balo vào băng. Ví dụ `15 / 60` reload thành `30 / 45`.
+- Khi inventory mất đạn do reload, stack về `0` sẽ bị xoá.
+- Panel balo đang mở sẽ tự refresh khi loot hoặc reload.
+- Không có cơ chế vứt item; quantity trong inventory là nguồn dữ liệu duy nhất.
 
 ## Giới hạn hiện tại
 
 - Inventory chỉ tồn tại trong phiên chơi; chưa có save/load.
-- Mỗi item trong danh sách rương tương ứng một lần bấm `F` và nhận một stack đầy.
+- Mỗi `LootEntry` trong rương tương ứng một lần bấm `F`.
 - Chưa có thao tác chọn, dùng, di chuyển hoặc bỏ item khỏi balo.

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 // Quản lý panel hiển thị các vật phẩm lấy được từ rương.
 // Gắn script này vào Canvas/UI manager đang active, sau đó kéo panel, Content
@@ -19,7 +20,7 @@ public class LootPanelUI : MonoBehaviour
         HideAndClear();
     }
 
-    public void ShowLoot(IReadOnlyList<ItemData> lootItems)
+    public void ShowLoot(IReadOnlyList<LootEntry> lootItems)
     {
         if (panelRoot == null || itemsContainer == null || lootItemPrefab == null)
         {
@@ -31,8 +32,9 @@ public class LootPanelUI : MonoBehaviour
 
         if (lootItems != null)
         {
-            foreach (ItemData item in lootItems)
+            foreach (LootEntry lootEntry in lootItems)
             {
+                ItemData item = lootEntry.item;
                 if (item == null) continue;
 
                 GameObject lootItemUI = Instantiate(lootItemPrefab, itemsContainer);
@@ -46,6 +48,10 @@ public class LootPanelUI : MonoBehaviour
 
                 iconImage.sprite = item.icon;
                 iconImage.preserveAspect = true;
+
+                TMP_Text quantityText = lootItemUI.GetComponentInChildren<TMP_Text>(true);
+                if (quantityText != null)
+                    quantityText.text = lootEntry.quantity.ToString();
             }
         }
 

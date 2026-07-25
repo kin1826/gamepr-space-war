@@ -62,4 +62,41 @@ public class InventorySystem : MonoBehaviour
 
         InventoryChanged?.Invoke();
     }
+
+    public int GetQuantity(ItemData item)
+    {
+        if (item == null) return 0;
+
+        int total = 0;
+        foreach (InventorySlot slot in slots)
+        {
+            if (slot.item == item)
+                total += slot.quantity;
+        }
+
+        return total;
+    }
+
+    // Trừ item từ các stack hiện có. Stack về 0 sẽ được xoá khỏi balo.
+    public bool TryRemove(ItemData item, int amount = 1)
+    {
+        if (item == null || amount <= 0 || GetQuantity(item) < amount)
+            return false;
+
+        for (int i = slots.Count - 1; i >= 0 && amount > 0; i--)
+        {
+            InventorySlot slot = slots[i];
+            if (slot.item != item) continue;
+
+            int removed = Mathf.Min(slot.quantity, amount);
+            slot.quantity -= removed;
+            amount -= removed;
+
+            if (slot.quantity == 0)
+                slots.RemoveAt(i);
+        }
+
+        InventoryChanged?.Invoke();
+        return true;
+    }
 }
