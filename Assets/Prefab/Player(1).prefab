@@ -6230,6 +6230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d3270dd5ae8a9d48a5d0be5ad91d3fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponAmmo
+  inventoryAmmoItem: {fileID: 11400000, guid: 323be60d0e0324138aaac46d89c3c867, type: 2}
   clipSize: 30
   extraAmmo: 240
   currentAmmo: 0
