@@ -174,7 +174,7 @@ public class MapManager : Manager
     // ── Ammo / Health ──────────────────────────────────────────────
     public override void OnAmmoChanged(int current, int extra)
     {
-        if (clipSizeText) clipSizeText.text = current.ToString();
+        if (clipSizeText) clipSizeText.text = $"{current} / {extra}";
     }
 
     public override void OnPlayerHealthChanged(int current, int max)

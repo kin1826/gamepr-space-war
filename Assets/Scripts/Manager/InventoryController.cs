@@ -16,6 +16,15 @@ public class InventoryController : MonoBehaviour
     private void Start()
     {
         SetInventoryVisible(false);
+
+        if (InventorySystem.Instance != null)
+            InventorySystem.Instance.InventoryChanged += RefreshIfVisible;
+    }
+
+    private void OnDestroy()
+    {
+        if (InventorySystem.Instance != null)
+            InventorySystem.Instance.InventoryChanged -= RefreshIfVisible;
     }
 
     private void Update()
@@ -76,6 +85,12 @@ public class InventoryController : MonoBehaviour
             if (quantityText != null)
                 quantityText.text = slot.quantity.ToString();
         }
+    }
+
+    public void RefreshIfVisible()
+    {
+        if (IsInventoryVisible())
+            RefreshInventory();
     }
 
     private static Image FindIconImage(GameObject itemUI)

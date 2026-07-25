@@ -2,6 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
+
+[System.Serializable]
+public class LootEntry
+{
+    public ItemData item;
+    [Min(1)] public int quantity = 1;
+}
 
 // Gắn vào empty có BoxCollider (Is Trigger) đặt tại vị trí rương.
 // Player vào vùng trigger -> hiện hint tương tác; bấm phím Interact -> mở nắp rương + phát âm thanh.
@@ -14,8 +22,12 @@ public class CrateInteract : MonoBehaviour
     [SerializeField] private float openDuration = 0.6f;
 
     [Header("Vật phẩm bên trong")]
-    [Tooltip("Kéo các ItemData sẽ nhận được khi mở rương vào đây")]
-    [SerializeField] private List<ItemData> lootItems = new List<ItemData>();
+    [Tooltip("Mỗi entry là một lần bấm F để loot; Quantity là số lượng nhận thật.")]
+    [SerializeField] private List<LootEntry> lootEntries = new List<LootEntry>();
+
+    // Giữ dữ liệu từ phiên bản cũ để Unity tự chuyển các ItemData cũ sang LootEntry.
+    [FormerlySerializedAs("lootItems")]
+    [SerializeField, HideInInspector] private List<ItemData> legacyLootItems = new List<ItemData>();
 
     [Header("Loot UI")]
     [Tooltip("Kéo object đang có LootPanelUI vào đây")]
@@ -39,6 +51,21 @@ public class CrateInteract : MonoBehaviour
             lidClosedEuler = lid.localEulerAngles;
     }
 
+    private void OnValidate()
+    {
+        if (lootEntries.Count != 0 || legacyLootItems.Count == 0) return;
+
+        foreach (ItemData item in legacyLootItems)
+        {
+            if (item == null) continue;
+            lootEntries.Add(new LootEntry
+            {
+                item = item,
+                quantity = Mathf.Max(1, item.maxStackSize)
+            });
+        }
+    }
+
     private void OnEnable()
     {
         input.Enable();
@@ -57,7 +84,7 @@ public class CrateInteract : MonoBehaviour
 
         if (!isOpened)
             Manager.Instance.ShowHint("Press F to open");
-        else if (nextLootIndex < lootItems.Count)
+        else if (nextLootIndex < lootEntries.Count)
             Manager.Instance.ShowHint("Press F to take item");
         else
             Manager.Instance.ShowHint("Chest is empty");
@@ -90,7 +117,7 @@ public class CrateInteract : MonoBehaviour
 
     private void TakeNextLoot()
     {
-        if (nextLootIndex >= lootItems.Count) return;
+        if (nextLootIndex >= lootEntries.Count) return;
 
         if (InventorySystem.Instance == null)
         {
@@ -98,15 +125,11 @@ public class CrateInteract : MonoBehaviour
             return;
         }
 
-        ItemData item = lootItems[nextLootIndex];
+        LootEntry lootEntry = lootEntries[nextLootIndex];
         nextLootIndex++;
 
-        if (item != null)
-        {
-            // Mỗi lần loot nhận đầy một stack của loại item này.
-            int lootAmount = Mathf.Max(1, item.maxStackSize);
-            InventorySystem.Instance.Add(item, lootAmount);
-        }
+        if (lootEntry.item != null)
+            InventorySystem.Instance.Add(lootEntry.item, lootEntry.quantity);
 
         // Cập nhật panel để chỉ còn hiển thị các vật phẩm chưa lấy.
         if (playerInRange)
@@ -121,7 +144,7 @@ public class CrateInteract : MonoBehaviour
             return;
         }
 
-        lootPanel.ShowLoot(lootItems.GetRange(nextLootIndex, lootItems.Count - nextLootIndex));
+        lootPanel.ShowLoot(lootEntries.GetRange(nextLootIndex, lootEntries.Count - nextLootIndex));
     }
 
     private IEnumerator RotateLidOpen()
