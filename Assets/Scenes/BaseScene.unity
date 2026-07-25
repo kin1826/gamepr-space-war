@@ -3385,6 +3385,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1637613906}
     m_Modifications:
+    - target: {fileID: 1237015903369306596, guid: 95f51a5284cec004da99d5b578780889, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1379328597893493789, guid: 95f51a5284cec004da99d5b578780889, type: 3}
       propertyPath: m_Name
       value: HUD
@@ -12261,8 +12265,26 @@ MonoBehaviour:
   lid: {fileID: 1535514504}
   openAngleX: -120
   openDuration: 0.6
-  lootItems:
+  lootEntries:
+  - item: {fileID: 11400000, guid: 323be60d0e0324138aaac46d89c3c867, type: 2}
+    quantity: 30
+  - item: {fileID: 11400000, guid: 323be60d0e0324138aaac46d89c3c867, type: 2}
+    quantity: 30
+  - item: {fileID: 11400000, guid: 323be60d0e0324138aaac46d89c3c867, type: 2}
+    quantity: 30
+  - item: {fileID: 11400000, guid: e7896a3059ed740a1a7207ef68226e6a, type: 2}
+    quantity: 1
+  - item: {fileID: 11400000, guid: e7896a3059ed740a1a7207ef68226e6a, type: 2}
+    quantity: 1
+  - item: {fileID: 11400000, guid: e7896a3059ed740a1a7207ef68226e6a, type: 2}
+    quantity: 1
+  legacyLootItems:
   - {fileID: 11400000, guid: 323be60d0e0324138aaac46d89c3c867, type: 2}
+  - {fileID: 11400000, guid: 323be60d0e0324138aaac46d89c3c867, type: 2}
+  - {fileID: 11400000, guid: 323be60d0e0324138aaac46d89c3c867, type: 2}
+  - {fileID: 11400000, guid: e7896a3059ed740a1a7207ef68226e6a, type: 2}
+  - {fileID: 11400000, guid: e7896a3059ed740a1a7207ef68226e6a, type: 2}
+  - {fileID: 11400000, guid: e7896a3059ed740a1a7207ef68226e6a, type: 2}
   lootPanel: {fileID: 327378094}
   openSfx: {fileID: 8300000, guid: 284d3757a78ed41a2a4fd131f1c539c1, type: 3}
 --- !u!65 &916157540
@@ -19653,7 +19675,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1522126255
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20360,6 +20382,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1119725127432764438, guid: 8bfe9142c795aad488130c9753b2988a, type: 3}
+      propertyPath: inventoryAmmoItem
+      value: 
+      objectReference: {fileID: 11400000, guid: 323be60d0e0324138aaac46d89c3c867, type: 2}
     - target: {fileID: 1228702865468775569, guid: 8bfe9142c795aad488130c9753b2988a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.5
