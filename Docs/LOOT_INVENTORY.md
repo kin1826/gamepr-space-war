@@ -83,6 +83,20 @@ Ví dụ: nhận 60 đạn với `maxStackSize = 30` sẽ tạo hai stack: `30` 
 - Panel balo đang mở sẽ tự refresh khi loot hoặc reload.
 - Không có cơ chế vứt item; quantity trong inventory là nguồn dữ liệu duy nhất.
 
+## Dùng item và quick slot 4
+
+`ItemData` có thể chứa nhiều `ItemEffect`. Inventory chỉ trừ một item khi ít nhất một effect trả về thành công.
+
+Hiện đã có `HealEffect`:
+
+1. Trong Project, tạo asset bằng **Create > Item Effects > Heal**.
+2. Đặt `Heal Amount`, ví dụ `40`.
+3. Mở asset ItemData của bình máu và thêm HealEffect vào list `Effects`.
+4. Player đã dùng `PlayerHealth` có sẵn ở `Assets/PhanCuaQuan/LopDuPhong/Scripts/PlayerHealth.cs`; chỉ cần gắn `QuickSlotController` lên Player.
+5. Kéo ItemData của bình máu vào `Slot 4 Item` trong QuickSlotController.
+
+Bấm `4` sẽ dùng bình máu. Bình chỉ bị trừ khi player chưa đầy máu và hồi máu thành công. Nếu thêm các effect mới trong tương lai, tạo class kế thừa `ItemEffect` và gắn asset effect đó vào ItemData.
+
 ## Giới hạn hiện tại
 
 - Inventory chỉ tồn tại trong phiên chơi; chưa có save/load.

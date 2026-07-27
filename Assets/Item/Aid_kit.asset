@@ -17,3 +17,5 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: c26a4a8e845254f8e9904dfb4aabc542, type: 3}
   maxStackSize: 1
   description: First aid kit
+  effects:
+  - {fileID: 11400000, guid: 13bd2326428e64725b619817267ca0ab, type: 2}
