@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 // Khuôn dữ liệu cho 1 loại vật phẩm. Mỗi vật phẩm cụ thể là 1 file .asset
@@ -14,4 +15,8 @@ public class ItemData : ScriptableObject
     public Sprite icon;
     public int maxStackSize;
     [TextArea] public string description;
+
+    [Header("Effects when used")]
+    [SerializeField] private List<ItemEffect> effects = new List<ItemEffect>();
+    public IReadOnlyList<ItemEffect> Effects => effects;
 }

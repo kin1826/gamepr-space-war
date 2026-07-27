@@ -28,6 +28,7 @@ public class InventorySystem : MonoBehaviour
         }
 
         Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     public void Add(ItemData item, int amount = 1)
@@ -98,5 +99,21 @@ public class InventorySystem : MonoBehaviour
 
         InventoryChanged?.Invoke();
         return true;
+    }
+
+    // Dùng một item và chỉ trừ một quantity khi có ít nhất một effect thành công.
+    public bool TryUseItem(ItemData item, GameObject user)
+    {
+        if (item == null || GetQuantity(item) <= 0)
+            return false;
+
+        bool effectApplied = false;
+        foreach (ItemEffect effect in item.Effects)
+        {
+            if (effect != null && effect.TryApply(user))
+                effectApplied = true;
+        }
+
+        return effectApplied && TryRemove(item);
     }
 }

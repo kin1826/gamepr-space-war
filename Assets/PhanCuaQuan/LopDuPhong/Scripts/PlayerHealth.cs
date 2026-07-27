@@ -87,6 +87,16 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     // HEAL
     // ==================================================
 
+    // Trả về false khi player đã đầy máu hoặc đã chết để consumable không bị trừ sai.
+    public bool TryHeal(int amount)
+    {
+        if (IsDead || amount <= 0 || CurrentHealth >= maxHealth)
+            return false;
+
+        Heal(amount);
+        return true;
+    }
+
     public void Heal(int amount)
     {
         if (IsDead) return;
